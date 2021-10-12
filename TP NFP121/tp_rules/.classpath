@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path=""/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="/home/benoit/Téléchargements/tp9/+libs/jdom.jar"/>
-	<classpathentry kind="lib" path="/home/benoit/Téléchargements/tp_rules/femto_container_distrib_bluej.jar"/>
-	<classpathentry kind="output" path=""/>
-</classpath>

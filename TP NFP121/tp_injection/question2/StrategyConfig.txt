@@ -1,9 +1,0 @@
-bean.id.1=etudiantStudieux
-etudiantStudieux.class=question2.Etudiant
-etudiantStudieux.property.1=nom
-etudiantStudieux.property.1.param.1=Jean
-etudiantStudieux.property.2=strategie
-etudiantStudieux.property.2.param.1=strategieStudieuse
-
-bean.id.2=strategieStudieuse
-strategieStudieuse.class=question2.AuFurEtAMesure

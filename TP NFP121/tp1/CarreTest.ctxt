@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=CarreTest
-comment1.params=
-comment1.target=void\ setUp()
-comment2.params=
-comment2.target=void\ testPerimetre()
-comment3.params=
-comment3.target=void\ tearDown()
-numComments=4

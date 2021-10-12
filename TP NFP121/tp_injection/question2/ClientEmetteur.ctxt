@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=ClientEmetteur
-comment1.params=serveur
-comment1.target=void\ setPublication(Serveur)
-comment2.params=
-comment2.target=Message\ getMessage()
-comment3.params=message
-comment3.target=void\ setMessage(Message)
-numComments=4
