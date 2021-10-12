@@ -1,0 +1,24 @@
+bean.id.1=serveur
+serveur.class=question2.Serveur
+serveur.property.1=message
+serveur.property.1.param.1=message
+serveur.property.2=recepteur
+serveur.property.2.param.1=recepteur
+
+bean.id.2=message
+message.class=question2.Message
+message.property.1=payload
+message.property.1.param.1=un message à transmettre
+
+bean.id.3=emetteur
+emetteur.class=question2.ClientEmetteur
+emetteur.property.1=message
+emetteur.property.1.param.1=message
+emetteur.property.2=publication
+emetteur.property.2.param.1=serveur
+
+bean.id.4=recepteur
+recepteur.class=question2.ClientRecepteur
+recepteur.property.1=recepteur
+recepteur.property.1.param.1=serveur
+

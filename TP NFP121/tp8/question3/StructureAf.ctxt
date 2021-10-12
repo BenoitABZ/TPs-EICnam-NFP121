@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=StructureAf
+comment1.params=structure
+comment1.target=StructureAf(StructureI)
+comment2.params=t
+comment2.target=void\ operation(java.lang.Object)
+comment3.params=
+comment3.target=boolean\ condition()
+numComments=4

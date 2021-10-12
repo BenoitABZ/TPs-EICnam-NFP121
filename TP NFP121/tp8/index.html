@@ -1,0 +1,1125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html><head><title>NFP121 - TP8</title>
+
+    
+    
+    <style type="text/css">
+        body {
+            background: #E5DED6;
+            background-color: #fff;
+            color: #333333;
+            font-size: 14px;
+            font-family: Verdana, Arial;
+        }
+
+        table {
+            font-size: 20px;
+            border-color: #808080;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        h2 {
+            color: #C1002A;
+            font-family: Verdana, Arial;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #C1002A;
+            font-family: Verdana, Arial;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        hr {
+            margin: 15px 0 15px 0;
+        }
+		
+		applet {
+			margin: 10px 0px 25px 250px;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #777777;
+		}
+    </style></head><body>
+    <h2 style="text-align: center;">NFP 121 - TP8</h2>
+    <h2 style="text-align: center;">Pattern Décorateur</h2>
+    <br>
+    <hr>
+    <br>
+    <table>
+        <tbody><tr>
+            <td>ABOUZEID
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>Benoit
+            </td>
+            <td>...
+            </td>
+        </tr>
+        <tr>
+            <td>0g5drrefx11	
+            </td>
+            <td>
+            </td>
+        </tr>
+    </tbody></table>
+		
+	<br>
+    <hr>
+    <h3>Question 1</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * IHM Permettant la mise en oeuvre du pattern Décorateur pour l'élaboration d'une pizza
+ * 
+ * @author benoit
+ *
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> PizzaStore <span style='font-weight:bold;color:#7B0052;'>extends</span> JFrame <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> PizzaStore() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>(<span style='color:#2A00FF'>"IHMPizza"</span>);
+		add(<span style='font-weight:bold;color:#7B0052;'>new</span> IHMPizza());
+		pack();
+		show();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>void</span> main(String[] args) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>new</span> PizzaStore();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>class</span> IHMPizza <span style='font-weight:bold;color:#7B0052;'>extends</span> JPanel <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>private</span> JLabel afficheur = <span style='font-weight:bold;color:#7B0052;'>new</span> JLabel(
+				<span style='color:#2A00FF'>" please, first choose your pizza, then the constituents but once clams..."</span>);
+
+		<span style='font-weight:bold;color:#7B0052;'>private</span> JButton boutonSolo = <span style='font-weight:bold;color:#7B0052;'>new</span> JButton(<span style='color:#2A00FF'>""</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> JButton boutonClassic = <span style='font-weight:bold;color:#7B0052;'>new</span> JButton(<span style='color:#2A00FF'>""</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> JButton boutonCrust = <span style='font-weight:bold;color:#7B0052;'>new</span> JButton(<span style='color:#2A00FF'>""</span>);
+
+		<span style='font-weight:bold;color:#7B0052;'>private</span> Checkbox parmesan = <span style='font-weight:bold;color:#7B0052;'>new</span> Checkbox(<span style='color:#2A00FF'>"parmesan"</span>, null, <span style='font-weight:bold;color:#7B0052;'>true</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> Checkbox mozarella = <span style='font-weight:bold;color:#7B0052;'>new</span> Checkbox(<span style='color:#2A00FF'>"mozarella"</span>, null, <span style='font-weight:bold;color:#7B0052;'>false</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> Checkbox ham = <span style='font-weight:bold;color:#7B0052;'>new</span> Checkbox(<span style='color:#2A00FF'>"ham"</span>, null, <span style='font-weight:bold;color:#7B0052;'>false</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> Checkbox tomato = <span style='font-weight:bold;color:#7B0052;'>new</span> Checkbox(<span style='color:#2A00FF'>"tomato"</span>, null, <span style='font-weight:bold;color:#7B0052;'>false</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> Checkbox mushrooms = <span style='font-weight:bold;color:#7B0052;'>new</span> Checkbox(<span style='color:#2A00FF'>"mushrooms"</span>, null, <span style='font-weight:bold;color:#7B0052;'>false</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> Checkbox clams = <span style='font-weight:bold;color:#7B0052;'>new</span> Checkbox(<span style='color:#2A00FF'>"clams"</span>, null, <span style='font-weight:bold;color:#7B0052;'>false</span>);
+
+		<span style='font-weight:bold;color:#7B0052;'>private</span> DecimalFormat df = <span style='font-weight:bold;color:#7B0052;'>new</span> DecimalFormat(<span style='color:#2A00FF'>"##.##"</span>);
+		<span style='font-weight:bold;color:#7B0052;'>private</span> JButton boutonMake = <span style='font-weight:bold;color:#7B0052;'>new</span> JButton(<span style='color:#2A00FF'>""</span>);
+
+		<span style='font-weight:bold;color:#7B0052;'>private</span> Pizza pizza;
+
+		<span style='font-weight:bold;color:#7B0052;'>public</span> IHMPizza() <span style='font-weight:bold;color:#D3171B'>{</span>
+			JPanel panelGlobal = <span style='font-weight:bold;color:#7B0052;'>new</span> JPanel();
+			JPanel panelBoutons = <span style='font-weight:bold;color:#7B0052;'>new</span> JPanel();
+			JPanel panelDecorations = <span style='font-weight:bold;color:#7B0052;'>new</span> JPanel();
+			JPanel panelMake = <span style='font-weight:bold;color:#7B0052;'>new</span> JPanel();
+
+			panelGlobal.setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> GridLayout(3, 1));
+			afficheur.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			panelGlobal.add(afficheur);
+
+			panelBoutons.setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> FlowLayout(FlowLayout.CENTER));
+			panelBoutons.add(boutonSolo);
+			panelBoutons.add(boutonClassic);
+			panelBoutons.add(boutonCrust);
+
+			panelDecorations.setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> GridLayout(1, 6));
+			panelDecorations.add(parmesan);
+			panelDecorations.add(mozarella);
+			panelDecorations.add(ham);
+			panelDecorations.add(tomato);
+			panelDecorations.add(mushrooms);
+			panelDecorations.add(clams);
+
+			panelGlobal.add(panelBoutons);
+			panelGlobal.add(panelDecorations);
+
+			setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> BorderLayout());
+			add(panelGlobal, <span style='color:#2A00FF'>"North"</span>);
+
+			panelMake.setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> FlowLayout(FlowLayout.CENTER));
+			panelMake.add(boutonMake);
+			add(panelMake, <span style='color:#2A00FF'>"Center"</span>);
+            
+			<span style='color:#3F7F5F'>//Les pizzas sont de 3 types (Classic, PizzaSolo ou GenerousCrust) --&gt; concreteComponent
+</span>			
+			<span style='color:#3F7F5F'>//ajout d'ActionListener sur chacun des 3 boutons permettant la génération d'une pizza en fonction du type et override de la methode actionPerformed()
+</span>			
+			boutonSolo.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent ae) <span style='font-weight:bold;color:#D3171B'>{</span>
+					<span style='color:#3F7F5F'>//generation de la pizza solo
+</span>					pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> PizzaSolo();
+					<span style='color:#3F7F5F'>//permet de désactiver la génération d'autres types de pizza
+</span>					validerLesDecorations();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+
+			boutonClassic.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent ae) <span style='font-weight:bold;color:#D3171B'>{</span>
+					pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> Classic();
+					validerLesDecorations();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+
+			boutonCrust.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent ae) <span style='font-weight:bold;color:#D3171B'>{</span>
+					pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> GenerousCrust();
+					validerLesDecorations();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+			
+			<span style='color:#3F7F5F'>//Les pizzas sont décorées par des ingrédients avant d'être confectionnées (MAKING Pizza) et le prix dépend de cette composition.
+</span>			
+			<span style='color:#3F7F5F'>//ajout d'ItemListener sur chacune des checkbox permettant l'ajout d'ingrédients à une pizza quelque soit le type et override de la méthode itemSetChanged()
+</span>
+			parmesan.addItemListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ItemListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+					<span style='color:#3F7F5F'>//si la checkbox est coché
+</span>					<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getStateChange() == ItemEvent.SELECTED) <span style='font-weight:bold;color:#D3171B'>{</span>
+						<span style='color:#3F7F5F'>//ajout de l'ingredient à la pizza et modification de la description + prix
+</span>						pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> Parmesan(pizza);
+					<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span>
+						<span style='color:#3F7F5F'>//une fois coché, on ne peut revenir en arrière
+</span>						<span style='color:#3F7F5F'>//decocher et recocher sont sans effet
+</span>						parmesan.setState(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+					<span style='color:#3F7F5F'>//update de l'afficheur
+</span>					afficherLaPizzaEtSonCout();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+			mozarella.addItemListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ItemListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+					<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getStateChange() == ItemEvent.SELECTED) <span style='font-weight:bold;color:#D3171B'>{</span>
+						pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> FreshMozarella(pizza);
+					<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span>
+						mozarella.setState(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+					afficherLaPizzaEtSonCout();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+			ham.addItemListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ItemListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+					<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getStateChange() == ItemEvent.SELECTED) <span style='font-weight:bold;color:#D3171B'>{</span>
+						pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> Ham(pizza);
+					<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span>
+						ham.setState(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+					afficherLaPizzaEtSonCout();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+			tomato.addItemListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ItemListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+					<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getStateChange() == ItemEvent.SELECTED) <span style='font-weight:bold;color:#D3171B'>{</span>
+						pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> Tomato(pizza);
+					<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span>
+						tomato.setState(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+					afficherLaPizzaEtSonCout();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+			mushrooms.addItemListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ItemListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+					<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getStateChange() == ItemEvent.SELECTED) <span style='font-weight:bold;color:#D3171B'>{</span>
+						pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> Mushrooms(pizza);
+					<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span>
+						tomato.setState(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+					afficherLaPizzaEtSonCout();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+			clams.addItemListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ItemListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+					<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getStateChange() == ItemEvent.SELECTED) <span style='font-weight:bold;color:#D3171B'>{</span>
+						pizza = <span style='font-weight:bold;color:#7B0052;'>new</span> Clams(pizza);
+					<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span>
+						clams.setState(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+					afficherLaPizzaEtSonCout();
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+
+			boutonMake.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener() <span style='font-weight:bold;color:#D3171B'>{</span>
+				<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent ae) <span style='font-weight:bold;color:#D3171B'>{</span>
+					invaliderLesDecorations();
+					afficheur.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;FONT Color=red size=5&gt;MAKING of the "</span> + afficheur.getText() + <span style='color:#2A00FF'>"&lt;/html&gt;"</span>);
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>);
+
+			invaliderLesDecorations();
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>void</span> afficherLaPizzaEtSonCout() <span style='font-weight:bold;color:#D3171B'>{</span>
+			afficheur.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;FONT Color=blue size=4&gt;"</span> + pizza.getDescription()
+					+ <span style='color:#2A00FF'>"&lt;/FONT&gt;&lt;FONT Color=red size=4&gt; cost: "</span> + df.format(pizza.cost()) + <span style='color:#2A00FF'>" &#8364;&lt;/Font&gt;&lt;/html&gt;"</span>);
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>void</span> invaliderLesDecorations() <span style='font-weight:bold;color:#D3171B'>{</span>
+			boutonMake.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			boutonMake.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=green&gt;compose your pizza ...&lt;/font&gt;&lt;/html&gt;"</span>);
+			boutonSolo.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			boutonSolo.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=red&gt;solo&lt;/font&gt;&lt;/html&gt;"</span>);
+			boutonClassic.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			boutonClassic.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=red&gt;classic&lt;/font&gt;&lt;/html&gt;"</span>);
+			boutonCrust.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			boutonCrust.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=red&gt;crust&lt;/font&gt;&lt;/html&gt;"</span>);
+			parmesan.setState(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			mozarella.setState(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			ham.setState(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			tomato.setState(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			mushrooms.setState(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			clams.setState(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			parmesan.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			mozarella.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			ham.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			tomato.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			mushrooms.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			clams.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>void</span> validerLesDecorations() <span style='font-weight:bold;color:#D3171B'>{</span>
+			boutonMake.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			boutonMake.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=red&gt;make the pizza !&lt;/font&gt;&lt;/html&gt;"</span>);
+			boutonSolo.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			boutonSolo.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=green&gt;solo&lt;/font&gt;&lt;/html&gt;"</span>);
+			boutonClassic.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			boutonClassic.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=green&gt;classic&lt;/font&gt;&lt;/html&gt;"</span>);
+			boutonCrust.setEnabled(<span style='font-weight:bold;color:#7B0052;'>false</span>);
+			boutonCrust.setText(<span style='color:#2A00FF'>"&lt;html&gt;&lt;font size=3 color=green&gt;crust&lt;/font&gt;&lt;/html&gt;"</span>);
+			parmesan.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			mozarella.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			ham.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			tomato.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			mushrooms.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			clams.setEnabled(<span style='font-weight:bold;color:#7B0052;'>true</span>);
+			afficherLaPizzaEtSonCout();
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br>
+    <hr>
+    <h3>Question 2.1</h3>
+   <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * implémentation de la boisson concrète Chocolate 
+ * 
+ * hérite de Beverage --&gt; tout est Beverage
+ * 
+ * extrait de http://www.oreilly.com/catalog/hfdesignpat/
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Chocolate <span style='font-weight:bold;color:#7B0052;'>extends</span> Beverage <span style='font-weight:bold;color:#D3171B'>{</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Chocolate() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='color:#3F7F5F'>//modification de l'attribut "description" dans le constructeur de tous les Beverage concrets
+</span>		description = <span style='color:#2A00FF'>"Chocolate"</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+    
+	<span style='color:#3F7F5F'>//Override du prix conformement à la superclasse == 2.10
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>double</span> cost() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> 2.10;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> ChocolateTest <span style='font-weight:bold;color:#7B0052;'>extends</span> junit.framework.TestCase <span style='font-weight:bold;color:#D3171B'>{</span>
+	<span style='font-weight:bold;color:#7B0052;'>private</span> question2.Chocolate choco;
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> setUp() <span style='font-weight:bold;color:#D3171B'>{</span>
+		choco = <span style='font-weight:bold;color:#7B0052;'>new</span> question2.Chocolate();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testChocolate() <span style='font-weight:bold;color:#D3171B'>{</span>
+		assertEquals(2.1, choco.cost(), 0.1);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testChocolateWhip() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question2.Beverage chocoSimpleWhip = <span style='font-weight:bold;color:#7B0052;'>new</span> question2.Whip(choco);
+
+		assertEquals(2.2, chocoSimpleWhip.cost(), 0.01);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testChocolateWhipWhip() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question2.Beverage chocoDoubleWhip = <span style='font-weight:bold;color:#7B0052;'>new</span> question2.Whip(<span style='font-weight:bold;color:#7B0052;'>new</span> question2.Whip(choco));
+
+		assertEquals(2.3, chocoDoubleWhip.cost(), 0.01);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testChocolateWhipSoyMocha() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question2.Beverage chocoWhipSoyMocha = <span style='font-weight:bold;color:#7B0052;'>new</span> question2.Mocha(<span style='font-weight:bold;color:#7B0052;'>new</span> question2.Soy(<span style='font-weight:bold;color:#7B0052;'>new</span> question2.Whip(choco)));
+
+		assertEquals(2.55, chocoWhipSoyMocha.cost(), 0.01);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+	
+	<span style='color:#3F7F5F'>//ajout de ce test qui décore un déca avec du lait
+</span>	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testDecaMilk() <span style='font-weight:bold;color:#D3171B'>{</span>
+		Beverage decaMilk = <span style='font-weight:bold;color:#7B0052;'>new</span> Milk(<span style='font-weight:bold;color:#7B0052;'>new</span> Decaf());
+		
+		System.out.println(decaMilk.toString());
+
+		assertEquals(1.15, decaMilk.cost(), 0.01);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br>
+    <hr>
+    <h3>Question 2.2</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * implémentation du décorateur concret BeetSugar
+ * 
+ * herite de CondimentDecorator, le décorateur abstrait, héritant lui meme de Beverage
+ * 
+ * extrait de http://www.oreilly.com/catalog/hfdesignpat/
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> BeetSugar <span style='font-weight:bold;color:#7B0052;'>extends</span> CondimentDecorator <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='color:#3F7F5F'>//le décorateur hérite de Beverage mais prend également en paramètre Bevrage --&gt; tout est Beverage
+</span>	<span style='font-weight:bold;color:#7B0052;'>public</span> BeetSugar(Beverage beverage) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='color:#3F7F5F'>//affectation du beverage à décoré
+</span>		<span style='font-weight:bold;color:#7B0052;'>super</span>(beverage);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> String getDescription() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='color:#3F7F5F'>//super.getDescription = beverage.getDescription --&gt; aggrégation des descriptions
+</span>		<span style='font-weight:bold;color:#7B0052;'>return</span> super.getDescription() + <span style='color:#2A00FF'>", Beet Sugar"</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>double</span> cost() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='color:#3F7F5F'>//super.getCost = beverage.getCost--&gt; aggrégation des couts
+</span>		<span style='font-weight:bold;color:#7B0052;'>return</span> .10 + super.cost();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br>
+    <hr>
+    <h3>Question 2.3</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * Beverage est le Component du pattern Décorateur
+ * 
+ * elle définit attributs et méthodes dont toutes classes (components concrets ou décorateurs) hériteront
+ * 
+ * extrait de http://www.oreilly.com/catalog/hfdesignpat/
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>abstract</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Beverage <span style='font-weight:bold;color:#D3171B'>{</span>
+	String description = <span style='color:#2A00FF'>"Unknown Beverage"</span>;
+  
+	<span style='font-weight:bold;color:#7B0052;'>public</span> String getDescription() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> description;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+ 
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>abstract</span> <span style='font-weight:bold;color:#7B0052;'>double</span> cost();
+	
+		<span style='font-weight:bold;color:#7B0052;'>public</span> String toString()<span style='font-weight:bold;color:#D3171B'>{</span>
+		  <span style='color:#3F7F5F'>//implémentation de la méthode toString() conformement au cahier des charges
+</span>		  <span style='color:#3F7F5F'>//arrondit aux centièmes
+</span>		  <span style='font-weight:bold;color:#7B0052;'>return</span> getDescription() + <span style='color:#2A00FF'>" $"</span> + Math.round(cost() * 100.0) / 100.0;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br>
+    <hr>
+    <h3>Question 3</h3>
+    <a href="tp8q3">lien vers le tp8q3.jar</a>
+    <p>tp8q3.jar se trouve à la racine du projet</p>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * une boule est définit par un nom et une couleur
+ * 
+ * elle se construit avec un nom uniquement, il est donc possible que l'attribut color soit null
+ *
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Boule <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>private</span> Color color;
+
+	<span style='font-weight:bold;color:#7B0052;'>private</span> String name;
+
+	<span style='color:#3F5FBF'>/**
+	 * Constructeur d'objets de classe Boule
+	 */</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Boule(String name) <span style='font-weight:bold;color:#D3171B'>{</span>
+		this.name = name;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Color getColor() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> this.color;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> setColor(Color color) <span style='font-weight:bold;color:#D3171B'>{</span>
+		this.color = color;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> String getName() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> this.name;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F7F5F'>//l'énumeration color définit l'ensemble des couleurs possibles pour une boule
+</span><span style='color:#3F7F5F'>//chaque couleur est associé à un ordre
+</span><span style='color:#3F7F5F'>//une boule blanche sera donc mieux classée qu'une boule noir dans la structure
+</span><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>enum</span> Color
+<span style='font-weight:bold;color:#D3171B'>{</span>
+	BLANC(<span style='color:#2A00FF'>"blanc"</span>, 1),
+	NOIR(<span style='color:#2A00FF'>"noir"</span>, 2),
+    BLEU(<span style='color:#2A00FF'>"bleu"</span>, 3), 
+    ROUGE(<span style='color:#2A00FF'>"rouge"</span>, 4);
+	
+	<span style='font-weight:bold;color:#7B0052;'>private</span> Color (String color, <span style='font-weight:bold;color:#7B0052;'>int</span> order) <span style='font-weight:bold;color:#D3171B'>{</span>
+		
+		this.color = color;
+		this.order = order;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+	
+	<span style='font-weight:bold;color:#7B0052;'>private</span> String color;
+	
+	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>int</span> order;
+	
+	<span style='font-weight:bold;color:#7B0052;'>public</span> String getColor() <span style='font-weight:bold;color:#D3171B'>{</span>
+		
+		<span style='font-weight:bold;color:#7B0052;'>return</span> this.color;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+	
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> getOrder() <span style='font-weight:bold;color:#D3171B'>{</span>
+		
+		<span style='font-weight:bold;color:#7B0052;'>return</span> this.order;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * @author benoit
+ */</span>
+
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>interface</span> SacDeBoulesI <span style='font-weight:bold;color:#D3171B'>{</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule);
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerBouleColor(Boule boule);
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> containsBouleColor(Color color);
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> numberBouleColor(Color color);
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> minBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> min);
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> maxBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> max);
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> repOk();
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Object af();
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * le sac de boules est la structure permettant de stocker des boules
+ * 
+ * délégation du stockage à une java.util.ArrayList
+ * 
+ * ce sac pourra ne contenir qu'un nombre min et max de boules de chaque couleur
+ *
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SacDeBoules <span style='font-weight:bold;color:#7B0052;'>implements</span> SacDeBoulesI <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> List&lt;Boule&gt; liste;
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> Map&lt;Color, Integer&gt; mapMinColor;
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> Map&lt;Color, Integer&gt; mapMaxColor;
+
+	<span style='color:#3F5FBF'>/**
+	 * constructeur d'objets de classe SacDeBoules
+	 * 
+	 * initialisation de la liste et des maps
+	 */</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SacDeBoules() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		liste = <span style='font-weight:bold;color:#7B0052;'>new</span> ArrayList&lt;&gt;();
+
+		mapMinColor = <span style='font-weight:bold;color:#7B0052;'>new</span> HashMap&lt;&gt;();
+
+		mapMaxColor = <span style='font-weight:bold;color:#7B0052;'>new</span> HashMap&lt;&gt;();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F5FBF'>/**
+	 *méthode d'ajout d'une boule
+	 *
+	 *une boule devra obligatoirement avoir une couleur et son nom commencer par "boule"
+	 */</span>
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>if</span> ((boule.getColor() != <span style='font-weight:bold;color:#7B0052;'>null</span>) && boule.getName().startsWith(<span style='color:#2A00FF'>"boule"</span>)) <span style='font-weight:bold;color:#D3171B'>{</span>
+			liste.add(boule);
+
+			<span style='color:#3F7F5F'>//une liste est systématiquement trié en fonction de l'ordre attribué à chaque couleur (Cf comparateur ci-dessous)
+</span>			Collections.sort(liste, <span style='font-weight:bold;color:#7B0052;'>new</span> Comparateur());
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>true</span>;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> liste.remove(boule);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//permet de savoir si au moins une boule de la couleur renseigné en paramètre est présente dans le sac
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> containsBouleColor(Color color) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>for</span> (Boule boule : liste) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>if</span> (boule.getColor().getColor().equals(color.getColor()));
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>true</span>;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//permet de savoir combien de boules sont de la couleur renseigné en paramètre
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> numberBouleColor(Color color) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>int</span> count = 0;
+
+		<span style='font-weight:bold;color:#7B0052;'>for</span> (Boule boule : liste) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>if</span> (boule.getColor().getColor().equals(color.getColor()));
+
+			count++;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> count;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//permet de definir le nombre min de boules possedant la couleur renseigné en paramètre
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> minBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> min) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		mapMinColor.put(color, min);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//permet de definir le nombre max de boules possedant la couleur renseigné en paramètre
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> maxBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> max) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		mapMinColor.put(color, max);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//l'invariant de classe s'assure que les maps sont cohérentes et que le nombre de boules de chaque couleur est bien dans l'intervalle [min, max] qui lui correspond
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> repOk() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>boolean</span> bool = <span style='font-weight:bold;color:#7B0052;'>true</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>for</span> (Color c : Color.values()) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>if</span> (mapMinColor.get(c) != <span style='font-weight:bold;color:#7B0052;'>null</span> && mapMaxColor.get(c) != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (mapMinColor.get(c) &gt; mapMinColor.get(c)) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+					bool = <span style='font-weight:bold;color:#7B0052;'>false</span>;
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (numberBouleColor(c) &lt; mapMinColor.get(c) || numberBouleColor(c) &gt; mapMaxColor.get(c)) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+					bool = <span style='font-weight:bold;color:#7B0052;'>false</span>;
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+
+			<span style='font-weight:bold;color:#D3171B'>}</span>
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//la fonction d'abstraction renvoie un set ordonné --&gt; le comportement d'un Treeset est similaire à celui de notre structure que pour les méthodes d'ajout et de retrait
+</span>	<span style='color:#3F7F5F'>//on aurait pu egalement utiliser un SortedList du package javaFX.collection + conversion de notre liste en ObservableList
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SortedSet&lt;Boule&gt; af() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>new</span> TreeSet&lt;Boule&gt;(<span style='font-weight:bold;color:#7B0052;'>new</span> Comparateur());
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//le Comparator utilisé pour trier
+</span>	<span style='font-weight:bold;color:#7B0052;'>protected</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Comparateur <span style='font-weight:bold;color:#7B0052;'>implements</span> Comparator&lt;Boule&gt; <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		@Override
+		<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> compare(Boule arg0, Boule arg1) <span style='font-weight:bold;color:#D3171B'>{</span>
+			<span style='font-weight:bold;color:#7B0052;'>return</span> Integer.compare(arg0.getColor().getOrder(), arg1.getColor().getOrder());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * SacDeBoulesBlackWhite permet l'ajout de boules de couleur blanches et noires uniquement et dont le nom ne commence que par "bouleBW"
+ * 
+ * seule la méthode ajouterBouleColor est redéfinit
+ *
+ * @author (votre nom)
+ * @version (un numéro de version ou une date)
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SacDeBoulesBlackWhite <span style='font-weight:bold;color:#7B0052;'>extends</span> SacDeBoules <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='color:#3F5FBF'>/**
+	 * constructeur d'objets de classe SacDeBoulesBlackWhite
+	 */</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SacDeBoulesBlackWhite() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>if</span> ((boule.getColor() != <span style='font-weight:bold;color:#7B0052;'>null</span>) && (boule.getColor().equals(Color.BLANC) || boule.getColor().equals(Color.NOIR))
+				&& boule.getName().startsWith(<span style='color:#2A00FF'>"bouleBW"</span>)) <span style='font-weight:bold;color:#D3171B'>{</span>
+			liste.add(boule);
+
+			Collections.sort(liste, <span style='font-weight:bold;color:#7B0052;'>new</span> Comparateur());
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>true</span>;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * SacDeBOulesDecorator est le décorateur abstrait
+ * 
+ * tous les décorateur concrets devront en hériter
+ * 
+ * Elle implémente l'interface SacDeBoulesI --&gt; tout est SacDeBoules
+ *
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>abstract</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SacDeBoulesDecorator <span style='font-weight:bold;color:#7B0052;'>implements</span> SacDeBoulesI <span style='font-weight:bold;color:#D3171B'>{</span>
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> SacDeBoulesI sacDeBoules;
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SacDeBoulesDecorator(SacDeBoulesI sacDeBoules) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>();
+		this.sacDeBoules = sacDeBoules;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> sacDeBoules.ajouterBouleColor(boule);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> sacDeBoules.retirerBouleColor(boule);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> containsBouleColor(Color color) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> sacDeBoules.containsBouleColor(color);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> numberBouleColor(Color color) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> sacDeBoules.numberBouleColor(color);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> minBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> min) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		sacDeBoules.minBouleColor(color, min);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> maxBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> max) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		sacDeBoules.maxBouleColor(color, max);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> repOk() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> sacDeBoules.repOk();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Object af() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> sacDeBoules.af();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * SacDeBoulesAf est un décorateur concret permettant de vérifier la similitude du comportement de la structure avec la fonction d'abstraction
+ * 
+ * uniquement pour les méthodes d'ajout et de suppression
+ *
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SacDeBoulesAf <span style='font-weight:bold;color:#7B0052;'>extends</span> SacDeBoulesDecorator <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SacDeBoulesAf(SacDeBoulesI sacDeBoules) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>(sacDeBoules);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		SortedSet&lt;Boule&gt; sortedList = (SortedSet&lt;Boule&gt;) super.af();
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sortedList != <span style='font-weight:bold;color:#7B0052;'>null</span> : <span style='color:#2A00FF'>" ajouter af invalide !"</span>;
+
+		sortedList.add(boule);
+
+		Boolean bool = super.ajouterBouleColor(boule);
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> super.af().equals(sortedList) : <span style='color:#2A00FF'>" ajouter af invalide !"</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		SortedSet&lt;Boule&gt; sortedList = (SortedSet&lt;Boule&gt;) super.af();
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sortedList != <span style='font-weight:bold;color:#7B0052;'>null</span> : <span style='color:#2A00FF'>" ajouter af invalide !"</span>;
+
+		sortedList.add(boule);
+
+		Boolean bool = super.retirerBouleColor(boule);
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> super.af().equals(sortedList) : <span style='color:#2A00FF'>" ajouter af invalide !"</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * SacDeBoulesRepOk est un décorateur permettant de vérifier l'invariant de classe
+ * 
+ * avant et apres chaque méthode affectant la structure et en sortie de constructeur 
+ *
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SacDeBoulesRepOk <span style='font-weight:bold;color:#7B0052;'>extends</span> SacDeBoulesDecorator <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SacDeBoulesRepOk(SacDeBoulesI sacDeBoules) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>(sacDeBoules);
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+		Boolean bool = super.ajouterBouleColor(boule);
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+		Boolean bool = super.retirerBouleColor(boule);
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> minBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> min) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+		super.minBouleColor(color, min);
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> maxBouleColor(Color color, <span style='font-weight:bold;color:#7B0052;'>int</span> max) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+		super.minBouleColor(color, max);
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> sacDeBoules.repOk() : <span style='color:#2A00FF'>" repOk invalide !"</span>;
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * SacDeBoulesPrePost est un décorateur permettant de verifier les pre et post assertions
+ * 
+ * les pre-assertion garantisssent les prérequis
+ * 
+ * les post-assertions garantissent le rendu
+ * 
+ * uniquement pour les méthodes d'ajout et de retrait
+ *
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SacDeBoulesPrePost <span style='font-weight:bold;color:#7B0052;'>extends</span> SacDeBoulesDecorator <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>int</span> tailleColor;
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SacDeBoulesPrePost(SacDeBoulesI sacDeBoules) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>(sacDeBoules);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> pre_ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='color:#3F7F5F'>//condition pour executer la méthode ajouterBouleColor de manière "normal"
+</span>		<span style='font-weight:bold;color:#7B0052;'>if</span> ((boule.getColor() != <span style='font-weight:bold;color:#7B0052;'>null</span>) && boule.getName().startsWith(<span style='color:#2A00FF'>"boule"</span>)) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>true</span>;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> post_ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='color:#3F7F5F'>//le nombre de boule, suite à l'ajout, ayant la couleur renseignée en paramètre est incrémenté de 1
+</span>		<span style='font-weight:bold;color:#7B0052;'>return</span> (super.containsBouleColor(boule.getColor())
+				&& (super.numberBouleColor(boule.getColor()) == tailleColor + 1));
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> pre_retirerBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>if</span> (super.numberBouleColor(boule.getColor()) &gt; 0) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>true</span>;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> post_retirerBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> ((super.numberBouleColor(boule.getColor()) == tailleColor - 1));
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>//verification des pre-assertions avant la méthode et des post-assertions après la méthode
+</span>	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> pre_ajouterBouleColor(boule) : <span style='color:#2A00FF'>"pre assertion ajouter invalide !"</span>;
+		<span style='color:#3F7F5F'>//pour avoir la taille avant l'ajout
+</span>		tailleColor = super.numberBouleColor(boule.getColor());
+		Boolean bool = super.ajouterBouleColor(boule);
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> post_ajouterBouleColor(boule) : <span style='color:#2A00FF'>"post assertion ajouter invalide !"</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> pre_ajouterBouleColor(boule) : <span style='color:#2A00FF'>"pre assertion ajouter invalide !"</span>;
+		tailleColor = super.numberBouleColor(boule.getColor());
+		Boolean bool = super.retirerBouleColor(boule);
+		<span style='font-weight:bold;color:#7B0052;'>assert</span> post_ajouterBouleColor(boule) : <span style='color:#2A00FF'>"post assertion ajouter invalide !"</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * SacDeBoulesBlackWhitePrePost est un décorateur qui permet de vérifier les pre et post assertions nécéssaire afin de garantir l'éxécution optimal ds méthodes d'un SacDeBoulesBlackWhite
+ * 
+ * la méthode de pre-assertion pour l'ajout est redéfinit puisque les conditions d'execution optimale changent
+ * 
+ * la méthode ajouterBouleColor() est également redefinit pour vérifier le bon "Refinement"
+ * 
+ * ici, le "Refinement couvre uniquement les conditions de pre et post assertions
+ *
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SacDeBoulesBlackWhitePrePost <span style='font-weight:bold;color:#7B0052;'>extends</span> SacDeBoulesPrePost <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>int</span> tailleColor;
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> SacDeBoulesBlackWhitePrePost(SacDeBoulesI sacDeBoules) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>(sacDeBoules);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> pre_ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>if</span> ((boule.getColor() != <span style='font-weight:bold;color:#7B0052;'>null</span>) && (boule.getColor().equals(Color.BLANC) || boule.getColor().equals(Color.NOIR))
+				&& boule.getName().startsWith(<span style='color:#2A00FF'>"bouleBW"</span>)) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>true</span>;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> post_ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> (super.containsBouleColor(boule.getColor())
+				&& (super.numberBouleColor(boule.getColor()) == tailleColor + 1));
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> ajouterBouleColor(Boule boule) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='color:#3F7F5F'>// Eiffel
+</span>		<span style='font-weight:bold;color:#7B0052;'>assert</span> super.pre_ajouterBouleColor(boule) | this.pre_ajouterBouleColor(boule);
+		<span style='color:#3F7F5F'>// Liskov pre_super ==&gt; post_sub &lt;=&gt; NON(pre_super) ET post_sub --&gt; TABLE DE VERITE
+</span>		<span style='font-weight:bold;color:#7B0052;'>assert</span> !super.pre_ajouterBouleColor(boule)
+				| this.pre_ajouterBouleColor(boule) : <span style='color:#2A00FF'>"pre assertion ajouter invalide !"</span>;
+
+		tailleColor = super.numberBouleColor(boule.getColor());
+
+		<span style='font-weight:bold;color:#7B0052;'>boolean</span> bool = super.ajouterBouleColor(boule);
+		<span style='color:#3F7F5F'>// (pre_super && post_sub) ==&gt; post_super 
+</span>		<span style='font-weight:bold;color:#7B0052;'>assert</span> !(super.pre_ajouterBouleColor(boule) & this.post_ajouterBouleColor(boule))
+				| super.post_ajouterBouleColor(boule) : <span style='color:#2A00FF'>"post assertion ajouter invalide !"</span>;
+		<span style='color:#3F7F5F'>// Eiffel
+</span>		<span style='font-weight:bold;color:#7B0052;'>assert</span> this.post_ajouterBouleColor(boule)
+				& super.post_ajouterBouleColor(boule) : <span style='color:#2A00FF'>"post assertion ajouter invalide !"</span>;
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> bool;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * @author benoit
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Main
+<span style='font-weight:bold;color:#D3171B'>{</span>
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>void</span> main(String args[]) <span style='font-weight:bold;color:#D3171B'>{</span>
+	 
+	 SacDeBoulesI sacDeBoules = <span style='font-weight:bold;color:#7B0052;'>new</span> SacDeBoulesRepOk(<span style='font-weight:bold;color:#7B0052;'>new</span> SacDeBoulesAf(<span style='font-weight:bold;color:#7B0052;'>new</span> SacDeBoulesPrePost(<span style='font-weight:bold;color:#7B0052;'>new</span> SacDeBoules())));
+	 
+	 Boule boule = <span style='font-weight:bold;color:#7B0052;'>new</span> Boule(<span style='color:#2A00FF'>"boule"</span>);
+	 
+	 boule.setColor(Color.NOIR);
+	 
+	 sacDeBoules.ajouterBouleColor(boule);
+	 
+	 System.out.println(sacDeBoules.containsBouleColor(Color.BLEU));
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br>
+    <hr>
+    <h3>Question 4.1</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * Cette classe "décore" un fichier (InputSream) par la conversion de tous les
+ * caractères Minuscule en Majuscule
+ * 
+ * FilterInputStream est le décorateur abstrait
+ * 
+ * InputStream est le Component abstrait
+ * 
+ * Redéfinition nécéssaire des 3 méthodes read() afin d'avoir le comportement souhaité
+ * 
+ * @author benoit(votre nom)
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> UpperCaseInputStream <span style='font-weight:bold;color:#7B0052;'>extends</span> FilterInputStream <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> UpperCaseInputStream(InputStream stream) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>super</span>(stream);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> read() <span style='font-weight:bold;color:#7B0052;'>throws</span> IOException <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>int</span> c = super.read();
+		<span style='font-weight:bold;color:#7B0052;'>return</span> c == -1 ? c : Character.toUpperCase((<span style='font-weight:bold;color:#7B0052;'>char</span>) (c));
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> read(byte[] b, <span style='font-weight:bold;color:#7B0052;'>int</span> offset, <span style='font-weight:bold;color:#7B0052;'>int</span> len) <span style='font-weight:bold;color:#7B0052;'>throws</span> IOException <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>int</span> result = super.read(b, offset, len);
+		<span style='font-weight:bold;color:#7B0052;'>for</span> (<span style='font-weight:bold;color:#7B0052;'>int</span> i = 0; i &lt; result; i++) <span style='font-weight:bold;color:#D3171B'>{</span>
+			b[i] = (<span style='font-weight:bold;color:#7B0052;'>byte</span>) Character.toUpperCase((<span style='font-weight:bold;color:#7B0052;'>char</span>) (b[i]));
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> result;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> read(byte[] b) <span style='font-weight:bold;color:#7B0052;'>throws</span> IOException <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>int</span> result = super.read(b);
+		<span style='font-weight:bold;color:#7B0052;'>for</span> (<span style='font-weight:bold;color:#7B0052;'>int</span> i = 0; i &lt; result; i++) <span style='font-weight:bold;color:#D3171B'>{</span>
+			b[i] = (<span style='font-weight:bold;color:#7B0052;'>byte</span>) Character.toUpperCase((<span style='font-weight:bold;color:#7B0052;'>char</span>) (b[i]));
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> result;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br>
+    <hr>
+    <h3>Question 4.2</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> UpperCaseInputStreamTest <span style='font-weight:bold;color:#7B0052;'>extends</span> junit.framework.TestCase <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testAcces_README_TXT() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>try</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+			InputStream is = <span style='font-weight:bold;color:#7B0052;'>new</span> BufferedInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> FileInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> File(<span style='color:#2A00FF'>"README.TXT"</span>)));
+			<span style='font-weight:bold;color:#7B0052;'>int</span> c = is.read();
+			assertTrue(<span style='color:#2A00FF'>" erreur de lecture ???"</span>, c != -1);
+			is.close();
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (Exception e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" Erreur sur ce fichier : README.TXT ??? "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testUpperCase_README_TXT() <span style='font-weight:bold;color:#7B0052;'>throws</span> Exception <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='color:#3F7F5F'>//décoration avec UpperCaseInputStream
+</span>		InputStream is = <span style='font-weight:bold;color:#7B0052;'>new</span> UpperCaseInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> BufferedInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> FileInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> File(<span style='color:#2A00FF'>"README.TXT"</span>))));
+
+		<span style='font-weight:bold;color:#7B0052;'>int</span> c = is.read();
+		<span style='font-weight:bold;color:#7B0052;'>while</span> (c != -1) <span style='font-weight:bold;color:#D3171B'>{</span>
+			assertTrue(<span style='color:#2A00FF'>"erreur !, '"</span> + Character.valueOf((<span style='font-weight:bold;color:#7B0052;'>char</span>) c) + <span style='color:#2A00FF'>"' ne semble pas être une majuscule ..."</span>,
+					Character.isUpperCase((<span style='font-weight:bold;color:#7B0052;'>char</span>) c) || (<span style='font-weight:bold;color:#7B0052;'>char</span>) c == <span style='color:#2A00FF'>' '</span>);
+			c = is.read();
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		is.close();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testPushPackUpperCase_README_TXT() <span style='font-weight:bold;color:#7B0052;'>throws</span> Exception <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>try</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+			<span style='color:#3F7F5F'>//décoration avec PushbackInputStream
+</span>			<span style='color:#3F7F5F'>//la classe PushBackInputStream permet d'accéder à un flux de données avec la possibilité de revenir en arrière d'un octet
+</span>			InputStream is = <span style='font-weight:bold;color:#7B0052;'>new</span> PushbackInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> UpperCaseInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> BufferedInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> FileInputStream(<span style='font-weight:bold;color:#7B0052;'>new</span> File(<span style='color:#2A00FF'>"README.TXT"</span>)))));
+
+			<span style='font-weight:bold;color:#7B0052;'>int</span> c = is.read();
+
+			assertTrue(<span style='color:#2A00FF'>" erreur de lecture ???"</span>, c != -1);
+
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (Exception e) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			fail(<span style='color:#2A00FF'>" Erreur sur ce fichier : README.TXT ??? "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br>
+    <hr>    
+        <h3>Conclusion, bibliographie et remarques :</h3>
+        <i style="font-size: 12px;">... Une seule page html, limitez le nombre de clics, (plus de 200 rapports à corriger chaque semaine)</i>
+        <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ *Bibliographie: doc Oracle, StackOverFlow...
+ *
+ *Conclusion: Nous avons mis en pratique, au fil de ce TP, l'implémentation du pattern decorator.
+ *
+ *Ce dernier nous a permis d'ajouter, de manière dynamique, des fonctionalités supplémentaires à nos classes concrètes.
+ *
+ *Nous pouvons conclure qu'il s'agit d'une véritable alternative à l'héritage.
+ *
+ */</span></pre>
+</body></html>

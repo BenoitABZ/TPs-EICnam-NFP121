@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=TestFactoriel
+comment1.params=n
+comment1.target=int\ fact(int)
+comment2.params=
+comment2.target=void\ testFactoriel()
+comment3.params=
+comment3.target=void\ testMult2()
+numComments=4

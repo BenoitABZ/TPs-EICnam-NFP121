@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=TestServiceLocator
+comment1.params=
+comment1.target=void\ setUp()
+comment2.params=
+comment2.target=void\ testServiceLocatorSansFemtoContainer()
+comment3.params=
+comment3.target=void\ testExceptionNomDuMediateurInconnu()
+comment4.params=
+comment4.target=void\ testIterateur()
+comment5.params=
+comment5.target=void\ ignore_testServiceLocatorAvecFemtoContainer()
+numComments=6

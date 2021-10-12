@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Assertion
+comment1.params=cond
+comment1.target=Assertion(question2.ExpressionBooleenne)
+comment2.params=cond\ message
+comment2.target=Assertion(question2.ExpressionBooleenne,\ java.lang.String)
+comment3.params=vi
+comment3.target=java.lang.Object\ accepter(VisiteurInstruction)
+comment4.params=
+comment4.target=question2.ExpressionBooleenne\ cond()
+comment5.params=
+comment5.target=java.lang.String\ message()
+numComments=6

@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=ve
+comment0.target=VisiteurBoolEvaluation(VisiteurExpression<Integer>)
+comment1.params=v
+comment1.target=Boolean\ visite(Vrai)
+comment2.params=f
+comment2.target=Boolean\ visite(Faux)
+comment3.params=n
+comment3.target=Boolean\ visite(Non)
+comment4.params=ou
+comment4.target=Boolean\ visite(Ou)
+comment5.params=et
+comment5.target=Boolean\ visite(Et)
+comment6.params=sup
+comment6.target=Boolean\ visite(Sup)
+comment7.params=eg
+comment7.target=Boolean\ visite(Egal)
+comment8.params=inf
+comment8.target=Boolean\ visite(Inf)
+numComments=9

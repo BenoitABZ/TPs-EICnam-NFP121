@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Instruction
+comment1.params=visitor
+comment1.target=java.lang.Object\ accept(Visitor)
+numComments=2

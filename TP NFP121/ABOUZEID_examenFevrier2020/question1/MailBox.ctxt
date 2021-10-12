@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=MailBox
+comment1.params=
+comment1.target=MailBox()
+comment10.params=
+comment10.target=java.lang.String\ toString()
+comment11.params=o
+comment11.target=boolean\ equals(java.lang.Object)
+comment12.params=
+comment12.target=int\ hashCode()
+comment2.params=mb
+comment2.target=MailBox(MailBox)
+comment3.params=dest
+comment3.target=void\ add(java.lang.String)
+comment4.params=message\ dest
+comment4.target=void\ send(java.lang.String,\ java.lang.String)
+comment5.params=message\ destinataires
+comment5.target=void\ send(java.lang.String,\ java.lang.String[])
+comment6.params=dest
+comment6.target=java.util.List\ read(java.lang.String)
+comment7.params=
+comment7.target=java.util.Iterator\ iterator()
+comment8.params=dest
+comment8.target=java.util.List\ getAllMessages(java.lang.String)
+comment9.params=dest
+comment9.target=java.util.List\ getAllUnreadMessages(java.lang.String)
+numComments=13

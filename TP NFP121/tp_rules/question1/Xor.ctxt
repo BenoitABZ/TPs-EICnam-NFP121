@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Xor
+comment1.params=spec1\ spec2
+comment1.target=Xor(SpecificationI,\ SpecificationI)
+comment2.params=
+comment2.target=Xor()
+comment3.params=e
+comment3.target=boolean\ isSatisfiedBy(java.lang.Object)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=MailBoxNotification
+comment1.params=
+comment1.target=MailBoxNotification()
+comment2.params=destinataire
+comment2.target=boolean\ contains(java.lang.String)
+comment3.params=destinataire\ listener
+comment3.target=void\ addMailBoxListener(java.lang.String,\ MailBoxListener)
+comment4.params=message\ destinataire
+comment4.target=void\ send(java.lang.String,\ java.lang.String)
+comment5.params=message\ destinataires
+comment5.target=void\ send(java.lang.String,\ java.lang.String[])
+numComments=6

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=PersistentMode
+comment1.params=mb\ fileName
+comment1.target=void\ writeMailBox(question1.IMailBox,\ java.lang.String)
+comment1.text=\ Sauvegarde\ d'une\ instance\ de\ bo\u00EEte\ aux\ lettres.\r\n\ @param\ mb\ la\ bo\u00EEte\ mail\r\n\ @param\ fileName\ le\ nom\ du\ fichier\r\n\ @throws\ Exception\ lev\u00E9e\ d'une\ exception\ pour\ toute\ anomalie\r\n
+comment2.params=fileName
+comment2.target=question1.IMailBox\ readMailBox(java.lang.String)
+comment2.text=\ restitution\ d'une\ instance\ de\ bo\u00EEte\ aux\ lettres.\r\n\ @param\ fileName\ le\ nom\ du\ fichier\r\n\ @throws\ Exception\ lev\u00E9e\ d'une\ exception\ pour\ toute\ anomalie\r\n\ @return\ la\ bo\u00EEte\ mail\r\n
+numComments=3

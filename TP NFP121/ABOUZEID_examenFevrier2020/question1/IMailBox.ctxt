@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=IMailBox
+comment0.text=\r\n\ Le\ patron\ MailBox.\r\n
+comment1.params=dest
+comment1.target=void\ add(java.lang.String)
+comment1.text=\ Inscription\ d'un\ destinataire.\ \r\n\ L\u2019inscription\ est\ obligatoire\ afin\ de\ recevoir\ des\ messages.\r\n\ Attention\ Pas\ d'homonyme\ possible.\r\n\ @param\ dest\ le\ destinataire\ le\ nom\ de\ l\u2019utilisateur\r\n\ @throws\ Exception\ si\ le\ destinataire\ est\ d\u00E9j\u00E0\ inscrit\ ou\ un\ homonyme\ est\ en\ place\r\n
+comment2.params=message\ dest
+comment2.target=void\ send(java.lang.String,\ java.lang.String)
+comment2.text=\ D\u00E9p\u00F4t\ d'un\ Message\ pour\ un\ destinataire.\r\n\ @param\ message\ le\ message\ envoy\u00E9.\r\n\ @param\ dest\ le\ destinataire\ du\ message\r\n\ @throws\ Exception\ si\ le\ destinataire\ est\ inconnu\r\n
+comment3.params=message\ dest
+comment3.target=void\ send(java.lang.String,\ java.lang.String[])
+comment3.text=\ D\u00E9p\u00F4t\ d'un\ Message\ pour\ plusieurs\ destinataires.\r\n\ @param\ message\ le\ message\ envoy\u00E9.\r\n\ @param\ dest\ les\ destinataires\ du\ message.\r\n\ @throws\ Exception\ si\ un\ des\ destinataires\ (au\ moins)\ est\ inconnu.\r\n
+comment4.params=dest
+comment4.target=java.util.List\ read(java.lang.String)
+comment4.text=\ Relev\u00E9\ des\ messages\ pour\ ce\ destinataire.\r\n\ @param\ dest\ le\ nom\ du\ destinataire.\r\n\ @return\ la\ liste\ contenant\ les\ nouveaux\ messages,\ depuis\ le\ dernier\ relev\u00E9.\r\n\ @throws\ Exception\ si\ le\ nom\ du\ destinataire\ est\ inconnu\r\n
+comment5.params=
+comment5.target=java.util.Iterator\ iterator()
+comment5.text=\ Obtention\ de\ la\ liste\ des\ destinataires.\r\n\ @return\ un\ it\u00E9rateur,\ parcours\ des\ inscrits\r\n
+comment6.params=dest
+comment6.target=java.util.List\ getAllMessages(java.lang.String)
+comment6.text=\ Relev\u00E9\ de\ tous\ les\ messages\ pour\ ce\ destinataire.\r\n\ @param\ dest\ le\ nom\ du\ destinataire.\r\n\ @return\ la\ liste\ contenant\ tous\ les\ messages,\ lus\ ou\ non.\r\n\ @throws\ Exception\ si\ le\ nom\ du\ destinataire\ est\ inconnu\r\n
+comment7.params=dest
+comment7.target=java.util.List\ getAllUnreadMessages(java.lang.String)
+comment7.text=\ Relev\u00E9\ de\ tous\ les\ messages\ non\ lus\ pour\ ce\ destinataire.\r\n\ @param\ dest\ le\ nom\ du\ destinataire.\r\n\ @return\ la\ liste\ contenant\ tous\ les\ messages,\ non\ encorelus.\r\n\ @throws\ Exception\ si\ le\ nom\ du\ destinataire\ est\ inconnu\r\n
+numComments=8

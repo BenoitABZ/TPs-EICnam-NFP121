@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ToyWeightBetweenSpecification
+comment1.params=min\ max
+comment1.target=ToyWeightBetweenSpecification(int,\ int)
+comment2.params=
+comment2.target=ToyWeightBetweenSpecification()
+comment3.params=min
+comment3.target=void\ setMin(int)
+comment4.params=max
+comment4.target=void\ setMax(int)
+comment5.params=t
+comment5.target=boolean\ isSatisfiedBy(exemple_kindergarten.entity.Toy)
+numComments=6

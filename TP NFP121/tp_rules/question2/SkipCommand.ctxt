@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=SkipCommand
+comment1.params=entity\ result
+comment1.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

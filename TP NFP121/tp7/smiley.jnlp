@@ -1,0 +1,21 @@
+<jnlp spec="1.0+"
+  codebase="http://jfod.cnam.fr/progAvancee/tp7/" 
+  href="smiley.jnlp">
+    <information>
+       <title>tp7, question2: frimousses</title>
+       <vendor>NFP121 Cnam</vendor>
+       <description>tp7q2</description>
+       <description kind="short">tp7q2</description>
+       <offline-allowed/>
+     </information>
+
+    <security>
+      <all-permissions/>
+    </security>
+    
+     <resources>
+       <j2se version="1.5+"/>
+       <jar href="smiley.jar"/>
+     </resources>
+     <application-desc main-class="question2.JFrameDemo"/>
+</jnlp>

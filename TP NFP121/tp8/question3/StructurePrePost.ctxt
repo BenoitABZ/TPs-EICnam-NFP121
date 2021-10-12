@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=StructurePrePost
+comment1.params=structure
+comment1.target=StructurePrePost(StructureI)
+comment2.params=s
+comment2.target=StructureI\ clone(StructureI)
+comment3.params=
+comment3.target=void\ pre()
+comment3.text=fin\ des\ d\u00E9clarations\ du\ vecteur\ d'\u00E9tat
+comment4.params=
+comment4.target=boolean\ pre_operation()
+comment5.params=t
+comment5.target=boolean\ post_operation(java.lang.Object)
+comment6.params=t
+comment6.target=void\ operation(java.lang.Object)
+comment7.params=
+comment7.target=boolean\ pre_condition()
+comment8.params=result
+comment8.target=boolean\ post_condition(boolean)
+comment9.params=
+comment9.target=boolean\ condition()
+numComments=10

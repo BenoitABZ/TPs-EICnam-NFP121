@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=o
+comment0.target=void\ empiler(T)
+comment1.target=T\ depiler()
+comment2.target=T\ sommet()
+comment3.target=int\ capacite()
+comment4.target=int\ taille()
+comment5.target=boolean\ estVide()
+comment6.target=boolean\ estPleine()
+comment7.params=o
+comment7.target=boolean\ equals(Object)
+comment8.target=int\ hashCode()
+comment9.target=String\ toString()
+numComments=10

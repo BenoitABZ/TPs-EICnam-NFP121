@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"question1","l":"FahrenheitCelsius"},{"p":"question2","l":"FahrenheitCelsius"},{"p":"question1","l":"FahrenheitCelsiusTest"},{"p":"question2","l":"FahrenheitCelsiusTest"},{"p":"question3","l":"IHMFahrenheit"}]

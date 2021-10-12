@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=void\ setUp()
+comment1.target=void\ test_lectureMemoire()
+comment2.target=void\ testException()
+numComments=3

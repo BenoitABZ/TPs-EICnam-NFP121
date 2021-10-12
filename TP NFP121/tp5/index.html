@@ -1,0 +1,800 @@
+<html>
+<head>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+    <title>NFP121 - TP5</title>
+    <style type="text/css">
+        body {
+            background: #E5DED6;
+            background-color: #fff;
+            color: #333333;
+            font-size: 14px;
+            font-family: Verdana, Arial;
+        }
+
+        table {
+            font-size: 20px;
+            border-color: #808080;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        h2 {
+            color: #C1002A;
+            font-family: Verdana, Arial;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #C1002A;
+            font-family: Verdana, Arial;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        hr {
+            margin: 15px 0 15px 0;
+        }
+		
+		applet {
+			margin: 10px 0px 25px 250px;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #777777;
+		}
+    </style>
+
+</head>
+<body>
+    <h2 style="text-align: center">NFP 121 - TP5</h2>
+    <h2 style="text-align: center">Classes abstraites, interface, héritage</h2>
+    <br />
+    <hr>
+    <br />
+    <table>
+        <tr>
+            <td>ABOUZEID
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>Benoit
+            </td>
+            <td>.
+            </td>
+        </tr>
+        <tr>
+            <td>0g5drrefx11
+            </td>
+            <td>...
+            </td>
+        </tr>
+    </table>
+		
+	<br />
+    <hr />
+    <h3>Question 1.1</h3>
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+ * 
+ * La classe Ensemble hérite des méthodes de AbstractSet. Cette dernière hérite
+ * d'AbstractCollection et implémente Set.
+ * 
+ * AbstractSet ne redéfinit aucune méthode de sa classe parent mais implémente
+ * equals() et hashcode().
+ * 
+ * L'interface Set est le contrat permettant de garantir l'absence de doublon
+ * (ensemble au sens mathématique du terme même si fini...). La méthode add()
+ * doit etre implémenté en vertu de la contrainte.
+ * 
+ * contains(), addAll(), retainAll()... tel qu'implémenté dans
+ * AbstractCollection correspond aux spécifications de Set.
+ * 
+ * Ceci est permis grace aux patrons Iterator et Template method (les classes
+ * abstraites utilisent des méthodes implémentées par les classes enfants
+ * (iterator() et add()).
+ * 
+ * @author benoit
+ *
+ * @param &lt;T&gt;
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Ensemble&lt;T&gt; <span style='font-weight:bold;color:#7B0052;'>extends</span> AbstractSet&lt;T&gt; <span style='font-weight:bold;color:#7B0052;'>implements</span> Cloneable <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>protected</span> java.util.Vector&lt;T&gt; table = <span style='font-weight:bold;color:#7B0052;'>new</span> java.util.Vector&lt;T&gt;();
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> size() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> table.size();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Iterator&lt;T&gt; iterator() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>return</span> table.iterator();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> add(T t) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		  <span style='font-weight:bold;color:#7B0052;'>if</span>( ! this.contains(t) )
+	            <span style='font-weight:bold;color:#7B0052;'>return</span> table.add(t);
+	        <span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+	<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+	<br />
+    <hr />
+    <h3>Question 1.2</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> EnsembleTest <span style='font-weight:bold;color:#7B0052;'>extends</span> junit.framework.TestCase <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testAdd() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question1.Ensemble&lt;Integer&gt; e1 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e1.add(2));
+		assertEquals(true, e1.add(3));
+		assertEquals(2, e1.size());
+		assertTrue(e1.contains(2));
+		assertTrue(e1.contains(3));
+	<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+	<br />
+    <hr />
+    <h3>Question 1.3</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> Ensemble&lt;T&gt; union(Ensemble&lt;? <span style='font-weight:bold;color:#7B0052;'>extends</span> T&gt; e) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		Ensemble&lt;T&gt; eCopy = <span style='font-weight:bold;color:#7B0052;'>new</span> Ensemble&lt;T&gt;();
+
+		eCopy.addAll(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+
+		eCopy.addAll(e);
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> eCopy;
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Ensemble&lt;T&gt; inter(Ensemble&lt;? <span style='font-weight:bold;color:#7B0052;'>extends</span> T&gt; e) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		Ensemble&lt;T&gt; eCopy = <span style='font-weight:bold;color:#7B0052;'>new</span> Ensemble&lt;T&gt;();
+
+		eCopy.addAll(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+
+		eCopy.retainAll(e);
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> eCopy;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Ensemble&lt;T&gt; diff(Ensemble&lt;? <span style='font-weight:bold;color:#7B0052;'>extends</span> T&gt; e) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		Ensemble&lt;T&gt; eCopy = <span style='font-weight:bold;color:#7B0052;'>new</span> Ensemble&lt;T&gt;();
+
+		eCopy.addAll(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+
+		eCopy.removeAll(e);
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> eCopy;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	Ensemble&lt;T&gt; diffSym(Ensemble&lt;? <span style='font-weight:bold;color:#7B0052;'>extends</span> T&gt; e) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		Ensemble&lt;T&gt; eCopy1 = union(e);
+
+		Ensemble&lt;T&gt; eCopy2 = inter(e);
+
+		Ensemble&lt;T&gt; eCopy = (eCopy1).diff(eCopy2);
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> eCopy;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Object clone() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		Ensemble&lt;T&gt; eCopy = <span style='font-weight:bold;color:#7B0052;'>new</span> Ensemble&lt;T&gt;();
+
+		eCopy.addAll(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> eCopy;
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F7F5F'>// Dans l'IHM, ajout des Listeners + méthodes.
+</span>        button1.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener()<span style='font-weight:bold;color:#D3171B'>{</span>
+        	
+        <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent e) <span style='font-weight:bold;color:#D3171B'>{</span>
+        	unionActionPerformed(e);	
+        	<span style='font-weight:bold;color:#D3171B'>}</span>	                            
+        <span style='font-weight:bold;color:#D3171B'>}</span>);
+
+        panel3.add(button1);
+        button2 = <span style='font-weight:bold;color:#7B0052;'>new</span> JButton(<span style='color:#2A00FF'>"intersection"</span>);
+        button2.setBackground(java.awt.Color.yellow);
+        button2.setName(<span style='color:#2A00FF'>"intersection"</span>);
+        button2.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener()<span style='font-weight:bold;color:#D3171B'>{</span>
+        	
+        <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent e) <span style='font-weight:bold;color:#D3171B'>{</span>
+        	intersectionActionPerformed(e);	
+        	<span style='font-weight:bold;color:#D3171B'>}</span>	                            
+        <span style='font-weight:bold;color:#D3171B'>}</span>);
+
+        panel3.add(button2);
+        button3 = <span style='font-weight:bold;color:#7B0052;'>new</span> JButton(<span style='color:#2A00FF'>"difference"</span>);
+        button3.setBackground(java.awt.Color.pink);
+        button3.setActionCommand(<span style='color:#2A00FF'>"difference"</span>);
+        button3.setName(<span style='color:#2A00FF'>"difference"</span>);
+        button3.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener()<span style='font-weight:bold;color:#D3171B'>{</span>
+        	
+        <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent e) <span style='font-weight:bold;color:#D3171B'>{</span>
+        	differenceActionPerformed(e);	
+        	<span style='font-weight:bold;color:#D3171B'>}</span>	                            
+        <span style='font-weight:bold;color:#D3171B'>}</span>);
+
+        panel3.add(button3);
+        button4 = <span style='font-weight:bold;color:#7B0052;'>new</span> JButton(<span style='color:#2A00FF'>"diffSymetrique"</span>);
+        button4.setBackground(java.awt.Color.cyan);
+        button4.setName(<span style='color:#2A00FF'>"diffSymetrique"</span>);
+        button4.addActionListener(<span style='font-weight:bold;color:#7B0052;'>new</span> ActionListener()<span style='font-weight:bold;color:#D3171B'>{</span>
+        	
+        <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent e) <span style='font-weight:bold;color:#D3171B'>{</span>
+        	diffSymetriqueActionPerformed(e);	
+        	<span style='font-weight:bold;color:#D3171B'>}</span>	                            
+        <span style='font-weight:bold;color:#D3171B'>}</span>);</pre>
+
+	<br />
+    <hr />
+    <h3>Question 1.4</h3>
+   <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testUnion() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question1.Ensemble&lt;Integer&gt; e1, e2;
+		e1 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e1.add(2));
+		assertEquals(true, e1.add(3));
+
+		e2 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e2.add(3));
+		assertEquals(true, e2.add(4));
+
+		question1.Ensemble&lt;Integer&gt; union = e1.union(e2);
+		assertEquals(3, union.size());
+		assertTrue(union.contains(2));
+		assertTrue(union.contains(3));
+		assertTrue(union.contains(4));
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testInter() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question1.Ensemble&lt;Integer&gt; e1, e2;
+		e1 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e1.add(2));
+		assertEquals(true, e1.add(3));
+
+		e2 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e2.add(3));
+		assertEquals(true, e2.add(4));
+
+		question1.Ensemble&lt;Integer&gt; inter = e1.inter(e2);
+		assertEquals(1, inter.size());
+		assertTrue(inter.contains(3));
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testDiff() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question1.Ensemble&lt;Integer&gt; e1, e2;
+		e1 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e1.add(2));
+		assertEquals(true, e1.add(3));
+
+		e2 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e2.add(3));
+		assertEquals(true, e2.add(4));
+
+		question1.Ensemble&lt;Integer&gt; diff = e1.diff(e2);
+		assertEquals(1, diff.size());
+		assertTrue(diff.contains(2));
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testDiffSymetrique() <span style='font-weight:bold;color:#D3171B'>{</span>
+		question1.Ensemble&lt;Integer&gt; e1, e2;
+		e1 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e1.add(2));
+		assertEquals(true, e1.add(3));
+
+		e2 = <span style='font-weight:bold;color:#7B0052;'>new</span> question1.Ensemble&lt;Integer&gt;();
+		assertEquals(true, e2.add(3));
+		assertEquals(true, e2.add(4));
+
+		question1.Ensemble&lt;Integer&gt; diffSym = e1.diffSym(e2);
+		assertEquals(2, diffSym.size());
+		assertTrue(diffSym.contains(2));
+		assertTrue(diffSym.contains(4));
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+	<br />
+    <hr />
+    <h3>Question 1.5</h3>
+    Votre réponse...
+
+    <br />
+    <hr />
+    <h3>Question 2.1</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Chapitre2CoreJava2 <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='color:#3F5FBF'>/**
+	 * Obtention d'une liste de mots à partir de la constante CHAPITRE2.
+	 * 
+	 * 2 méthodes utilitaires (statique) qui permettent de récupérer une liste de
+	 * tokens issues d'une chaine de caractères et calculer le nombre d'occurrence
+	 * des tokens de cette liste.
+	 * 
+	 **/</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> List&lt;String&gt; listeDesMots() <span style='font-weight:bold;color:#D3171B'>{</span>
+		List&lt;String&gt; liste = <span style='font-weight:bold;color:#7B0052;'>new</span> LinkedList&lt;String&gt;();
+
+		StringTokenizer st = <span style='font-weight:bold;color:#7B0052;'>new</span> StringTokenizer(Chapitre2CoreJava2.CHAPITRE2, <span style='color:#2A00FF'>"[](){};, :.\n\""</span>);
+
+		<span style='color:#3F7F5F'>// Ajout des Tokens dans la liste
+</span>
+		<span style='font-weight:bold;color:#7B0052;'>while</span> (st.hasMoreTokens()) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			liste.add(st.nextToken());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> liste;
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F5FBF'>/**
+	 * Obtention d'une liste de couples &lt;String,Integer&gt;. A chaque mot présent dans
+	 * la liste, est associée à son nombre d'occurrence.
+	 * 
+	 * @param liste la liste des mots
+	 */</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> Map&lt;String, Integer&gt; occurrencesDesMots(List&lt;String&gt; liste) <span style='font-weight:bold;color:#D3171B'>{</span>
+		Map&lt;String, Integer&gt; table = <span style='font-weight:bold;color:#7B0052;'>new</span> HashMap&lt;String, Integer&gt;();
+
+		<span style='color:#3F7F5F'>// En lecture uniquement donc pas de soucis
+</span>		Iterator&lt;String&gt; iter = liste.iterator();
+
+		<span style='color:#3F7F5F'>// Je compare les 2 listes et stocke le couple clé (String) et valeur
+</span>		<span style='color:#3F7F5F'>// (occurrence) dans la Map.
+</span>
+		<span style='font-weight:bold;color:#7B0052;'>while</span> (iter.hasNext()) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			String s1 = iter.next();
+
+			<span style='font-weight:bold;color:#7B0052;'>int</span> count = 1;
+
+			<span style='font-weight:bold;color:#7B0052;'>int</span> occurrence = 1;
+
+			<span style='font-weight:bold;color:#7B0052;'>for</span> (String s2 : liste) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (s2.equals(s1)) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+					occurrence = count++;
+
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+
+			<span style='font-weight:bold;color:#D3171B'>}</span>
+
+			table.put(s1, occurrence);
+
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> table;
+	<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br />
+    <hr />
+    <h3>Question 2.2</h3>
+   <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F7F5F'>// Dans le constructeur de JPanelListe.
+</span>		<span style='color:#3F7F5F'>// Ajout des observateurs implémentant les classes ActionListener (boutons) et
+</span>		<span style='color:#3F7F5F'>// ItemListener (checkBox).
+</span>		boutonRechercher.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		boutonOccurrences.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		boutonRetirer.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		saisie.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		ordreCroissant.addItemListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		ordreDecroissant.addItemListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>// Classe interne implémentant la méthode compare() de l'interface
+</span>	<span style='color:#3F7F5F'>// Comparator&lt;String&gt;.
+</span>	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>class</span> ReverseComparator <span style='font-weight:bold;color:#7B0052;'>implements</span> Comparator&lt;String&gt; <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='color:#3F7F5F'>// Inversion des arguments pour avoir un ordre alphabétique descendant.
+</span>		@Override
+		<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> compare(String arg0, String arg1) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> arg1.compareTo(arg0);
+
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F5FBF'>/** ne pas modifier les affichages, les classes de tests en ont besoin ... */</span>
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent ae) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>try</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+			<span style='font-weight:bold;color:#7B0052;'>boolean</span> res = <span style='font-weight:bold;color:#7B0052;'>false</span>;
+			<span style='font-weight:bold;color:#7B0052;'>if</span> (ae.getSource() == boutonRechercher || ae.getSource() == saisie) <span style='font-weight:bold;color:#D3171B'>{</span>
+				res = liste.contains(saisie.getText());
+				Integer occur = occurrences.get(saisie.getText());
+				afficheur.setText(<span style='color:#2A00FF'>"résultat de la recherche de : "</span> + saisie.getText() + <span style='color:#2A00FF'>" --&gt;  "</span> + res);
+			<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#7B0052;'>if</span> (ae.getSource() == boutonRetirer) <span style='font-weight:bold;color:#D3171B'>{</span>
+				res = retirerDeLaListeTousLesElementsCommencantPar(saisie.getText());
+				afficheur.setText(<span style='color:#2A00FF'>"résultat du retrait de tous les éléments commençant par --&gt;  "</span> + saisie.getText()
+						+ <span style='color:#2A00FF'>" : "</span> + res);
+			<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#7B0052;'>if</span> (ae.getSource() == boutonOccurrences) <span style='font-weight:bold;color:#D3171B'>{</span>
+				Integer occur = occurrences.get(saisie.getText());
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (occur != <span style='font-weight:bold;color:#7B0052;'>null</span>)
+					afficheur.setText(<span style='color:#2A00FF'>" --&gt;  "</span> + occur + <span style='color:#2A00FF'>" occurrence(s)"</span>);
+				<span style='font-weight:bold;color:#7B0052;'>else</span>
+					afficheur.setText(<span style='color:#2A00FF'>" --&gt;  ??? "</span>);
+			<span style='font-weight:bold;color:#D3171B'>}</span>
+			texte.setText(liste.toString());
+
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (Exception e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			afficheur.setText(e.toString());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getSource() == ordreCroissant) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='color:#3F7F5F'>// Trie par l'ordre naturel des éléments contenu dans la liste -- chaine de
+</span>			<span style='color:#3F7F5F'>// caractère = ordre alphabétique
+</span>			Collections.sort(liste);
+
+			texte.setText(liste.toString());
+
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getSource() == ordreDecroissant)
+
+			<span style='color:#3F7F5F'>// La méthode sort() prend ici en second argument, un objet de type
+</span>			<span style='color:#3F7F5F'>// Comparator&lt;T&gt; (implémentation ci-dessus).
+</span>			Collections.sort(liste, <span style='font-weight:bold;color:#7B0052;'>new</span> ReverseComparator());
+
+		texte.setText(liste.toString());
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerDeLaListeTousLesElementsCommencantPar(String prefixe) <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>boolean</span> resultat = <span style='font-weight:bold;color:#7B0052;'>false</span>;
+
+		Iterator&lt;String&gt; iter = liste.iterator();
+
+		<span style='font-weight:bold;color:#7B0052;'>while</span> (iter.hasNext()) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			String s = iter.next();
+
+			<span style='color:#3F7F5F'>// Si un Item est préfixé par la chaine de caractère en paramètre.
+</span>			<span style='font-weight:bold;color:#7B0052;'>if</span> (s.startsWith(prefixe)) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+				iter.remove();
+
+				<span style='color:#3F7F5F'>// Décrémenente value si la clé est présente - expression lamda.
+</span>				occurrences.computeIfPresent(s, (k, v) -&gt; v - 1);
+
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (occurrences.get(s) == 0) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+					resultat = <span style='font-weight:bold;color:#7B0052;'>true</span>;
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+
+			<span style='font-weight:bold;color:#D3171B'>}</span>
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> resultat;
+	<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br />
+    <hr />
+    <h3>Question 2.3</h3>
+   <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F7F5F'>// Ajout de la stack
+</span>	<span style='font-weight:bold;color:#7B0052;'>private</span> Stack&lt;Memento&gt; stack;
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> JPanelListe2(List&lt;String&gt; liste, Map&lt;String, Integer&gt; occurrences) <span style='font-weight:bold;color:#D3171B'>{</span>
+		this.liste = liste;
+		this.occurrences = occurrences;
+		this.stack = <span style='font-weight:bold;color:#7B0052;'>new</span> Stack&lt;Memento&gt;();
+
+		cmd.setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> GridLayout(3, 1));
+
+		cmd.add(afficheur);
+		cmd.add(saisie);
+
+		panelBoutons.setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> FlowLayout(FlowLayout.LEFT));
+		panelBoutons.add(boutonRechercher);
+		panelBoutons.add(boutonRetirer);
+		panelBoutons.add(<span style='font-weight:bold;color:#7B0052;'>new</span> JLabel(<span style='color:#2A00FF'>"tri du texte :"</span>));
+		panelBoutons.add(ordreCroissant);
+		panelBoutons.add(ordreDecroissant);
+		panelBoutons.add(boutonOccurrences);
+		panelBoutons.add(boutonAnnuler);
+		cmd.add(panelBoutons);
+
+		<span style='font-weight:bold;color:#7B0052;'>if</span> (liste != <span style='font-weight:bold;color:#7B0052;'>null</span> && occurrences != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+			afficheur.setText(liste.getClass().getName() + <span style='color:#2A00FF'>" et "</span> + occurrences.getClass().getName());
+			texte.setText(liste.toString());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+			texte.setText(<span style='color:#2A00FF'>"la classe Chapitre2CoreJava semble incompl�te"</span>);
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		setLayout(<span style='font-weight:bold;color:#7B0052;'>new</span> BorderLayout());
+
+		add(cmd, <span style='color:#2A00FF'>"North"</span>);
+		add(texte, <span style='color:#2A00FF'>"Center"</span>);
+
+		<span style='color:#3F7F5F'>// Ajout des observateurs implémentant les classes ActionListener (boutons) et
+</span>		<span style='color:#3F7F5F'>// ItemListener (checkBox).
+</span>		boutonAnnuler.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		boutonRechercher.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		boutonOccurrences.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		boutonRetirer.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		saisie.addActionListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		ordreCroissant.addItemListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+		ordreDecroissant.addItemListener(<span style='font-weight:bold;color:#7B0052;'>this</span>);
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>// Classe interne implémentant la méthode compare() de l'interface
+</span>	<span style='color:#3F7F5F'>// Comparator&lt;String&gt;.
+</span>	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>class</span> ReverseComparator <span style='font-weight:bold;color:#7B0052;'>implements</span> Comparator&lt;String&gt; <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='color:#3F7F5F'>// Inversion des arguments pour avoir un ordre alphabétique descendant.
+</span>		@Override
+		<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> compare(String arg0, String arg1) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> arg1.compareTo(arg0);
+
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>class</span> NormalComparator <span style='font-weight:bold;color:#7B0052;'>implements</span> Comparator&lt;String&gt; <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='color:#3F7F5F'>// Inversion des arguments pour avoir un ordre alphabétique descendant.
+</span>		@Override
+		<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>int</span> compare(String arg0, String arg1) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> arg0.compareTo(arg1);
+
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>// Implémentation du patron Memento afin de sauvegarder l'état de la liste et de
+</span>	<span style='color:#3F7F5F'>// la map.
+</span>	<span style='color:#3F7F5F'>// Originator = this.
+</span>	<span style='font-weight:bold;color:#7B0052;'>public</span> Memento saveToMemento() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		HashMap&lt;String, Integer&gt; mapCopy = <span style='font-weight:bold;color:#7B0052;'>new</span> HashMap&lt;&gt;();
+		mapCopy.putAll(occurrences);
+
+		List&lt;String&gt; listCopy = <span style='font-weight:bold;color:#7B0052;'>new</span> LinkedList&lt;String&gt;();
+		listCopy.addAll(liste);
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>new</span> Memento(mapCopy, listCopy);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> restoreFromMemento(Memento memento) <span style='font-weight:bold;color:#D3171B'>{</span>
+		this.liste = memento.getList();
+		this.occurrences = memento.getMap();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='color:#3F7F5F'>// La classe Memento responsable de la sauvegarde!
+</span>	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Memento <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>final</span> Map&lt;String, Integer&gt; map;
+		<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>final</span> List&lt;String&gt; list;
+
+		<span style='font-weight:bold;color:#7B0052;'>public</span> Memento(Map&lt;String, Integer&gt; map, List&lt;String&gt; list) <span style='font-weight:bold;color:#D3171B'>{</span>
+			this.map = map;
+			this.list = list;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>public</span> Map&lt;String, Integer&gt; getMap() <span style='font-weight:bold;color:#D3171B'>{</span>
+			<span style='font-weight:bold;color:#7B0052;'>return</span> map;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>public</span> List&lt;String&gt; getList() <span style='font-weight:bold;color:#D3171B'>{</span>
+			<span style='font-weight:bold;color:#7B0052;'>return</span> list;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> actionPerformed(ActionEvent ae) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>try</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+			<span style='font-weight:bold;color:#7B0052;'>boolean</span> res = <span style='font-weight:bold;color:#7B0052;'>false</span>;
+			<span style='font-weight:bold;color:#7B0052;'>if</span> (ae.getSource() == boutonRechercher || ae.getSource() == saisie) <span style='font-weight:bold;color:#D3171B'>{</span>
+				res = liste.contains(saisie.getText());
+				Integer occur = occurrences.get(saisie.getText());
+				afficheur.setText(<span style='color:#2A00FF'>"résultat de la recherche de : "</span> + saisie.getText() + <span style='color:#2A00FF'>" --&gt;  "</span> + res);
+			<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#7B0052;'>if</span> (ae.getSource() == boutonRetirer) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+				res = retirerDeLaListeTousLesElementsCommencantPar(saisie.getText());
+				afficheur.setText(<span style='color:#2A00FF'>"résultat du retrait de tous les éléments commençant par --&gt;  "</span> + saisie.getText()
+						+ <span style='color:#2A00FF'>" : "</span> + res);
+			<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#7B0052;'>if</span> (ae.getSource() == boutonOccurrences) <span style='font-weight:bold;color:#D3171B'>{</span>
+				Integer occur = occurrences.get(saisie.getText());
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (occur != <span style='font-weight:bold;color:#7B0052;'>null</span>)
+					afficheur.setText(<span style='color:#2A00FF'>" --&gt;  "</span> + occur + <span style='color:#2A00FF'>" occurrence(s)"</span>);
+				<span style='font-weight:bold;color:#7B0052;'>else</span>
+					afficheur.setText(<span style='color:#2A00FF'>" --&gt;  ??? "</span>);
+
+				<span style='color:#3F7F5F'>// Prise en compte du cas où le boutonAnnuler a généré l'évènement.
+</span>			<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#7B0052;'>if</span> (ae.getSource() == boutonAnnuler) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+				<span style='color:#3F7F5F'>// On restore le dernier état de nos objets occurrences et liste.
+</span>				<span style='font-weight:bold;color:#7B0052;'>if</span> (!stack.empty()) <span style='font-weight:bold;color:#D3171B'>{</span>
+					Memento memento = stack.pop();
+
+					restoreFromMemento(memento);
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>
+			texte.setText(liste.toString());
+
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (Exception e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			afficheur.setText(e.toString());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> itemStateChanged(ItemEvent ie) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getSource() == ordreCroissant) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='color:#3F7F5F'>// On sauvegarde l'etat actuel des objets occurrences et liste à chaque fois
+</span>			<span style='color:#3F7F5F'>// qu'un observateur est invoqué.
+</span>
+			stack.push(saveToMemento());
+
+			<span style='color:#3F7F5F'>// Trie par l'ordre naturel des éléments contenu dans la liste -- chaine de
+</span>			<span style='color:#3F7F5F'>// caractère = ordre alphabétique
+</span>			Collections.sort(liste, <span style='font-weight:bold;color:#7B0052;'>new</span> NormalComparator());
+
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>else</span> <span style='font-weight:bold;color:#7B0052;'>if</span> (ie.getSource() == ordreDecroissant) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			stack.push(saveToMemento());
+
+			<span style='color:#3F7F5F'>// La méthode sort() prend ici en second argument, un objet de type
+</span>			<span style='color:#3F7F5F'>// Comparator&lt;T&gt; (implémentation ci-dessus).
+</span>			Collections.sort(liste, <span style='font-weight:bold;color:#7B0052;'>new</span> ReverseComparator());
+
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		texte.setText(liste.toString());
+
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>boolean</span> retirerDeLaListeTousLesElementsCommencantPar(String prefixe) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>if</span> (prefixe == <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>false</span>;
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>boolean</span> resultat = <span style='font-weight:bold;color:#7B0052;'>false</span>;
+
+		Iterator&lt;String&gt; iter = liste.iterator();
+
+		<span style='font-weight:bold;color:#7B0052;'>int</span> count = 0;
+
+		<span style='font-weight:bold;color:#7B0052;'>while</span> (iter.hasNext()) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+			String s = iter.next();
+
+			<span style='color:#3F7F5F'>// Si un Item est préfixé par la chaine de caractère en paramètre.
+</span>			<span style='font-weight:bold;color:#7B0052;'>if</span> (s.startsWith(prefixe)) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (count == 0) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+					stack.push(saveToMemento());
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+
+				count++;
+
+				iter.remove();
+
+				<span style='color:#3F7F5F'>// Décrémenente value si la clé est présente - expression lambda.
+</span>				occurrences.computeIfPresent(s, (k, v) -&gt; v - 1);
+
+				<span style='font-weight:bold;color:#7B0052;'>if</span> (occurrences.get(s) == 0) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+					resultat = <span style='font-weight:bold;color:#7B0052;'>true</span>;
+				<span style='font-weight:bold;color:#D3171B'>}</span>
+			<span style='font-weight:bold;color:#D3171B'>}</span>
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> resultat;
+	<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br />
+    <hr />
+    <h3>Question 3.1</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F7F5F'>//La méthode create() de l'interface renvoie un HashSet.
+</span><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> HashSetFactory&lt;T&gt; <span style='font-weight:bold;color:#7B0052;'>implements</span> Factory&lt;Set&lt;T&gt;&gt; <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Set&lt;T&gt; create() <span style='font-weight:bold;color:#D3171B'>{</span>
+
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>new</span> HashSet&lt;T&gt;();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='color:#3F7F5F'>//La méthode create() de l'interface renvoie un TreeSet.
+</span><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> TreeSetFactory&lt;T <span style='font-weight:bold;color:#7B0052;'>extends</span> Comparable&lt;T&gt;&gt; <span style='font-weight:bold;color:#7B0052;'>implements</span> Factory&lt;Set&lt;T&gt;&gt;<span style='font-weight:bold;color:#D3171B'>{</span>
+
+	@Override
+	<span style='font-weight:bold;color:#7B0052;'>public</span> Set&lt;T&gt; create() <span style='font-weight:bold;color:#D3171B'>{</span>
+		
+		<span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>new</span> TreeSet&lt;T&gt;();
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br />
+    <hr />
+    <h3>Question 3.2</h3>
+    <pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Tests <span style='font-weight:bold;color:#7B0052;'>extends</span> junit.framework.TestCase <span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> test1(Factory&lt;Set&lt;Integer&gt;&gt; f) <span style='font-weight:bold;color:#7B0052;'>throws</span> Exception <span style='font-weight:bold;color:#D3171B'>{</span>
+		Set&lt;Integer&gt; set = f.create();
+		<span style='font-weight:bold;color:#7B0052;'>for</span> (<span style='font-weight:bold;color:#7B0052;'>int</span> i = 20; i &gt; 0; i--)
+			set.add(i);
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testCreation() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>try</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+			test1(<span style='font-weight:bold;color:#7B0052;'>new</span> TreeSetFactory&lt;Integer&gt;());
+			test1(<span style='font-weight:bold;color:#7B0052;'>new</span> HashSetFactory&lt;Integer&gt;());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (NoSuchMethodError e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>"NoSuchMethodError : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (Exception e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" exception inattendue : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> test_TreeSetFactory() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>try</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+		    TreeSetFactory&lt;Integer&gt; treeSetF1 = <span style='font-weight:bold;color:#7B0052;'>new</span> TreeSetFactory&lt;Integer&gt;();
+			Set&lt;Integer&gt; ts = treeSetF1.create();
+			assertNotNull(<span style='color:#2A00FF'>"appel de create retourne null ???"</span>, ts);
+			assertEquals(<span style='color:#2A00FF'>" un TreeSet est attendu ???"</span>, ts.getClass().getName(), <span style='color:#2A00FF'>"java.util.TreeSet"</span>);
+			assertEquals(true, ts.add(5));
+			assertEquals(true, ts.add(3));
+			assertEquals(false, ts.add(3));
+			assertEquals(<span style='color:#2A00FF'>"[3, 5]"</span>, ts.toString());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (NoSuchMethodError e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" exception : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (NoClassDefFoundError e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" exception : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (Exception e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" exception inattendue : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+	
+	<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> test_HashSetFactory() <span style='font-weight:bold;color:#D3171B'>{</span>
+		<span style='font-weight:bold;color:#7B0052;'>try</span> <span style='font-weight:bold;color:#D3171B'>{</span>
+			HashSetFactory&lt;Integer&gt; hashSetF1 = <span style='font-weight:bold;color:#7B0052;'>new</span> HashSetFactory&lt;Integer&gt;();
+			Set&lt;Integer&gt; ts = hashSetF1.create();
+			assertNotNull(<span style='color:#2A00FF'>"appel de create retourne null ???"</span>, ts);
+			assertEquals(<span style='color:#2A00FF'>" un HashSet est attendu ???"</span>, ts.getClass().getName(), <span style='color:#2A00FF'>"java.util.HashSet"</span>);
+			assertEquals(true, ts.add(5));
+			assertEquals(true, ts.add(3));
+			assertEquals(false, ts.add(3));
+			assertEquals(<span style='color:#2A00FF'>"[3, 5]"</span>, ts.toString());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (NoSuchMethodError e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" exception : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (NoClassDefFoundError e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" exception : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span> <span style='font-weight:bold;color:#7B0052;'>catch</span> (Exception e) <span style='font-weight:bold;color:#D3171B'>{</span>
+			fail(<span style='color:#2A00FF'>" exception inattendue : "</span> + e.getMessage());
+		<span style='font-weight:bold;color:#D3171B'>}</span>
+	<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+
+    <br />
+    <hr />    
+        <h3>Conclusion, biliographie et remarques :</h3>
+        <i style="font-size:12px;">... Une seule page html, limitez le nombre de clics, (plus de 200 rapports à corriger chaque semaine)</i>
+        <p> Bibliographie: Docs Oracle, StackOverFlow, Chapitre 2 CoreJava</p>
+        <p> Conclusion: L'Api Collection de la JDK est un outil efficace, réutilisable et personnalisable. La diversité d'implémentations concrète permet de s'adapter à n'importe quelle problématique tout en minimisant la compléxité (insertion, lecture...)</p>
+        <p> Le pattern iterator() nous permet d'iterer n'importe quel type de collection. Il est utiliser dans l'implémentation même des classes abstraites</p>
+        <p> Le pattern template method nous a permis de personnaliser un Ensemble</p>
+        <p> Enfin, le pattern factory nous a permis grace aux concepts evoqués ci-dessus de décider du type de collection à manipuler à l'éxécution</p>
+</body>
+</html>

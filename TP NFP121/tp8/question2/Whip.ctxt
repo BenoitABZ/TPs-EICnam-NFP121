@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=beverage
+comment0.target=Whip(Beverage)
+comment1.target=String\ getDescription()
+comment2.target=double\ cost()
+numComments=3

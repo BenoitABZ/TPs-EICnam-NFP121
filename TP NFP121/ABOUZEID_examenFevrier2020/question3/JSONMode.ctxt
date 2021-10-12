@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=JSONMode
+comment1.params=mb\ fileName
+comment1.target=void\ writeMailBox(question1.IMailBox,\ java.lang.String)
+comment2.params=fileName
+comment2.target=question1.IMailBox\ readMailBox(java.lang.String)
+numComments=3

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=TransactionCommand
+comment1.params=
+comment1.target=TransactionCommand()
+comment2.params=entity\ result
+comment2.target=java.io.Serializable\ execute(java.lang.Object,\ java.io.Serializable)
+comment3.params=result
+comment3.target=void\ beginTransaction(java.io.Serializable)
+comment4.params=
+comment4.target=void\ endTransaction()
+comment5.params=
+comment5.target=java.io.Serializable\ rollBack()
+numComments=6

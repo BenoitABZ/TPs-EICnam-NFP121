@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=TestMaillons
+comment1.params=
+comment1.target=void\ setUp()
+comment2.params=
+comment2.target=void\ testPublication()
+comment3.params=
+comment3.target=void\ testMaillons()
+comment4.params=
+comment4.target=void\ testToString()
+comment5.params=
+comment5.target=void\ testMaillonPrioritaire()
+comment6.params=
+comment6.target=void\ testMaillonPrioritaireElementaire()
+comment7.params=
+comment7.target=void\ ignore_testSortieConsoleConforme()
+comment8.params=
+comment8.target=void\ testParIntrospection()
+numComments=9

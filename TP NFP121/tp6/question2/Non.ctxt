@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=bop
+comment0.target=Non(ExpressionBooleenne)
+comment1.target=ExpressionBooleenne\ bop()
+comment2.params=v
+comment2.target=<T>\ T\ accepter(VisiteurExpressionBooleenne<T>)
+numComments=3

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=TraceResultRule
+comment1.params=rule
+comment1.target=TraceResultRule(RuleI)
+comment2.params=
+comment2.target=TraceResultRule()
+comment3.params=e\ r
+comment3.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+numComments=4

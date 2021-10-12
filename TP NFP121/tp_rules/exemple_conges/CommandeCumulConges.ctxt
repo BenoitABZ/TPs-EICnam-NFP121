@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=CommandeCumulConges
+comment1.params=nombre
+comment1.target=void\ setNombre(int)
+comment2.params=agent\ resultat
+comment2.target=ResultatConges\ execute(Agent,\ ResultatConges)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

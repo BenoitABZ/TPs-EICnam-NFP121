@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=SetOf
+comment0.text=\r\n\ Un\ ensemble\ d'\u00E9l\u00E9ments\ de\ type\ T.\r\n\ \r\n\ Pour\ femtoContainer\ afin\ que\ l'on\ puisse\ 'facilement'\ ajouter\ de\ nouveaux\r\n\ \u00E9l\u00E9ments\ \u00E0\ partir\ de\ la\ configuration.\r\n\ \r\n\ \ \ \ \ \ \ \ \ bean.id.K\=xxx\r\n\ \ \ \ \ \ \ \ \ xxx.class\=exemple_kindergarten.entity.SetOf\r\n\ \ \ \ \ \ \ \ \ \r\n\ Soit\ \ \ \ xxx.property.N\=add\r\n\ \ \ \ \ \ \ \ \ xxx.property.N.param.1\=a\r\n\ \ \ \ \ \ \ \ \ \r\n\ ou\ bien\ xxx.property.N\=addAll\r\n\ \ \ \ \ \ \ \ \ xxx.property.N.param.1\=a\ b\ c\ d\r\n
+comment1.params=t
+comment1.target=void\ setAdd(java.lang.Object)
+comment1.text=\ Syntaxe\ de\ mutateur\ pour\ l'appel\ d'une\ m\u00E9thode\ ordinaire...\ \r\n\ \ \r\n
+comment2.params=t
+comment2.target=void\ setAddAll(java.lang.Object[])
+comment2.text=\ Syntaxe\ de\ mutateur\ pour\ l'appel\ d'une\ m\u00E9thode\ ordinaire...\ \r\n\ \ \r\n
+numComments=3

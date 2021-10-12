@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=CompositeSpecification
+comment1.params=
+comment1.target=CompositeSpecification()
+comment2.params=specifications
+comment2.target=void\ setSpecifications(SpecificationI[])
+comment3.params=spec
+comment3.target=CompositeSpecification\ add(SpecificationI)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

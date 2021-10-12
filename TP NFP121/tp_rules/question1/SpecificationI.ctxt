@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=SpecificationI
+comment0.text=\ L'interface\ SpecificationI.\r\n\ @param\ <E>\ L'entit\u00E9\ m\u00E9tier,\ sur\ laquelle\ porte\ la\ condition.\r\n
+comment1.params=e
+comment1.target=boolean\ isSatisfiedBy(java.lang.Object)
+comment1.text=\ La\ condition\ \u00E0\ satisfaire.\r\n\ @param\ e\ le\ param\u00E8tre\ de\ la\ m\u00E9thode\r\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\ Cf.\ le\ Patron\ interpreter,\ ici\ refl\u00E9t\u00E9\ par\ toString().\r\n\ @return\ une\ forme\ lisible\ \r\n
+numComments=3

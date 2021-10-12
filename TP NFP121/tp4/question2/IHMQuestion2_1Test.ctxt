@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=IHMQuestion2_1Test
+comment1.params=
+comment1.target=void\ test_presence_fichiers_question2()
+comment2.params=
+comment2.target=void\ setUp()
+comment2.text=\r\n\ Met\ en\ place\ les\ engagements.\r\n\r\n\ M\u00E9thode\ appel\u00E9e\ avant\ chaque\ appel\ de\ m\u00E9thode\ de\ test.\r\n
+comment3.params=
+comment3.target=void\ tearDown()
+comment4.params=
+comment4.target=void\ test_clic_bouton_A()
+comment5.params=
+comment5.target=void\ test_clic_bouton_B()
+comment6.params=
+comment6.target=void\ test_clic_bouton_C()
+comment7.params=x\ y
+comment7.target=void\ mouseMoveAndClick(int,\ int)
+numComments=8

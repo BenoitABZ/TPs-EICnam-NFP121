@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=AST_SOM_F
+comment0.text=\n\ D\u00E9crivez\ votre\ classe\ AST_SOM_F\ ici.\n\ \n\ @author\ (votre\ nom)\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\n
+comment1.params=n
+comment1.target=AST_SOM_F(int)
+comment2.params=
+comment2.target=tp6.question1.Contexte\ getMem()
+comment3.params=
+comment3.target=tp6.question3.Instruction\ getAST()
+numComments=4

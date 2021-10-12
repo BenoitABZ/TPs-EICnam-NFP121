@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MacroCommandException
+comment1.params=exception
+comment1.target=void\ setException(CommandI)
+comment2.params=e\ r
+comment2.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+numComments=3

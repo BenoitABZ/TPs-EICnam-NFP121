@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=pile
+comment0.target=Vue(PileModele)
+comment1.params=obs\ arg
+comment1.target=void\ update(java.util.Observable,\ java.lang.Object)
+numComments=2

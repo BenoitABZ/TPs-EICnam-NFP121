@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ChildAgeBetweenInclSpecification
+comment1.params=min\ max
+comment1.target=ChildAgeBetweenInclSpecification(int,\ int)
+comment2.params=
+comment2.target=ChildAgeBetweenInclSpecification()
+comment3.params=min
+comment3.target=void\ setMin(int)
+comment4.params=max
+comment4.target=void\ setMax(int)
+comment5.params=t
+comment5.target=boolean\ isSatisfiedBy(exemple_kindergarten.entity.Child)
+numComments=6

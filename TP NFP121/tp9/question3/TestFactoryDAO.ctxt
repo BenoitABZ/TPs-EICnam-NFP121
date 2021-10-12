@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=TestFactoryDAO
+comment1.params=
+comment1.target=void\ testClear()
+comment2.params=
+comment2.target=void\ testAjoutDePlusieursAuditeurs()
+comment3.params=
+comment3.target=void\ testPlusieursCreatePlusieursDelete()
+numComments=4

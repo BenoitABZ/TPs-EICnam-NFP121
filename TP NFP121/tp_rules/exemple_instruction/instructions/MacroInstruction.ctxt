@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=MacroInstruction
+comment1.params=instructions
+comment1.target=void\ setInstructions(Instruction[])
+comment2.params=trace
+comment2.target=void\ setTrace(boolean)
+comment3.params=e\ memory
+comment3.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+numComments=4

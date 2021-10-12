@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=TableMethodesJavaLangMath\ getInstance()
+comment1.target=TableMethodesJavaLangMath()
+comment2.params=nomDeLaM\u00E9thode
+comment2.target=boolean\ cetteMethodeEstPresente(String)
+comment2.text=\n@param\ \ nomDeLaM\u00E9thode\ Nom\ de\ la\ fonction\ +\ "(double)"\ ou\ "(double,\ double)"\n@return\ true\ si\ la\ fonction\ est\ pr\u00E9sente\n\n
+comment3.params=nomDeLaMethode
+comment3.target=boolean\ cetteMethodeAttendDeuxParametres(String)
+comment3.text=\n@param\ \ nomDeLaM\u00E9thode\ Nom\ de\ la\ fonction\ +\ "(double)"\ ou\ "(double,\ double)"\n@return\ true\ si\ la\ fonction\ est\ binaire,\ d'arit\u00E9\ 2\n@throws\ NoSuchElementException\ si\ la\ m\u00E9thode\ demand\u00E9e\ n'existe\ pas\n\n
+comment4.params=nomDeLaMethode
+comment4.target=boolean\ cetteMethodeAttendUnSeulParametre(String)
+comment4.text=\n@param\ \ nomDeLaM\u00E9thode\ Nom\ de\ la\ fonction\ +\ "(double)"\ ou\ "(double,\ double)"\n@return\ true\ si\ la\ fonction\ est\ unaire,\ d'arit\u00E9\ 1\n@throws\ NoSuchElementException\ si\ la\ m\u00E9thode\ demand\u00E9e\ n'existe\ pas\ \n\n
+comment5.target=String[]\ listeDesMethodes()
+comment5.text=\nObtention\ de\ la\ liste\ ordonn\u00E9e\ des\ m\u00E9thodes\n@return\ la\ liste\ tri\u00E9e\ des\ fonctions\ issues\ de\ java.lang.Math\n\n
+comment6.params=nomDeLaMethode\ arg1
+comment6.target=double\ invoquer(String,\ double)
+comment6.text=Invocation\ d'une\ m\u00E9thode\ de\ la\ table\n@param\ \ nomDeLaM\u00E9thode\ Nom\ de\ la\ fonction\ +\ "(double)"\n@param\ arg1\ l'op\u00E9rande\n@return\ un\ r\u00E9sultat\n@throws\ NoSuchElementException\ si\ la\ m\u00E9thode\ demand\u00E9e\ n'existe\ pas\ ou\ une\ exception\ lev\u00E9e\ par\ la\ fonction\ appel\u00E9e\n\n
+comment7.params=nomDeLaMethode\ arg1\ arg2
+comment7.target=double\ invoquer(String,\ double,\ double)
+comment7.text=Invocation\ d'une\ m\u00E9thode\ de\ la\ table\n@param\ \ nomDeLaM\u00E9thode\ Nom\ de\ la\ fonction\ +\ "(double,\ double)"\n@param\ arg1\ l'op\u00E9rande\n@return\ un\ r\u00E9sultat\n@throws\ NoSuchElementException\ si\ la\ m\u00E9thode\ demand\u00E9e\ n'existe\ pas\ ou\ une\ exception\ lev\u00E9e\ par\ la\ fonction\ appel\u00E9e\n\n
+numComments=8

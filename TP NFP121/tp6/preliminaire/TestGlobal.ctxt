@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=void\ setUp()
+comment1.target=void\ test_UneConstante()
+comment2.target=void\ test_DeVariables()
+comment3.target=void\ test_UneAddition1()
+comment4.target=void\ test_UneAutreAddition2()
+comment5.target=void\ test_Multiplication()
+comment6.target=void\ test_Division()
+comment7.target=void\ testFactorielEtMoins()
+comment8.target=void\ testToString()
+numComments=9

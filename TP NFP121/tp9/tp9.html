@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<link rel="stylesheet" type="text/css" href="css/style.css"></head>
+<body>
+    
+    <div id="container">
+        <div id="header">
+            <div id="header_toprow">
+                Conservatoire national des arts et métiers
+            </div>
+            <div id="header_title">
+                NFP121 : Programmation avancée<br>
+                TP n° 9 - XML &amp; DAO</div>
+        </div>
+        <div id="content">
+
+            <div class="paragraphe">
+                Préalable :<br>
+                <ul>
+                    <li>Rudiments de XML</li>
+                </ul>
+
+                Thèmes du TP :<br>
+                <ul>
+                    <li>Le TP6 revisité</li>
+                    <li>Persistance :java _sérialisation, XML-JDOM</li>
+                    <li>Les patrons DAO et DAOFactory</li>
+                </ul>
+                <br>
+                <b>Note</b>
+: Aucune installation supplémentaire n'est nécessaire, votre projet
+BlueJ contient déjà l'archive jdom.jar(question2) et
+hsqldb.jar(question3). Ces API se trouvent dans le répertoire ./+libs.<br>
+Au moment de la remise du rapport, lors de la génération de l'archive,
+(Menu Projet/exporter(jar), n'oubliez pas&nbsp;retirer ces deux
+fichiers (jdom.jar et hasqldb1.8.jar) ainsi que le répertoire coverage
+obtenu via l'outil cobertura. </div>
+            <br>
+            <hr>
+
+            <div class="question">
+                <img src="images/question1_1.png" height="80" width="111">
+                <span>AST du TP6 et Sérialisation java </span>
+            </div>
+
+            <div class="paragraphe">
+                On reprend le TP6 avec ses Expressions arithmétiques, ses Expressions booléennes et ses Instructions.<br>
+                <br>
+                <b>Rappel :</b>
+cet ensemble de Classes permet de spécifier les Arbres de Syntaxe
+Abstraite (AST) de petits programmes du petit langage : 'WhileL'.<br>
+                <br>
+                Exemple : 
+            </div>
+            <br>
+
+
+            <table class="center">
+                <tbody><tr>
+                    <td><b>Programme</b></td>
+                    <td>
+                        <code>
+                            <font color="#000000">x&nbsp;:=&nbsp;</font><font color="#990000">5</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#000000">y&nbsp;:=&nbsp;x&nbsp;+&nbsp;</font><font color="#990000">7</font><font color="#000000">;</font>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>AST</b></td>
+                    <td>
+                        <code>
+                            <font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Sequence</font><font color="#000000">(</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Affectation</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Variable</font><font color="#000000">(</font><font color="#2a00ff">"x"</font><font color="#000000">)</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Constante</font><font color="#000000">(</font><font color="#990000">5</font><font color="#000000">))</font><font color="#000000">,</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Affectation</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Variable</font><font color="#000000">(</font><font color="#2a00ff">"y"</font><font color="#000000">)</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Addition</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Variable</font><font color="#000000">(</font><font color="#2a00ff">"x"</font><font color="#000000">)</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Constante</font><font color="#000000">(</font><font color="#990000">7</font><font color="#000000">)))</font>
+                            <br>
+                            <font color="#000000">)</font>
+                        </code>
+                    </td>
+                </tr>
+            </tbody></table>
+            <br>
+            <div class="paragraphe">
+                <b>Compléter les classes suivantes par l'AST correspondant au Programme donné en commentaire et rappelé dans le tableau suivant.</b><br>
+                <br>
+                (Remarque :  c'est un exercice d'écriture .!.). 
+            </div>
+            <br>
+
+            <table class="center">
+                <tbody><tr>
+                    <td><b>Nom de la Classe</b></td>
+                    <td><b>Programme (commentaire)</b></td>
+                </tr>
+                <tr>
+                    <td>AST_Fact</td>
+                    <td>
+                        <code>
+                            <font color="#000000">xxx&nbsp;:=&nbsp;n;</font>
+                            <br>
+                            <font color="#000000">fact&nbsp;:=&nbsp;</font><font color="#990000">1</font><font color="#000000">;&nbsp;</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">~</font><font color="#000000">(</font><font color="#000000">xxx=</font><font color="#990000">0</font><font color="#000000">))&nbsp;</font><font color="#7f0055"><b>do</b></font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">fact&nbsp;:=&nbsp;fact&nbsp;*&nbsp;xxx&nbsp;;&nbsp;xxx&nbsp;:=&nbsp;xxx&nbsp;-&nbsp;</font><font color="#990000">1</font><font color="#000000">;&nbsp;</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">ftp;</font>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AST_Mult1</td>
+                    <td>
+                        <code>
+                            <font color="#000000">produit&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#7f0055"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">b&nbsp;&gt;&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>do</b></font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">produit&nbsp;:=&nbsp;produit&nbsp;+&nbsp;a;&nbsp;b&nbsp;:=&nbsp;b&nbsp;-&nbsp;</font><font color="#990000">1</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#000000">fpt;</font>
+
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AST_Mult2</td>
+                    <td>
+                        <code>
+                            <font color="#000000">produit&nbsp;:=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#7f0055"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">m2&nbsp;&gt;&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>do</b></font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">m2&nbsp;/&nbsp;</font><font color="#990000">2&nbsp;</font><font color="#000000">*&nbsp;</font><font color="#990000">2</font><font color="#000000">)&nbsp;</font><font color="#000000">=&nbsp;m2&nbsp;then</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">m1&nbsp;:=&nbsp;m1&nbsp;*&nbsp;</font><font color="#990000">2</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">m2&nbsp;:=&nbsp;m2&nbsp;/&nbsp;</font><font color="#990000">2</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">fi;</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">produit&nbsp;&nbsp;:=&nbsp;produit&nbsp;&nbsp;+&nbsp;m1&nbsp;;&nbsp;m2&nbsp;:=&nbsp;m2&nbsp;-&nbsp;</font><font color="#990000">1</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#000000">ftp;</font>
+                        </code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>AST_SOM_W</td>
+                    <td><code>
+                        <font color="#000000">som&nbsp;:=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font>
+                        <br>
+                        <font color="#7f0055"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">n&nbsp;&gt;&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>do</b></font>
+                        <br>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">som&nbsp;:=&nbsp;som&nbsp;+&nbsp;n;</font>
+                        <br>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">n&nbsp;:=&nbsp;n&nbsp;-&nbsp;</font><font color="#990000">1</font><font color="#000000">;</font>
+                        <br>
+                        <font color="#000000">end</font>
+                    </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AST_SOM_F</td>
+                    <td>
+                        <code>
+                            <font color="#000000">som&nbsp;:=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font>
+                            <br>
+                            <font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#000000">i&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;i++</font><font color="#000000">)&nbsp;{&nbsp;(</font><font color="#000000">n&gt;&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;{</font>
+                            <br>
+                            <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">som&nbsp;:=&nbsp;som&nbsp;+&nbsp;i;</font>
+                            <br>
+                            <font color="#000000">}</font>
+                        </code>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <br>
+            <hr>
+            <div class="question">
+                <img src="images/question1_2.png" height="80" width="111">
+                <span>Classe de tests</span>
+            </div>
+
+
+            <div class="paragraphe">
+Vérifiez par une classe de Test (Junit/BlueJ) que l'évaluation d'objets
+instances de toutes vos Classes écrites en Q1.1 donnent les résultats
+attendus. </div>
+            <br>
+            <hr>
+
+            <div class="question">
+                <img src="images/question1_3.png" height="80" width="111">
+                <span>Sérialisation/Désérialisation </span>
+            </div>
+
+            <div class="paragraphe">
+                Construire la Classe "boite à outils" JAVASerialiseDeserialise qui contient les méthodes statiques :<br>
+
+                <div class="codesource">
+                    <code>
+                        </code><ul>
+                            <li>
+                                <font color="#ffffff"></font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">serialjava</font><font color="#000000">(</font><font color="#000000">IProgr&nbsp;progr,&nbsp;String&nbsp;nomDuFichier</font><font color="#000000">){</font><font color="#000000">...</font>
+                                <br>
+                                Devra générer la sérialisation de 'progr' dans le fichier   'nomDuFichier'
+                            </li>
+                            <br>
+                            <li>
+                                <font color="#ffffff"></font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">IProgr&nbsp;deserialjava</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDuFichier</font><font color="#000000">){</font><font color="#000000">...</font>
+                                <br>
+Lit le fichier 'nomFichier' qui doit contenir un objet JAVA de type
+'IProgr' sérialisé et retourne cet objet. </li>
+
+                        </ul>
+                        <br>
+                    
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="question">
+                <img src="images/question1_4.png" height="80" width="111">
+                <span>Classe de tests</span>
+            </div>
+
+            <div class="paragraphe">
+Vérifier par une classe de Test (Junit/BlueJ) que les évaluations de
+(Q1.2) et de nouvelles évaluations après sérialisation et
+désérialisation donnent des résultats identiques.<br>
+                <br>
+                <b>Remarque :</b>  ATTENTION, avant sérialisation il faut rendre les classes à sérialiser "<b>Serializable</b>"... 
+            </div>
+            <br>
+            <hr>
+
+            <div class="question">
+                <img src="images/question2_1.png" height="80" width="111">
+                <span>Les visiteurs JDOM</span>
+            </div>
+
+            <div class="paragraphe">
+(Retour sur le TP6) : Ajouter les visiteurs JDOM pour 'Expression' ,
+'ExpressionBooléenne' et 'Instruction' permettant de générer le code
+XML pour les AST de programmes WhileL. Vous Respecterez le format XML
+suggéré par le fichier XML de <b>AST_Fact</b> :<br>
+                <br>
+                <br>
+            </div>
+            <table class="center">
+                <tbody><tr>
+                    <td>
+                        <div class="codesource">
+                            <code>
+                                <font color="#000000">&lt;?xml&nbsp;version=</font><font color="#2a00ff">"1.0"&nbsp;</font><font color="#000000">encoding=</font><font color="#2a00ff">"UTF-8"</font><font color="#000000">?&gt;</font>
+                                <br>
+                                <font color="#000000">&lt;programme&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;Sequence&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;xxx&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;n&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Sequence&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;fact&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Constante&gt;</font><font color="#990000">1</font><font color="#000000">&lt;/Constante&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Sequence&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;TantQue&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Non&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Egal&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;xxx&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Constante&gt;</font><font color="#990000">0</font><font color="#000000">&lt;/Constante&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Egal&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Non&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Sequence&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;fact&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Multiplication&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;fact&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;xxx&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Multiplication&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;xxx&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Soustraction&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;xxx&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Constante&gt;</font><font color="#990000">1</font><font color="#000000">&lt;/Constante&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Soustraction&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Affectation&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Sequence&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/TantQue&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Afficher&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Variable&gt;fact&lt;/Variable&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Afficher&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Sequence&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/Sequence&gt;</font>
+                                <br>
+                                <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;/Sequence&gt;</font>
+                                <br>
+                                <font color="#000000">&lt;/programme&gt;</font>
+                            </code>
+                        </div>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <br>
+
+            <hr>
+
+            <div class="question">
+                <img src="images/question2_2.png" height="80" width="111">
+                <span>Sérialisation/désérialisation XML</span>
+            </div>
+
+            <div class="paragraphe">
+                Construire la classe "boite à outils" SerialiseDeserialiseAST_XML qui contient les méthodes statiques :<br>
+                <div class="codesource">
+                    <code>
+                        </code><ul>
+                            <li>
+                                <font color="#ffffff"></font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">serialAst2xml</font><font color="#000000">(</font><font color="#000000">IProgr&nbsp;progr,&nbsp;String&nbsp;nomDuFichier</font><font color="#000000">){</font><font color="#000000">...</font>
+                                <br>
+                                Devra génèrer le code XML de 'progr' dans le fichier   'nomDuFichier'
+                            </li>
+                            <br>
+                            <li>
+                                <font color="#ffffff"></font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">Element&nbsp;deserialXml2ast</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDuFichier</font><font color="#000000">)&nbsp;</font><font color="#000000">...</font>
+                                <br>
+                                Retourne l'élément-racine du code XML contenu dans le fichier 'nomDuFichier'.
+                            </li>
+                        </ul>
+                        <br>
+                    
+                </div>
+            </div>
+
+            <div class="paragraphe">
+Hélas, par 'deserialXml2ast' on ne récupère pas un Objet de classe
+IProgr sauf à utiliser des API (Application Programming Interface)
+spécialisées comme les API Beans ou JaxB (qui ne sont pas étudiées dans
+le cadre de ce cours). Donc il faut recréer l'AST "à la main"... </div>
+            <br>
+            <hr>
+
+            <div class="question">
+                <img src="images/question2_3.png" height="80" width="111">
+                <span>XML vers AST</span>
+            </div>
+
+
+
+            <div class="paragraphe">
+                Dans la Classe XML2AST complétez la méthode statique<br>
+                <div class="codesource">
+                    <code>
+                        </code><ul>
+                            <li>
+                                <font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">Instruction&nbsp;xmlInst2ast</font><font color="#000000">(</font><font color="#000000">Contexte&nbsp;m,&nbsp;Element&nbsp;element</font><font color="#000000">)</font>
+                                <br>
+                                Permet de reconstruire un ast (cf. Question1) à partir d'un Elément XML. 
+                        </li></ul>
+                        <br>
+                    
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="question">
+                <img src="images/question2_4.png" height="80" width="111">
+                <span>Classe de tests</span>
+            </div>
+
+            <div class="paragraphe">
+Vérifier par une classe de Test (Junit/BlueJ) que les évaluations de
+(1.2) et de nouvelles évaluations après sérialisation-XML et
+désérialisation-XML + reconstruction de l'AST donnent des résultats
+identiques. <p>&nbsp;</p>
+
+
+
+            <div class="paragraphe">
+                <div class="codesource">
+                    &nbsp;</div>
+            </div>
+
+            <hr>
+
+            <div class="question">
+                <img src="images/question3.png" height="80" width="101"> Le 
+                patron DAO, Data Access Object</div>
+
+            <div class="paragraphe"><span style="font-weight: bold;">Préalable</span><ol><li><span style="font-weight: bold;"></span> <span style="font-weight: bold;">Lire</span>&nbsp;<a href="http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dao.html">http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dao.html</a></li><li>Executez la classe de&nbsp;<span style="font-weight: bold;">AuditeurDAOTests</span>, celle-ci effectue <a href="coverage/index.html">quelques tests</a> de la classe <span style="font-weight: bold;">DBAuditeurDAO, fournie</span> laquelle assure la persistance en base de données d'auditeurs. La base de données utilisée est <a href="http://hsqldb.org/">hsqldb</a> en mode fichier, lisez le code fourni, repérez dans la classe de tests le patron fabrique.<br></li></ol>
+
+<span style="font-weight: bold;">Proposer</span> une implémentation de la classe <b>FileAuditeurDAO </b>de votre choix<b></b>, le patron 
+                DAO permet l'accès à une structure persistante constituée d'une 
+                liste d'auditeurs, à l'identique de la persistance en base de données.<br>
+<br>Dans la classe de tests <span style="font-weight: bold;">DBAuditeurDAOTests</span>, <br>&nbsp; &nbsp;remplacez la ligne 20 : <span style="font-weight: bold;">return getAuditeurDAO("jdbc")</span>;&nbsp; par <span style="color: rgb(102, 0, 0); font-weight: bold;">return getAuditeurDAO("file");</span> la classe de tests doit s'exécuter sans erreur, vous pouvez également la compléter.<br><br><span style="font-weight: bold;">note:</span> Le fichier assurant la persistance doit être format 
+                <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> 
+                (un fichier de lignes de champs séparé par un ";").<p>Architecture des classes 
+                en notation BlueJ/UML</p>
+                <blockquote>
+                  <blockquote>
+                    <p>
+                    <img style="border: 0px solid ; width: 607px; height: 296px;" alt="" src="images/dao.png"></p>
+                  </blockquote>
+                  
+  <p><a href="http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dao.html">&nbsp;</a></p>
+
+                </blockquote>
+            </div>
+
+
+
+            <p>Ci-dessous, un extrait de fichier généré :</p></div>
+                <blockquote>
+            <pre>5;nom_105;prenom_15;nom_15@cnam.fr<br>6;nom_106;prenom_16;nom_16@cnam.fr<br>7;nom_107;prenom_17;nom_17@cnam.fr<br>8;nom_108;prenom_18;nom_18@cnam.fr<br>9;nom_109;prenom_19;nom_19@cnam.fr<br>10;nom_110;prenom_20;nom_20@cnam.fr<br>11;nom_111;prenom_21;nom_21@cnam.fr<br>12;nom_112;prenom_22;nom_22@cnam.fr<br>13;nom_113;prenom_23;nom_23@cnam.fr<br>14;nom_114;prenom_24;nom_24@cnam.fr<br>            </pre>
+                </blockquote>
+
+
+        </div>
+        <div id="footer">
+            <a class="lien" href="http://jfod.cnam.fr/" target="_blank">JFOD</a> | <a class="lien" href="http://deptmedia.cnam.fr/phpBB3/viewforum.php?f=40" target="_blank">FORUM</a> | <a class="lien" href="http://www.cnam.fr/" target="_blank">CNAM</a>
+        </div>
+    </div>
+</body></html>

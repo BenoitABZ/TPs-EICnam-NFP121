@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=MaillonDate
+comment0.text=\r\n\ @author\ Votre\ nom,\ pr\u00E9nom\ \ \ \ //\ a\ completer\r\n
+comment1.params=
+comment1.target=MaillonDate()
+comment2.params=successeur
+comment2.target=MaillonDate(Maillon)
+comment3.params=evenement
+comment3.target=boolean\ executer(question1.EvenementI)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

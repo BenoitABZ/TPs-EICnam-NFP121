@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CommandI
+comment0.text=\ La\ commande\ \u00E0\ ex\u00E9cuter.\r\n\ r\ est\ mutable,\ dont\ le\ contenu\ est\ \u00E9ventuellement\ modifi\u00E9\ par\ \r\n\ l'ex\u00E9cution\ de\ la\ commande\r\n\ @param\ <E>\ l'entit\u00E9\ m\u00E9tier\r\n\ @param\ <R>\ le\ type\ de\ la\ donn\u00E9e\ et\ du\ r\u00E9sultat\r\n
+comment1.params=e\ r
+comment1.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment1.text=\ L'ex\u00E9cution\ de\ la\ commande.\r\n\ @param\ r\ l'entit\u00E9\ transmise\r\n\ @return\ le\ r\u00E9sultat\ retourn\u00E9\r\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\ Patron\ interpreter\ via\ toString.\r\n\ @return\ une\ r\u00E9pr\u00E9sentation\ de\ la\ commande\r\n
+numComments=3

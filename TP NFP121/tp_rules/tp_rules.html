@@ -1,0 +1,421 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="css/style.css"></head><body>
+    
+    <div id="container">
+        <div id="header">
+            <div id="header_toprow">
+                Conservatoire national des arts et métiers
+            </div>
+            <div id="header_title">
+                NFP121 : Programmation avancée<br>
+                TP_rules - Règles en Java
+            </div>
+        </div>
+        <div id="content">
+
+            
+
+            <hr>
+            <div class="question">
+                <img style="width: 101px; height: 80px;" alt="" src="images/prerequis.png"> <span><span style="text-decoration: underline;">Lire</span> les trois documents ci-dessous<br>
+</span>
+            </div>
+
+            <div class="paragraphe">
+                <ol>
+                    </ol>
+<ul>
+  <li><big><span style="font-weight: bold;">Specifications</span></big> par Eric Evans et Martin Fowler <a href="https://www.martinfowler.com/apsupp/spec.pdf">https://www.martinfowler.com/apsupp/spec.pdf</a></li>
+  
+  
+
+</ul>
+<ul>
+  <li><big><span style="font-weight: bold;">Rule Object</span></big> par Ali Arsanjani <a href="https://www.hillside.net/plop/plop2k/proceedings/Arsanjani/Arsanjani.pdf">https://www.hillside.net/plop/plop2k/proceedings/Arsanjani/Arsanjani.pdf</a></li>
+  
+  
+
+</ul>
+<ul>
+  <li><span style="font-weight: bold;"><big>Le Patron Specification pour la gestion de vos règles métiers</big> </span>par Nicolas Lecoz, sur son blog <a href="https://blog.engineering.publicissapient.fr/2009/12/29/le-pattern-specification-pour-la-gestion-de-vos-regles-metier/">ici</a><br>
+  </li>
+</ul>
+&nbsp;
+Note: Les patrons de cet énoncé sont inspirés des deux premiers articles et
+ont largement inspiré l'énoncé de l'examen de janvier 2019, dont certaines questions ont été reprises telles quelles.<br>
+
+            </div>
+            <br>
+
+
+            <div class="paragraphe">
+
+<p class="MsoNormal" style="margin-left: 71.4pt; text-indent: -18pt;"><span class="notranslate"><i><span style="font-weight: bold;">Préambule</span> BlueJ : </i></span><span style="font-style: italic;"><span style="font-weight: bold;">import de la librairie femtoContainer</span></span></p><p class="MsoNormal" style="margin-left: 71.4pt; text-indent: -18pt;"><span style="font-style: italic;"><span style="font-weight: bold;"></span></span></p><ol><li>Téléchargez <a href="http://jfod.cnam.fr/progAvancee/femto_container_distrib_bluej.jar">femtoContainer.jar</a>&nbsp;</li><li>Ajouter cette archive à votre projet tp_rules, Menu <span style="font-weight: bold; font-style: italic;">Outils</span>, item <span style="font-weight: bold; font-style: italic;">Préférences</span>, onglet <span style="font-weight: bold;">Bibliothèques</span><br><img style="width: 801px; height: 235px;" alt="" src="images/preferences.png"></li><li>Redémarrez BlueJ<br><img style="width: 399px; height: 186px;" alt="" src="images/preferences2.png"></li><li>Vérifiez à nouveau Menu <span style="font-weight: bold; font-style: italic;">Outils</span>, item <span style="font-weight: bold; font-style: italic;">Préférences</span>, onglet <span style="font-weight: bold;">Bibliothèques</span>, l'archive doit être <span style="font-weight: bold;">chargée</span><br><img style="width: 809px; height: 241px;" alt="" src="images/preferences3.png"></li></ol>
+<p class="MsoNormal"><br>
+</p>
+
+
+</div>
+            <br>
+
+
+            <div class="paragraphe">
+
+<p class="MsoNormal" style="text-indent: 35.4pt;"><span class="notranslate"><i><span style="font-weight: bold;">Préambule</span> : Les
+règles métiers changent régulièrement.</i></span> <span class="notranslate"><i>Comment
+prendre en compte ces changements tout en assurant les systèmes maintenables,
+réutilisables et extensibles ?</i></span> <span class="notranslate"><i>Comment représenter
+des règles, pour une plus grande réutilisation et assurer une maintenabilité
+plus facile ?</i></span> <o:p></o:p></p>
+
+
+<p class="MsoNormal"><span class="notranslate"><i><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Ces
+règles sont généralement implémentées dans les méthodes d'un objet métier.</i></span>
+<span class="notranslate"><i>Elles font référence à d'autres objets métier, et<span style="">&nbsp; </span>prennent souvent la forme d'instructions
+"<b>si-alors-sinon</b>", disséminées dans le code devenant de fait,
+difficile à faire évoluer, à maintenir...</i></span></p>
+<p class="MsoNormal"><big><big><span class="notranslate"><small><small>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Les patrons de
+cet énoncé rassemblent les règles métiers "au même endroit" d&#8217;un
+système et ainsi, fournissent une première réponse à une meilleure
+réutilisation et maintenance. Les patrons Specification, Command et
+Rule permettent de définir une suite de règles de type si-alors-sinon :
+Si la spécification est satisfaite alors la commande est exécutée. </small></small><i><br>
+</i></span></big></big></p>
+
+
+
+
+<small><small><small><span style="font-size: 12pt; font-weight: normal;"></span></small></small></small><span style="font-size: 12pt; font-weight: normal;"><i style=""><o:p></o:p></i></span>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 71.4pt; text-indent: -18pt;"><span style="font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span><big>Le patron <b style=""><i style=""><span style="color: rgb(153, 51, 0);">Specification</span></i></b>
+en <span style="font-weight: bold;">question 1</span> permet de représenter la ou les conditions à satisfaire,<o:p></o:p></big></p>
+<p class="MsoNormal" style="margin-left: 71.4pt; text-indent: -18pt;"><big><span style="font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span>Le patron <b style=""><i style=""><span style="color: green;">Command</span></i></b>
+en <span style="font-weight: bold;">question 2</span> représente la ou les commandes à exécuter,<o:p></o:p></big></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 71.4pt; text-indent: -18pt;"><big><span style="font-family: Symbol;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span>Enfin, le patron <b style=""><i style="">Rule</i></b> en <span style="font-weight: bold;">question 3</span>
+exprime une règle ou une suite de règles de type:<span style="">&nbsp; </span><br>
+<span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="">&nbsp;</span><span style="">Si</span><b style=""> <i style="">la <span style="color: rgb(153, 51, 0);">spécification</span> est satisfaite</i> </b><span style="">alors</span></big>
+<b style=""><big> <i style="">la <span style="color: green;">commande</span>
+</i>est exécutée</big><i style=""><big>.</big> </i></b><o:p></o:p></p>
+<p class="MsoNormal"><br>
+</p>
+
+
+</div>
+
+            <hr>
+
+            <div class="question">
+                <img src="images/question1.png" height="80" width="101"> Le patron Composite/Specification
+            </div>
+
+            <div class="paragraphe">
+
+<p class="MsoBodyTextIndent" style="text-align: justify;">&nbsp;&nbsp;&nbsp; Ce patron permet représenter
+une condition à satisfaire. Une condition peut être construite à l'aide des
+opérateurs logiques tels que le <b>Et</b> (And), le <b>Ou</b> (Or), la négation
+et d&#8217;autres <a href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_%28logique%29">opérateurs</a> comme <b>OnlyOne</b>(Une et une seule des conditions est
+satisfaite) ainsi que <b>OneOf</b>(une des conditions&nbsp;est satisfaite), <span style="font-weight: bold;">None</span> aucune des conditions est satisfaite etc...<o:p></o:p></p>
+
+
+<p class="MsoBodyTextIndent" style="text-align: justify;"><o:p>&nbsp;</o:p></p>
+
+
+</div>
+            
+<div style="margin-left: 40px;"><img style="width: 833px; height: 463px;" alt="" src="images/specification.jpg"><br>
+</div>
+<span style="font-family: monospace;"><br>
+<br>
+</span><span style="font-family: monospace;"></span>
+<pre><big>package question1;<br>/** <big><span style="font-weight: bold;">L'interface SpecificationI.</span></big><br> * <big><span style="font-weight: bold;">@param &lt;E&gt; L'entité métier, sur laquelle porte la condition.</span></big><br> */<br>public interface SpecificationI&lt;E&gt;{<br>    /** La condition à satisfaire.<br>     * @param e le paramètre de la méthode<br>     */<br>    public abstract boolean isSatisfiedBy(E e);<br>    <br>    /** Cf. le Patron interpreter, ici reflété par toString().<br>     * @return une forme lisible <br>     */<br>    public abstract String toString();<br>}<br></big><br></pre>
+<span style="font-family: monospace;"></span>
+<p class="MsoBlockText" style="margin-left: 0cm; text-indent: 9pt;"><b style="">Question1-1)</b> Complétez les différentes classes du composite <span style="font-weight: bold; font-style: italic;">Specification</span>, la
+classe de tests unitaires ne doit pas être simplifiée mais enrichie et s'exécute sans
+erreur.<br>
+
+<br>
+&nbsp;&nbsp;&nbsp;
+<b style="">Question1-2) <o:p></o:p></b>Proposez une
+implémentation de la classe <b style=""><i style="">ReflectSpecification</i></b> qui permet de générer
+une specification à partir des noms des classes.</p>
+<p class="MsoBlockText" style="margin-left: 0cm; text-indent: 9pt;"><b style="">Question1-3) <o:p></o:p></b>Complétez la classe de tests unitaires TestsSpecification</p>
+
+
+
+
+
+
+            <hr>
+
+            <div class="question">
+                <img src="images/question2.png" height="80" width="101"> Le patron Composite/Command<span></span>
+            </div>
+            <div class="paragraphe">
+                
+
+<p class="MsoBodyTextIndent" style="text-align: justify;">Ce patron permet de représenter
+une commande (Command) ainsi qu&#8217;une suite de commandes (MacroCommand) à exécuter. <o:p></o:p></p>
+
+
+
+
+<a target="_blank" href="http://jfod.cnam.fr/progAvancee/objects-first-ch1.pdf"></a></div>
+            
+<span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,serif;"><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:314.25pt;
+ height:184.5pt'>
+ <v:imagedata src="file:///C:/Users/douin/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><!--[endif]--></span>
+<img style="width: 649px; height: 508px;" alt="" src="images/command.jpg"><br>
+<div style="margin-left: 40px;">
+<br>
+<pre><br>/** La commande à exécuter.<br> * r est mutable, dont le contenu est éventuellement modifié par <br> * l'exécution de la commande<br><big><big><span style="font-weight: bold;"> * @param &lt;E&gt; l'entité métier</span><br style="font-weight: bold;"><span style="font-weight: bold;"> * @param &lt;R&gt; le type de la donnée et du résultat</span></big></big><br> */<br>public interface CommandI&lt;E,R&gt;{<br>    /** L'exécution de la commande.<br>     * @param r l'entité transmise<br>     * @return le résultat retourné<br>     */<br>    public R execute(E e, R r) throws Exception;<br><br>    /** Patron interpreter via toString.<br>     * @return une réprésentation de la commande<br>     */<br>    public String toString();<br> <br><br>}<br></pre>
+<br><b style="">Question2-1)</b> Complétez les différentes classes du composite Command, la
+classe de tests unitaires ne doit pas être modifiée et s'exécute sans
+erreur.<br>
+<br>
+<b style="">Question2-2) <o:p></o:p></b>Proposez une
+implémentation de la classe <b style=""><i style="">ReflectCommand</i></b> qui permet de générer
+une commande à partir des noms des classes<br>
+<br>
+<b style="">Question2-3) <o:p></o:p></b>Complétez la classe de tests unitaires TestsCommands<br>
+<p class="MsoNormal" style="margin-right: -41.4pt;"><o:p></o:p></p>
+
+
+<br>
+</div>
+
+
+            <hr>
+            <div class="question">
+                <img src="images/question3.png" height="80" width="101"> Le patron Rule<span></span>
+            </div>
+            <div class="paragraphe">
+                
+
+<p class="MsoNormal" style="margin-left: 18pt;">Le patron <b style=""><i style="">Rule</i></b><span style="">&nbsp; </span>permet d&#8217;exprimer une règle ou une suite de
+règles de type :<o:p></o:p></p>
+
+
+
+
+<p class="MsoNormal" style="margin-left: 30.48pt;"><big><span style="" lang="EN-GB">if <span style="color: rgb(204, 0, 0);">(</span><b style="color: rgb(204, 0, 0);"><i style="">specification</i></b><span style="color: rgb(204, 0, 0);">.</span>isSatisfiedBy(e)) then return
+<b style="color: rgb(0, 153, 0);"><i style="">command</i></b><span style="color: rgb(0, 153, 0);">.</span>execute(r)
+else return r</span></big></p>
+
+<p class="MsoNormal" style="margin-left: 30.48pt;"><big><span style="" lang="EN-GB">dans laquelle </span></big><big><span style="" lang="EN-GB"><b style="color: rgb(204, 0, 0);"><i style="">specification</i></b><span style="color: rgb(204, 0, 0);"> </span></span></big><big><span style="" lang="EN-GB">est une instance du composite <span style="font-weight: bold; font-style: italic;">Specification</span> issue de la question 1<br>
+et <span style="font-weight: bold; font-style: italic; color: rgb(0, 153, 0);">command</span> est une instance du composite de la question2<br>
+</span></big></p>
+
+<div style="margin-left: 40px;"><br>
+</div>
+<div style="margin-left: 80px;"><img style="width: 626px; height: 440px;" alt="" src="images/rule.jpg"><br>
+</div>
+
+<p class="MsoNormal" style="margin-left: 30.48pt;">
+
+</p>
+<pre><span style="font-weight: bold;">&nbsp;&nbsp; package question3;<br><br><br>/** La classe Règle.<br></span><big style="font-weight: bold;"> *  @param &lt;E&gt; La classe de l'entité sur laquelle porte la condition/specification <br> *  @param &lt;R&gt; la classe de la donnée et du résultat</big><span style="font-weight: bold;"><br> */<br>public interface RuleI&lt;E,R&gt;{<br>    <br>    /**<br>     * Exécution d'une règle de type if/then.<br>     * @param e l'entité sur laquelle porte la condition<br>     * @param r la donnée transmise<br>     * @return si la condition n'est pas satisfaite r est retourné, <br>     *         sinon le résultat de l'exécution de la commande est retourné<br>     */<br>    public R execute(E e,R r) throws Exception;<br>    <br>}<br><br></span></pre>
+<p><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp; Note</span><span style="font-weight: bold;"></span> <o:p></o:p>Le
+patron décorateur est utilisé comme outil de trace perfectible des
+règles exécutées, ci-dessous vous avez un exemple de traces obtenues issu de la classe de
+tests unitaires</p>
+<pre>pre_execute:[e/3,r/0]	if(estSuperieur_a_0)then(MacroCommand(inc/inc))post_execute:[e/3,r'/2]<br>pre_execute:[e/5,r/2]	if(estSuperieur_a_0)then(MacroCommand(inc/inc))post_execute:[e/5,r'/4]<br>pre_execute:[e/5,r/0]	if(estSuperieur_a_0)then(MacroCommand(inc/inc))post_execute:[e/5,r'/2]<br>pre_execute:[e/5,r/2]	if(estSuperieur_a_0)then(MacroCommand(inc/inc))post_execute:[e/5,r'/4]<br>pre_execute:[e/5,r/4]	if(estSuperieur_a_0)then(MacroCommand(inc/inc))post_execute:[e/5,r'/6]<br><br>Pour la dernière ligne, nous avons en entrée l'entité e=5 et r=4, en sortie nous avons e/5 et r'=6, <br>soit le résultat r' de l'exécution de la règle if(e&gt;0)then r'=r+2<br><br><b><i style=""></i></b></pre>
+<p><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp; Question3-1)</span> <o:p></o:p>Ecrivez une
+implémentation<b> complète de la classe <i style="">Rules</i></b></p>
+<p><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp; Question3-2)</span> Proposez une
+implémentation<b> complète de la classe ReflectRule.<i style=""></i></b></p>
+
+<p><b style="">&nbsp;&nbsp;&nbsp; Question3-3) <o:p></o:p></b>Complétez la classe de tests unitaires TestsRules<br>
+<b><i style=""><o:p></o:p></i></b></p>
+
+&nbsp; <b style="">&nbsp; Question3-4) <o:p></o:p></b>Ajoutez le décorateur de votre choix, un générateur de fichiers XML, une trace d'exécution plus pertinente et persitante ?...<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;
+<b style="">Question3-5) </b>Des exemples se trouvent dans plusieurs paquetages, complétez l'exemple de votre choix en ajoutant des règles : <br>
+
+<ul>
+<li><span style="font-weight: bold;">exemple_conges</span> : un exemple de calcul fantaisiste des congés d'un employé de mairie qui n'existe pas...<small><small> voir note en bas de page<br>
+    <br>
+</small></small></li><li><span style="font-weight: bold;">exemple_kindergarten</span> : extrait du <a href="https://github.com/marcinkoziarz/specification-pattern-example">github</a>,
+de l'auteur Marcin Koziarz, un jardin d'enfants, avec johny, max,
+jenny... des jouets des règles et des interrogations, cet exemple est repris
+avec le fameux outil femtoContainer ce qui permet l'injection de nouvelles règles, sans modifier le code initial.<br>
+<br></li>
+</ul>
+<div style="margin-left: 80px;"><img style="width: 343px; height: 323px;" alt="" src="images/classes_q3.png"><br>
+<br>
+</div>
+<div style="margin-left: 40px;">
+<ul>
+  <li><span style="font-weight: bold;">exemple_instruction</span>
+: un prototype d'écriture de code java par injection, l'exécution du
+programme est liée au fichier de configuration, une&nbsp;modification
+du fichier de configuration engendre une nouvelle exécution du code
+Java qui est injecté, c'est un prototype perfectible ou serait-ce une
+tentative de génération de coe automatique ? ou bien un exercice de
+style...<br>
+    <br>
+</li><li><span style="font-weight: bold;">exemple_VES</span>
+au Cnam recenserait les <a href="http://deptinfo.cnam.fr/new/spip.php?pdoc13437">cas de jurisprudence</a>, un
+exemple de ce qui pourrait être mis en oeuvre avec le patron
+specification, une variabilité des règles est aussi attendue, ne prenez
+qu'un seul ou une partie d'un dipôme comme la licence d'informatique, la totalité des
+cas&nbsp;serait bien trop
+chronophage dans le contexte d'un TP.<br>
+<br>
+  </li>
+</ul>
+</div>
+
+<br>&nbsp;
+<b style=""><br>
+</b>
+
+
+
+
+
+
+            
+<hr>
+            
+<div class="question">
+                <img style="width: 101px; height: 80px;" alt="" src="images/question4.png"> Usage de femtoContainer<span></span>
+            </div>
+<span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,serif;"><br>
+</span><span style="font-weight: bold;">&nbsp; Les règles sont maintenant injectées </span>à
+l'aide d'un fichier de configuration et surtout grâce à l'incroyable outil
+<span style="font-weight: bold;">femtoContainer</span>, le chargement du fichier de configuration s'effectue ici depuis la classe de Tests<br>
+<br>
+<br>
+<div style="margin-left: 80px;"><img style="width: 550px; height: 431px;" alt="" src="images/gemto_q4.jpg"><br>
+</div>
+<br>
+La configuration femtoContainer, cf. fichier <span style="font-weight: bold;">READEME.TXT, l'cône document en haut à gauche</span><br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <div style="margin-left: 40px;"><small>bean.id.1=i<br>
+i.class=java.util.concurrent.atomic.AtomicInteger<br>
+      <br>
+bean.id.2=inf10<br>
+inf10.class=question4.TestsRulesWithFemtoContainer$LessThan<br>
+inf10.property.1=operand<br>
+inf10.property.1.param.1=10<br>
+      <br>
+bean.id.3=inc1<br>
+inc1.class=question4.TestsRulesWithFemtoContainer$IncCommand<br>
+inc1.property.1=delta<br>
+inc1.property.1.param.1=1<br>
+      <br>
+bean.id.4=inc2<br>
+inc2.class=question4.TestsRulesWithFemtoContainer$IncCommand<br>
+inc2.property.1=delta<br>
+inc2.property.1.param.1=2<br>
+      <br>
+bean.id.5=inc<br>
+inc.class=question2.MacroCommand<br>
+inc.property.1=commands<br>
+inc.property.1.param.1=inc1 inc1<br>
+#inc.property.1.param.1=inc2 inc2<br>
+      <br>
+bean.id.6=rule1<br>
+rule1.class=question3.Rule<br>
+rule1.property.1=specification<br>
+rule1.property.1.param.1=inf10<br>
+rule1.property.2=command<br>
+rule1.property.2.param.1=inc</small><br>
+      </div>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<b><i style=""><o:p></o:p></i></b>
+
+
+
+
+
+
+
+
+
+<p class="MsoBlockText" style="margin-left: 0cm; text-indent: 9pt;"><b style="">&nbsp; Question4-1) <o:p></o:p></b>Lire, et éventuellement, complétez la classe de tests unitaires <br>
+<br>
+</p>
+<p class="MsoBlockText" style="margin-left: 0cm; text-indent: 9pt;">&nbsp; <b style="">Question4-2) <o:p></o:p></b>Proposez un exemple de votre
+choix, qui utilise le célèbre outil d'injection femtoContainer. Si aucune idée simple ne vient, prenez l'exemple du <a href="https://blog.engineering.publicissapient.fr/2009/12/29/le-pattern-specification-pour-la-gestion-de-vos-regles-metier/">blog de Nicolas Lecoz</a> cité dans les pré-requis, ajoutez quelques règles prêtes à être injectées. <b style=""><br>
+</b></p>
+<br>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;"></span><b style="">Question4-3) Contribuez</b> en enrichissant la base d'exemples de l'usage de femtoContainer pour les auditeurs de cette unité<br><br>
+<br>
+&nbsp; <span style="font-weight: bold;"></span><b style="">&nbsp; Question4-4) <o:p style="font-weight: bold;"></o:p></b><span style="font-weight: bold;">Optionnelle</span>, Cherchez sur le web un outil d'injection de dépendances, lisez la mise
+en oeuvre, extrait de <a href="https://en.wikipedia.org/wiki/Dependency_injection">wikipedia</a>&nbsp;&nbsp;&nbsp; <a href="https://en.wikipedia.org/wiki/Application_framework" title="Application framework">Application frameworks</a> such as <a rel="nofollow" class="external text" href="http://cdi-spec.org/">CDI</a> and its implementation <a rel="nofollow" class="external text" href="http://weld.cdi-spec.org/">Weld</a>, <a href="https://en.wikipedia.org/wiki/Spring_Framework" title="Spring Framework">Spring</a>, <a href="https://en.wikipedia.org/wiki/Guice" class="mw-redirect" title="Guice">Guice</a>, <a href="https://en.wikipedia.org/wiki/Play_framework" class="mw-redirect" title="Play framework">Play framework</a>, <a rel="nofollow" class="external text" href="https://ruediste.github.io/salta/">Salta</a>, <a href="https://en.wikipedia.org/wiki/HK2_DI_Kernel" title="HK2 DI Kernel">Glassfish HK2</a>, <a rel="nofollow" class="external text" href="https://google.github.io/dagger/">Dagger</a>, and <a href="https://en.wikipedia.org/wiki/Managed_Extensibility_Framework" title="Managed Extensibility Framework">Managed Extensibility Framework</a> (MEF) support dependency injection but are not required to do dependency injection<br>
+<br>
+<big><span style="font-weight: bold;"></span></big><o:p></o:p>
+<p><span style=""><span style="font-weight: bold;"><br>
+</span></span></p>
+
+<p><span style=""><span style="font-weight: bold;">Note sur les congés</span>: </span>Les
+règles des congés pour un agent territorial ont été mises en oeuvre par
+Mengsi&nbsp;WU, étudiante en 2ème année à l'IIE/Cnam en 2018, au total 70 Règles, son <a href="http://douin.free.fr/NFP121/Rapport_de_stage_VIP_BL.pdf">rapport est ic</a>i, il contient également plusieurs exemples...</p>
+
+
+
+
+
+<a href="http://jfod.cnam.fr/jnews/interrogation/listeDesInscrits.html?ue=NFP121" target="_blank"></a>
+            </div>
+        </div>
+        <div id="footer">
+            <a class="lien" href="http://jfod.cnam.fr/" target="_blank">JFOD</a> | <a class="lien" href="http://deptmedia.cnam.fr/phpBB3/viewforum.php?f=40" target="_blank">FORUM</a> | <a class="lien" href="http://www.cnam.fr/" target="_blank">CNAM</a>
+        </div>
+    </div>
+</body></html>

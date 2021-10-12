@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Sequence
+comment1.params=instruction1
+comment1.target=void\ setInstruction1(Instruction)
+comment2.params=instruction2
+comment2.target=void\ setInstruction2(Instruction)
+comment3.params=trace
+comment3.target=void\ setTrace(boolean)
+comment4.params=e\ memory
+comment4.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+numComments=5

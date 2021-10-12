@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=DBAuditeurDAO
+comment1.params=driverJDBC\ DB_URL
+comment1.target=DBAuditeurDAO(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=void\ createTable()
+comment3.params=a
+comment3.target=void\ create(Auditeur)
+comment4.params=id
+comment4.target=Auditeur\ retrieve(java.lang.Integer)
+comment5.params=
+comment5.target=java.util.List\ findAll()
+comment6.params=a
+comment6.target=void\ update(Auditeur)
+comment7.params=id
+comment7.target=void\ delete(java.lang.Integer)
+numComments=8

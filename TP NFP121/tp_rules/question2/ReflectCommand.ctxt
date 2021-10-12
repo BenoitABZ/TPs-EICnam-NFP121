@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ReflectCommand
+comment1.params=command
+comment1.target=void\ setCommand(java.lang.String)
+comment2.params=entity\ result
+comment2.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+numComments=3

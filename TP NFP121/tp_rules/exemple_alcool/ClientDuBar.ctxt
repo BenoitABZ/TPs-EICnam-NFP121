@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ClientDuBar
+comment1.params=nom\ age\ bar\ boisson
+comment1.target=ClientDuBar(java.lang.String,\ int,\ Bar,\ java.lang.String)
+comment10.params=boisson
+comment10.target=void\ setBoisson(java.lang.String)
+comment11.params=
+comment11.target=java.lang.String\ toString()
+comment2.params=
+comment2.target=ClientDuBar()
+comment3.params=
+comment3.target=int\ getAge()
+comment4.params=
+comment4.target=java.lang.String\ getNom()
+comment5.params=
+comment5.target=Bar\ getBar()
+comment6.params=
+comment6.target=java.lang.String\ getBoisson()
+comment7.params=age
+comment7.target=void\ setAge(int)
+comment8.params=nom
+comment8.target=void\ setNom(java.lang.String)
+comment9.params=bar
+comment9.target=void\ setBar(Bar)
+numComments=12

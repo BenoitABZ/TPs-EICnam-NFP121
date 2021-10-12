@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ConditionAnciennete
+comment1.params=nombre
+comment1.target=void\ setNombreDAnneesDAncienneteRequis(int)
+comment2.params=agent
+comment2.target=boolean\ isSatisfiedBy(Agent)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

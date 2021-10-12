@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=op1\ op2
+comment0.target=Addition(Expression,\ Expression)
+comment1.target=String\ toString()
+comment2.params=c
+comment2.target=int\ interprete(Contexte)
+numComments=3

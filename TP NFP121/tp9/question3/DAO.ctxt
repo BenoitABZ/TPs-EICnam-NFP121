@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=DAO
+comment0.text=\ DAO/CRUD\ \:\ un\ "DAO"\ (Data\ Access\ Object\ )\ \n\ \ qui\ propose\ les\ 4\ op\u00E9rations\ \u00E9l\u00E9mentaires\ Create\ Retrieve\ Update\ Delete\ (+\ findAll)\n\ \ @param\ <T>\ pour\ Le\ type\ souhait\u00E9\n\ \ @param\ <ID>\ pour\ l'identifiant,\ en\ g\u00E9n\u00E9ral\ unique,\ par\ instance\ de\ T\n
+comment1.params=t
+comment1.target=void\ create(java.lang.Object)
+comment1.text=\ Cr\u00E9ation\ de\ l'instance\ t\ en\ BDD.\n\ @param\ t\ l'instance\ de\ T\n\ @throws\ Exception\ si\ l'op\u00E9ration\ est\ en\ \u00C3\u00A9chec\n
+comment2.params=id
+comment2.target=java.lang.Object\ retrieve(java.lang.Object)
+comment2.text=\ Permet\ de\ retrouver\ une\ instance\ de\ T\ \u00E0\u00A0\ partir\ de\ son\ identifiant.\n\ @param\ id\ l'identifiant\ associ\u00E9\ \u00E0\u00A0\ t\n\ @return\ l'instance\ associ\u00E9e\n\ @throws\ Exception\ si\ l'op\u00E9ration\ est\ en\ \u00E9chec\n
+comment3.params=
+comment3.target=java.util.List\ findAll()
+comment3.text=\ Obtention\ de\ la\ liste\ des\ \u00E9l\u00E9ments.\n\ @return\ la\ liste\ ordonn\u00E9e\ selon\ l'ordre\ des\ enregistrements\ (des\ create)\n\ @throws\ Exception\ si\ l'op\u00E9ration\ est\ en\ \u00E9chec\n
+comment4.params=t
+comment4.target=void\ update(java.lang.Object)
+comment4.text=\ Mise\ \u00E0\u00A0\ jour\ de\ t\ dans\ la\ base.\n\ @param\ t\ instance\ de\ T,\ existante\n\ @throws\ Exception\ si\ l'op\u00E9ration\ est\ en\ \u00E9chec\n
+comment5.params=id
+comment5.target=void\ delete(java.lang.Object)
+comment5.text=\ Retrait\ de\ t\ dans\ la\ base.\n\ @param\ id\ l'identifiant\ associ\u00E9\ \u00E0\u00A0\ t\n\ @throws\ Exception\ si\ l'op\u00E9ration\ est\ en\ \u00E9chec\n
+comment6.params=criteria
+comment6.target=java.util.List\ filter(DAO.Criteria)
+comment6.text=\ Filtrage\ des\ \u00E9l\u00E9ments\ selon\ le\ crit\u00E8re\ transmis.\n\ \n\ @param\ criteria\ le\ crit\u00E8re\ de\ s\u00E9lection\n\ @return\ la\ liste\ des\ \u00E9l\u00E9ments\ satisfaisant\ le\ crit\u00E8re\n
+numComments=7
