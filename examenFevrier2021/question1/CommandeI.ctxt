@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=CommandeI
+comment0.text=\r\n\ @param\ <E>\ l'entit\u00E9\ transmise\r\n
+comment1.params=e
+comment1.target=boolean\ executer(java.lang.Object)
+comment1.text=\ La\ m\u00E9thode\ ex\u00E9cut\u00E9e\ lors\ d'une\ publication.\r\n\ @param\ e\ l'entit\u00E9,\ l'\u00E9v\u00E9nement\ transmis\r\n\ @return\ true\ ou\ false\ en\ fonction\ du\ contexte,\ et\ du\ r\u00E9sultat\ attendu\ de\ l'ex\u00E9cution\r\n
+numComments=2

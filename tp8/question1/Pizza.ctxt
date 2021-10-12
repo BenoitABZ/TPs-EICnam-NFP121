@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Pizza
+comment0.text=\ exemple\ inspir\u00E9\ de\ Head\ First\ Design\ Pattern,\ page92\ \r\n\ Pattern\ d\u00E9corateur,\ ici\ le\ "Component"\r\n
+comment1.params=
+comment1.target=java.lang.String\ getDescription()
+comment1.text=Une\ description\ textuelle\ de\ la\ Pizza
+comment2.params=
+comment2.target=double\ cost()
+comment2.text=le\ prix\ de\ vente
+numComments=3

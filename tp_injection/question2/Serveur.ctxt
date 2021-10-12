@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Serveur
+comment1.params=
+comment1.target=void\ broadcast()
+comment2.params=
+comment2.target=java.util.Queue\ getFile()
+comment3.params=file
+comment3.target=void\ setFile(java.util.Queue)
+comment4.params=
+comment4.target=java.util.List\ getRecepteurs()
+comment5.params=recepteurs
+comment5.target=void\ setRecepteurs(java.util.List)
+comment6.params=message
+comment6.target=void\ setMessage(Message)
+comment7.params=recepteur
+comment7.target=void\ setRecepteur(ClientRecepteur)
+numComments=8

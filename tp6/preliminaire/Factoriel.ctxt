@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=op
+comment0.target=Factoriel(Expression)
+comment1.target=String\ toString()
+comment2.params=c
+comment2.target=int\ interprete(Contexte)
+comment3.params=n
+comment3.target=Integer\ fact(int)
+numComments=4

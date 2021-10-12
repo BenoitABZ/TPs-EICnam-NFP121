@@ -1,0 +1,21 @@
+<jnlp spec="1.0+"
+  codebase="http://jfod.cnam.fr/progAvancee/tp7/" 
+  href="tp7q3.jnlp">
+    <information>
+       <title>tp7, question3: getHéritées...</title>
+       <vendor>NFP121 Cnam</vendor>
+       <description>tp7q3</description>
+       <description kind="short">tp7q3</description>
+       <offline-allowed/>
+     </information>
+
+    <security>
+      <all-permissions/>
+    </security>
+    
+     <resources>
+       <j2se version="1.5+"/>
+       <jar href="tp7q3.jar"/>
+     </resources>
+     <application-desc main-class="question3.Introspection"/>
+</jnlp>

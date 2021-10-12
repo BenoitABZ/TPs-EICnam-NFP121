@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=VisiteurBoolJasmin
+comment1.params=vbc
+comment1.target=VisiteurBoolJasmin(VisiteurExprJasmin)
+comment2.params=v
+comment2.target=java.lang.Integer\ visite(question2.Vrai)
+comment3.params=f
+comment3.target=java.lang.Integer\ visite(question2.Faux)
+comment4.params=n
+comment4.target=java.lang.Integer\ visite(question2.Non)
+comment5.params=ou
+comment5.target=java.lang.Integer\ visite(question2.Ou)
+comment6.params=et
+comment6.target=java.lang.Integer\ visite(question2.Et)
+comment7.params=sup
+comment7.target=java.lang.Integer\ visite(question2.Sup)
+comment8.params=eg
+comment8.target=java.lang.Integer\ visite(question2.Egal)
+comment9.params=inf
+comment9.target=java.lang.Integer\ visite(question2.Inf)
+numComments=10

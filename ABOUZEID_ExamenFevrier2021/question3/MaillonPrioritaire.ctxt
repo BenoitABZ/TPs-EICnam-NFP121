@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=MaillonPrioritaire
+comment0.text=\r\n\ @author\ Votre\ nom,\ pr\u00E9nom\ \ \ \ //\ a\ completer\r\n
+comment1.params=
+comment1.target=MaillonPrioritaire()
+comment2.params=priorite\ successeur
+comment2.target=MaillonPrioritaire(int,\ Maillon)
+comment3.params=priorite
+comment3.target=void\ setPriorite(int)
+comment4.params=evenement
+comment4.target=boolean\ executer(question1.EvenementI)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

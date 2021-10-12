@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=ChildLikesSpecifiedToySpecification
+comment1.params=specification
+comment1.target=ChildLikesSpecifiedToySpecification(question1.SpecificationI)
+comment2.params=
+comment2.target=ChildLikesSpecifiedToySpecification()
+comment3.params=specification
+comment3.target=void\ setSpecification(question1.SpecificationI)
+comment4.params=c
+comment4.target=boolean\ isSatisfiedBy(exemple_kindergarten.entity.Child)
+numComments=5

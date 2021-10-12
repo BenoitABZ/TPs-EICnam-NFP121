@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=CommandeDecorateur
+comment0.text=\r\n\ @author\ Votre\ nom,\ pr\u00E9nom\ \ \ \ //\ a\ completer\r\n
+comment1.params=commande
+comment1.target=CommandeDecorateur(question1.CommandeI)
+comment2.params=
+comment2.target=CommandeDecorateur()
+comment3.params=commande
+comment3.target=void\ setCommande(question1.CommandeI)
+comment4.params=e
+comment4.target=boolean\ executer(java.lang.Object)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

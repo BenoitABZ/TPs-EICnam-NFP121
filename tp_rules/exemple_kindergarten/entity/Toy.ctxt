@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Toy
+comment1.params=name\ color\ type\ weight
+comment1.target=Toy(java.lang.String,\ java.lang.String,\ pl.koziarz.specificationexample.domain.entity.ToyType,\ double)
+comment10.params=weight
+comment10.target=void\ setWeight(double)
+comment11.params=
+comment11.target=java.lang.String\ toString()
+comment2.params=
+comment2.target=Toy()
+comment3.params=
+comment3.target=java.lang.String\ getColor()
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment5.params=
+comment5.target=pl.koziarz.specificationexample.domain.entity.ToyType\ getType()
+comment6.params=color
+comment6.target=void\ setColor(java.lang.String)
+comment7.params=name
+comment7.target=void\ setName(java.lang.String)
+comment8.params=type
+comment8.target=void\ setType(pl.koziarz.specificationexample.domain.entity.ToyType)
+comment9.params=
+comment9.target=double\ getWeight()
+numComments=12

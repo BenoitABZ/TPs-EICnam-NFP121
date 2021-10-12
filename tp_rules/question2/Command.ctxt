@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Command
+comment1.params=command
+comment1.target=void\ setCommand(CommandI)
+comment2.params=
+comment2.target=CommandI\ getCommand()
+comment3.params=entity\ result
+comment3.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

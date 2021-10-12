@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=VisiteurInstruction
+comment0.text=\ Classe\ abstraite\ des\ Visiteurs,\r\n\ Une\ m\u00E9thode\ par\ noeud\ concret\ du\ composite\r\n
+comment1.params=aff
+comment1.target=java.lang.Object\ visite(Affectation)
+comment2.params=seq
+comment2.target=java.lang.Object\ visite(Sequence)
+comment3.params=sel
+comment3.target=java.lang.Object\ visite(Selection)
+comment4.params=tq
+comment4.target=java.lang.Object\ visite(TantQue)
+comment5.params=pour
+comment5.target=java.lang.Object\ visite(Pour)
+comment6.params=a
+comment6.target=java.lang.Object\ visite(Afficher)
+comment7.params=a
+comment7.target=java.lang.Object\ visite(Assertion)
+comment8.params=
+comment8.target=tp6.question1.Contexte\ contexte()
+numComments=9

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=CompositeCommand
+comment1.params=
+comment1.target=CompositeCommand()
+comment2.params=command
+comment2.target=CompositeCommand\ add(CommandI)
+comment3.params=commands
+comment3.target=void\ setCommands(CommandI[])
+comment4.params=e\ r
+comment4.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

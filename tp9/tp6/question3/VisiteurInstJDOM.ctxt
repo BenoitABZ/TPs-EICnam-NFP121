@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=VisiteurInstJDOM
+comment0.text=\r\n\ Visiteur\ d'instruction,\ chaque\ classe\ concr\u00E8te\ poss\u00E8de\ une\ impl\u00E9mentation\ de\r\n\ la\ visite\r\n\ \r\n
+comment1.params=vi\ vb
+comment1.target=VisiteurInstJDOM(tp6.question1.VisiteurExpression,\ tp6.question2.VisiteurExpressionBooleenne)
+comment1.text=\r\n\ Cr\u00E9ation\ d'un\ visiteur\ d'instructions\r\n\ \r\n\ @param\ vi\r\n\ \ \ \ \ \ \ \ \ \ \ \ le\ visiteur\ d'expressions\ arithm\u00E9tiques\r\n\ @param\ vb\r\n\ \ \ \ \ \ \ \ \ \ \ \ le\ visiteur\ d'expression\ bool\u00E9ennes\r\n
+comment2.params=
+comment2.target=tp6.question1.Contexte\ contexte()
+comment2.text=\r\n\ obtention\ du\ contexte,\r\n\ \r\n\ @return\ le\ contexte\ ici\ de\ vi(le\ visiteur\ d'expression)\r\n
+numComments=3

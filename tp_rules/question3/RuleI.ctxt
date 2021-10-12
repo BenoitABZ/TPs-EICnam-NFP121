@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=RuleI
+comment0.text=\ La\ classe\ R\u00E8gle.\r\n\ \ @param\ <E>\ La\ classe\ de\ l'entit\u00E9\ sur\ laquelle\ porte\ la\ condition/specification\ \r\n\ \ @param\ <R>\ la\ classe\ de\ la\ donn\u00E9e\ et\ du\ r\u00E9sultat\r\n
+comment1.params=e\ r
+comment1.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment1.text=\r\n\ Ex\u00E9cution\ d'une\ r\u00E8gle\ de\ type\ if/then/else.\r\n\ @param\ e\ l'entit\u00E9\ sur\ laquelle\ porte\ la\ condition\r\n\ @param\ r\ la\ donn\u00E9e\ transmise\r\n\ @return\ si\ la\ condition\ n'est\ pas\ satisfaite\ r\ est\ retourn\u00E9,\ \r\n\ \ \ \ \ \ \ \ \ sinon\ le\ r\u00E9sultat\ de\ l'ex\u00E9cution\ de\ la\ commande\ est\ retourn\u00E9\r\n
+numComments=2

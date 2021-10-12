@@ -1,0 +1,11 @@
+0;nom_0;prenom_0;nom_0@cnam.fr
+1;nom_1;prenom_1;nom_1@cnam.fr
+2;nom_2;prenom_2;nom_2@cnam.fr
+3;nom_3;prenom_3;nom_3@cnam.fr
+4;nom_4;prenom_4;nom_4@cnam.fr
+5;nom_5;prenom_5;auditeur_5@lecnam.net
+6;nom_6;prenom_6;nom_6@cnam.fr
+7;nom_7;prenom_7;nom_7@cnam.fr
+8;nom_8;prenom_8;nom_8@cnam.fr
+9;nom_9;prenom_9;nom_9@cnam.fr
+10;Grand;mark;mark.grand@cnam.fr

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ConditionJoursDuMaire
+comment1.params=agent
+comment1.target=boolean\ isSatisfiedBy(Agent)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

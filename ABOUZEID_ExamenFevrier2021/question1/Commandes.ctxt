@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Commandes
+comment0.text=\r\n\ @author\ Votre\ nom,\ pr\u00E9nom\ \ \ \ //\ a\ completer\r\n\ @see\ <a\ href\="https\://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html">Comparator</a>\r\n
+comment1.params=nom
+comment1.target=Commandes(java.lang.String)
+comment2.params=comparator
+comment2.target=void\ setComparator(java.util.Comparator)
+comment2.text=\ Affectation\ \u00E9ventuelle\ de\ la\ relation\ d'ordre.\r\n\ Un\ seul\ appel\ \u00E0\ cette\ m\u00E9thode\ est\ permis,\ tout\ autre\ appel\ est\ sans\ effet.\r\n\ @param\ comparator\ la\ relation\ d'ordre\ transmise\r\n\ @throws\ NullPointerException\ si\ comparator\ \=\=\ null\r\n
+comment3.params=commande
+comment3.target=void\ addCommande(CommandeI)
+comment3.text=\ Ajout\ d'une\ commande\ \u00E0\ la\ liste.\r\n\ @param\ commande\ la\ commande\ \u00E0\ ajouter\r\n\ @throws\ NullPointerException\ si\ commande\ \=\=\ null\r\n
+comment4.params=commandes
+comment4.target=void\ addCommandes(CommandeI[])
+comment4.text=\ Ajout\ d'une\ table\ de\ commande\ \u00E0\ la\ liste.\r\n\ @param\ commande\ la\ commande\ \u00E0\ ajouter\r\n
+comment5.params=commandes
+comment5.target=void\ setCommandes(CommandeI[])
+comment5.text=\ Ajout\ d'une\ table\ de\ commande\ \u00E0\ la\ liste.\r\n\ Syntaxe\ de\ type\ "Mutateur"\ pour\ femtoContainer/NFP121\r\n\ @param\ commandes\ les\ commandes\ \u00E0\ ajouter\r\n
+comment6.params=e
+comment6.target=boolean\ executer(java.lang.Object)
+numComments=7

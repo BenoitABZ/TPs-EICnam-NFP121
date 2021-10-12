@@ -1,0 +1,34 @@
+jnews_NFP121{
+  examenFevrier2020_question1_evaluation{
+    .file.include=*.class;
+    .transport=http://jfod.cnam.fr/jnews/junit3/AllTests.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NFP121&tp=examenFevrier2020q1&client=bluej;
+  }
+  examenFevrier2020_question2_evaluation{
+    .file.include=*.class;
+    .transport=http://jfod.cnam.fr/jnews/junit3/AllTests.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NFP121&tp=examenFevrier2020q2&client=bluej;
+  }
+  examenFevrier2020_question3_evaluation{
+    .file.include=*.class;
+    .transport=http://jfod.cnam.fr/jnews/junit3/AllTests.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NFP121&tp=examenFevrier2020q3&client=bluej;
+  }
+ 
+  
+  examenFevrier2020_deposerExamen{
+    .file.exclude=*.class;
+	.file.exclude=*.jar;
+	.file.exclude=*.pdf;
+    .file.jar=examenFevrier2020.jar;
+    .transport=http://jfod.cnam.fr/jnews/junit3/deposerExamen.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NFP121&tp=examenFevrier2020&client=bluej;
+  }
+
+
+  historique{
+    .file.include=README.TXT;
+    .transport=http://jfod.cnam.fr/jnews/interrogation/historique.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NFP121&client=bluej;
+  }
+  historiqueResultats{
+    .file.include=README.TXT;
+    .transport=http://jfod.cnam.fr/jnews/interrogation/historiqueResultats.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NFP121&client=bluej;
+  }
+}
+

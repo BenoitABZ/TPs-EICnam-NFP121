@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=ConditionPenibiliteDuService
+comment1.params=
+comment1.target=ConditionPenibiliteDuService()
+comment2.params=services
+comment2.target=void\ setServices(java.lang.String[])
+comment3.params=agent
+comment3.target=boolean\ isSatisfiedBy(Agent)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

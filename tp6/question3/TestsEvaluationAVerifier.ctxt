@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=TestsEvaluationAVerifier
+comment1.params=n
+comment1.target=int\ fact(int)
+comment2.params=
+comment2.target=void\ testFactoriel()
+comment3.params=n
+comment3.target=int\ somme(int)
+comment4.params=
+comment4.target=void\ testSomme()
+comment5.params=a\ b
+comment5.target=int\ mult(int,\ int)
+comment6.params=
+comment6.target=void\ testMult()
+comment7.params=
+comment7.target=void\ testRacine()
+comment8.params=n
+comment8.target=int\ racineCarre(int)
+comment9.params=
+comment9.target=void\ testRacineCarreeDe12()
+numComments=10

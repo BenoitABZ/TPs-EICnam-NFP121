@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=op1\ op2
+comment0.target=Egal(Expression,\ Expression)
+comment1.params=v
+comment1.target=<T>\ T\ accepter(VisiteurExpressionBooleenne<T>)
+numComments=2

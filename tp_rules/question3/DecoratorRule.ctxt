@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=DecoratorRule
+comment1.params=rule
+comment1.target=DecoratorRule(RuleI)
+comment2.params=
+comment2.target=DecoratorRule()
+comment3.params=rule
+comment3.target=void\ setRule(RuleI)
+comment4.params=e\ r
+comment4.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

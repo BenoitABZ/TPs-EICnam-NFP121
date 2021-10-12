@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Rule
+comment0.text=\ Une\ R\u00E9gle\ de\ la\ forme,\ if(spec)then(command).\r\n\ Si\ la\ specification\ est\ satisfaite\ alors\ la\ commande\ est\ ex\u00E9cut\u00E9e\r\n\ \r\n\ @param\ <E>\ l'entit\u00E9\ m\u00E9tier\r\n\ @param\ <R>\ le\ r\u00E9sultat\r\n
+comment1.params=specification\ command
+comment1.target=Rule(question1.SpecificationI,\ question2.CommandI)
+comment2.params=
+comment2.target=Rule()
+comment3.params=e\ r
+comment3.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment4.params=specification
+comment4.target=void\ setSpecification(question1.SpecificationI)
+comment5.params=command
+comment5.target=void\ setCommand(question2.CommandI)
+comment6.params=
+comment6.target=question1.SpecificationI\ getSpecification()
+comment7.params=
+comment7.target=question2.CommandI\ getCommand()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

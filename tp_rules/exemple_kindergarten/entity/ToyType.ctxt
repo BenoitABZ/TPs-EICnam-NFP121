@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ToyType
+comment1.params=name
+comment1.target=ToyType(java.lang.String)
+comment2.params=
+comment2.target=ToyType()
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=name
+comment4.target=void\ setName(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MediateurException
+comment1.params=
+comment1.target=MediateurException()
+comment2.params=message
+comment2.target=MediateurException(java.lang.String)
+numComments=3

@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=bop1\ bop2
+comment0.target=OperationBooleenne(ExpressionBooleenne,\ ExpressionBooleenne)
+comment1.target=ExpressionBooleenne\ bop1()
+comment2.target=ExpressionBooleenne\ bop2()
+numComments=3

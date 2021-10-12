@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+
+
+  
+  <link rel="stylesheet" type="text/css" href="css/style.css"><title></title></head><body>
+<div id="container">
+<div id="header">
+<div id="header_toprow"> Conservatoire national des arts et métiers </div>
+<div id="header_title"> NFP121 : Programmation avancée<br>
+TP n° 8 - Pattern Décorateur </div>
+</div>
+<div id="content">
+<div class="paragraphe"> Thèmes du TP :<br>
+<ul>
+  <li><a href="http://www.eli.sdsu.edu/courses/spring01/cs635/notes/decorator/decorator.html" target="_blank">Pattern Décorateur</a></li>
+  <li> <a target="_blank" href="http://jfod.cnam.fr/NFP121/Chapter03_Head_First.pdf">Le chapitre
+3</a> extrait de Head First Design Patterns O'Reilly<br>
+les <a href="https://github.com/bethrobson/Head-First-Design-Patterns">
+exemples</a> de ce livre : </li>
+  <li>Les pré et post assertions, invariant de classe comme décorations
+d'une classe.</li>
+  <li>Décorer une classe "InputStream"</li>
+</ul>
+</div>
+<big><br>
+<big style="color: rgb(153, 0, 0);"><big><span><span style="font-family: monospace; font-weight: bold;"><span class="paragraphe"><span class="question">Préambule</span></span></span> </span></big></big></big><big>Exécutez la classe de tests unitaires, incluse dans le paquetage <span style="font-weight: bold;">decorateurHtmlVuEnCours, </span>celle-ci utilise l'outil <span style="font-weight: bold;">femtoContainer</span> pour la configuration du décorateur HTML. <br>
+</big>
+<div style="margin-left: 160px;"><big><img style="width: 349px; height: 147px;" alt="" src="images/Screen-2020-10-26_15-09-43.jpg"></big><br>
+<big>
+</big></div>
+
+<div style="margin-left: 40px;">
+<ul>
+  <li><big>1) Vérifiez que cette classe de tests s'exécute sur votre poste sans échec. <br>
+</big></li>
+  <li><big>2) Puis ouvrez le document en haut à gauche (i.e. le fichier README.TXT), <br>
+</big></li>
+  <ul>
+    <li><big>supprimez le commentaire pour le mode verbeux, soit<br>
+      </big></li>
+  </ul>
+  <ul>
+    <ul>
+      <li><big>verbose=true&nbsp; au lieu de #verbose=true, relancez l'exécution</big></li>
+    </ul>
+  </ul>
+
+  <li><big>Notez sur votre rapport toute anomalie, une copie d'écran, les exceptions levées, 
+  signalez le également sur le forum.<br>
+</big></li>
+</ul>
+</div>
+<big><br>
+</big>
+<hr>
+<div class="question"> <img src="images/question1.png" height="80" width="101"> <span>Une IHM à compléter : une PIZZA cela se décore !!!</span>
+</div>
+<div class="paragraphe"> Utilisation du pattern Décorateur pour
+l'élaboration d'une pizza : Les pizzas, 3 sortes (Classic, PizzaSolo ou
+GenerousCrust) sont ici "décorées" par des ingrédients avant d'être
+confectionnées (MAKING Pizza) et le prix dépend bien sur de cette
+composition. On "résume" cela par l'architecture suivante : </div>
+<p align="center"> <img class="win_screenshot" src="images/bluej1.png" height="481" width="850"> </p>
+<div class="paragraphe"> Alors, la création d'une pizza à pâte
+"Classic" avec deux doses de Jambon ("Ham") et avec des champignons
+("Mushrooms") sera "confectionnée" en Java par : </div>
+<div class="codesource"> <code> <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Pizza&nbsp;pizza&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Mushrooms</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Ham</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Ham</font><font color="#000000">(&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Classic</font><font color="#000000">()))</font><font color="#000000">;</font> </code> </div>
+<div class="paragraphe"> <b>Complétez</b> L'IHM "PizzaStore" qui
+permet :<br>
+<ul>
+  <li>d'élaborer une pizza à la demande, et</li>
+  <li>de calculer son prix "en temps réel" au fur et à mesure des
+désirs de l'acheteur</li>
+</ul>
+<b>Remarque :</b> ce qui est dit est dit, on ne peut pas revenir en
+arrière dans la commande... </div>
+<p align="left"> <font size="3"><b><br>
+</b></font></p>
+<p align="left"><font size="3"><b>Interface au comportement attendu, depuis 
+votre répertoire tp8&gt;java -jar ihm.jar</b></font></p>
+
+&nbsp;<hr>
+<div class="question"> <img src="images/question2_1.png" height="80" width="111"> <span>Complétez cette architecture</span> </div>
+<div class="paragraphe"> L'exemple présenté dans le <a href="http://jfod.cnam.fr/NFP121/Chapter03_Head_First.pdf" target="_blank">chapitre 3</a> extrait de Head First Design Patterns, décrit une boisson et
+des compléments possibles. Le pattern décorateur est utilisé afin, de
+"décorer" la boisson choisie avec les souhaits d'un client d'une part,
+et de fournir au client le prix exact de la boisson qu'il a commandée
+d'autre part.<br>
+<br>
+Exemple : un café corsé avec du lait, s'écrit:<br>
+</div>
+<div class="codesource"> <code> <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Beverage&nbsp;darkRoastWithMilk&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Milk</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">DarkRoast</font><font color="#000000">())</font><font color="#000000">;</font> </code> </div>
+<div class="paragraphe"> et l'obtention de son prix :<br>
+</div>
+<div class="codesource"> <code> <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">price&nbsp;=&nbsp;darkRoastWithMilk.cost</font><font color="#000000">()</font><font color="#000000">;&nbsp;</font> </code>
+</div>
+<p align="center"> <img class="win_screenshot" src="images/bluej2.png" height="475" width="686"> </p>
+<div class="paragraphe"> Les différentes boissons héritent de la classe
+abstraite <b>Beverage</b>,<br>
+La classe abstraite <b>CondimentDecorator</b>, instance du pattern
+Décorateur, représente les exigences possibles du client...<br>
+<br>
+On demande de compléter cette architecture en ajoutant le chocolat
+(classe <b>Chocolate</b>) comme boisson, le coût de cette boisson est
+de <b>2.10</b> et de compléter toutes les méthodes de la classe de
+test ChocolateTest, les méthodes correspondent aux boissons suivantes:
+<ul>
+  <li>un chocolat seul</li>
+  <li>un chocolat avec de la crème(Whip)</li>
+  <li>un chocolat avec deux rations de crème</li>
+  <li>un chocolat avec de la crème, du soja(soy) et du moka(mocha),...
+( les goûts ne se discutent pas ...)</li>
+  <li>un café décaféiné avec du lait</li>
+</ul>
+</div>
+<p align="center"> <img class="win_screenshot" src="images/bluej3.png" height="347" width="406">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img class="win_screenshot" src="images/bluej4.png" height="375" width="378"> </p>
+<hr>
+<div class="question"> <img src="images/question2_2.png" height="80" width="111"> <span>Le condiment sucre de betteraves (classe BeetSugar)</span>
+</div>
+<div class="paragraphe"> <b>Ajouter</b> le condiment sucre de
+betteraves, (classe <b>BeetSugar</b>), dont le coût est de 0.1, sa
+description : "<b>Beet Sugar</b>".&nbsp; <span style="font-weight: bold;">Attention à l'espace entre
+Beet et Sugar.</span></div>
+<br>
+<hr>
+<div class="question"> <img src="images/question2_3.png" height="80" width="111"> <span>La méthode toString()</span> </div>
+<div class="paragraphe"> <b>Ajouter</b> la méthode <b>public String
+toString();</b> qui se contente de retourner <b>la description et le
+coût</b> du produit choisi par le client, selon ce format <i>description
+$cost</i><br>
+<br>
+un exemple : une trace de la description attendue<br>
+<div class="codesource"> <code> <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Beverage&nbsp;b&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">BeetSugar</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Whip</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Mocha</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Soy</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HouseBlend</font><font color="#000000">()))))</font><font color="#000000">;</font> <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#000000">b</font><font color="#000000">)</font><font color="#000000">;</font> </code> </div>
+<p align="center">Trace attendue<br>
+<img class="win_screenshot" src="images/bluej5.png" height="175" width="578"> </p>
+</div>
+<br>
+<hr>
+<div class="question"> <img src="images/question3.png" height="80" width="101"> Pré Post assertions et invariant de classe<br>
+ </div>
+<div class="paragraphe">
+<p class="paragraphe">&nbsp;&nbsp;&nbsp; <b><font size="4"> Préambule : installez 
+sur votre poste ce projet bluej, il contient quelques exemples<br>
+</font></b></p>
+
+<p style="margin-left: 120px;" class="paragraphe"> <a href="http://jfod.cnam.fr/NFP121/assertions_et_decorateur.jar"> <font size="4"> http://jfod.cnam.fr/NFP121/assertions_et_decorateur.jar</font></a></p>
+
+<p class="paragraphe"><br>
+&nbsp;&nbsp;&nbsp; <img style="width: 111px; height: 80px;" alt="" src="images/question3_1.png">Proposez une implémentation d'<span style="font-weight: bold;">une structure de données de votre choix</span>, (pensez d'emblée à une classe et une de ses classes dérivées),</p>
+<p class="paragraphe">&nbsp;&nbsp;&nbsp; Il s'agit de mettre en en oeuvre les notions d'<span style="font-weight: bold;">invariant</span> de classe, de<span style="font-weight: bold;"> fonction d'abstraction</span> et pour chaque opérations sur&nbsp; cette structure<span style="font-weight: bold;"> la pré et la post assertions</span>, issues de la programmation par contrats(cf. B. Meyer et le langage Eiffel).</p>
+
+<p class="paragraphe">&nbsp;&nbsp;&nbsp; Proposez un décorateur pour les mises&nbsp;<span style="font-weight: bold;"></span>. <br>
+</p>
+<p class="paragraphe">
+&nbsp;&nbsp;&nbsp; Les exemples ne manquent pas sur le web : un porte
+monnaie, un sac d'objets(cf. les ED), une liste, une pile, une file,...<br>
+</p>
+
+<br>
+<div style="margin-left: 40px;"><img style="width: 815px; height: 398px;" alt="" src="images/Screen-2020-10-26_14-37-19.jpg"><br>
+</div>
+
+<blockquote>
+  <ul>
+    <li>
+      <p class="paragraphe">les pré et post assertions pour chaque
+méthode, d<span style="font-weight: bold;">écoration PrePost</span><br>
+ </p>
+    </li>
+    <li>
+      <p class="paragraphe">l'invariant de classe, <span style="font-weight: bold;">décoration RepOk</span><br>
+ </p>
+    </li>
+    <li>
+      <p class="paragraphe">le bon raffinement à l'aide de la fonction
+d'abstraction décoration <span style="font-weight: bold;">Af</span><br>
+ </p>
+    </li>
+  </ul>
+</blockquote><br>
+&nbsp;&nbsp;&nbsp; <img style="width: 112px; height: 80px;" alt="" src="images/question3_2.png">Proposez une classe dérivée et installez l'héritage des pré et post assertions, cf. les diapositives du cours<br>
+et vous pouvez suivre ce lien http://csd.informatik.uni-oldenburg.de/~jass/doc/refine.html<br>
+<img style="width: 884px; height: 283px;" alt="" src="images/Screen-2020-10-27_08-50-31.jpg"><br>
+<br>
+<br>
+Le cours : <br>
+<div style="margin-left: 120px;"><br>
+<img style="width: 491px; height: 276px;" alt="" src="images/Screen-2020-10-27_08-30-48.jpg"><br>
+</div>
+<br>
+<br>
+<br>
+<span style="font-weight: bold;">N'oubliez pas d'installer sur votre
+rapport un lien sur une archive contenant toutes les classes Java de
+cette question, vos réponses, pourraient être une contribution aux exemples fournis pour ce TP,
+pour vos successeurs.<br>
+<br>
+</span></div>
+<p class="paragraphe">&nbsp;</p>
+<hr>
+<div class="question">&nbsp; <img style="width: 101px; height: 80px;" alt="" src="images/question4.png"><span>I/O JAVA et pattern décorateur</span> </div>
+<p align="center"> <img class="win_screenshot" src="images/bluej6.png" height="371" width="693"> </p>
+<div class="paragraphe"><img style="width: 111px; height: 80px;" alt="" src="images/question4_1.png"> Ci-dessus le décorateur (incomplet) des
+entrées-sorties en Java, package java.io + la classe <b>UpperCaseInputStream</b>
+à développer<br>
+<br>
+Proposez la classe <b>UpperCaseInputStream</b> (en grisé ci dessus),
+un des décorateurs possibles de <b>FilterInputStream</b>, qui
+transforme en <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Character.html#toUpperCase%28int%29" target="_blank">Majuscule</a> tous les caractères du fichier transmis
+en paramètre. </div>
+<div class="codesource"> <code> <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">testUpperCase_README_TXT</font><font color="#000000">()&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">Exception&nbsp;</font><font color="#000000">{</font> <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">InputStream&nbsp;is&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">BufferedInputStream</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">FileInputStream</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">File</font><font color="#000000">(</font><font color="#2a00ff">"README.TXT"</font><font color="#000000">)))</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;déclaration&nbsp;à&nbsp;décorer</font> <br>
+ <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">c&nbsp;=&nbsp;is.read</font><font color="#000000">()</font><font color="#000000">;</font> <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">c&nbsp;!=&nbsp;-</font><font color="#990000">1</font><font color="#000000">)&nbsp;{</font> <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertTrue</font><font color="#000000">(</font><font color="#2a00ff">"erreur&nbsp;!,&nbsp;'"&nbsp;</font><font color="#000000">+&nbsp;Character.valueOf</font><font color="#000000">((</font><font color="#7f0055"><b>char</b></font><font color="#000000">)&nbsp;</font><font color="#000000">c</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#2a00ff">"'&nbsp;ne&nbsp;semble&nbsp;pas&nbsp;être&nbsp;une&nbsp;majuscule&nbsp;..."</font><font color="#000000">,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Character.isUpperCase</font><font color="#000000">((</font><font color="#7f0055"><b>char</b></font><font color="#000000">)&nbsp;</font><font color="#000000">c</font><font color="#000000">)&nbsp;</font><font color="#000000">||&nbsp;</font><font color="#000000">(</font><font color="#7f0055"><b>char</b></font><font color="#000000">)&nbsp;</font><font color="#000000">c&nbsp;==&nbsp;</font><font color="#990000">'&nbsp;'</font><font color="#000000">)</font><font color="#000000">;</font> <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">c&nbsp;=&nbsp;is.read</font><font color="#000000">()</font><font color="#000000">;</font> <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font> <br>
+ <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">is.close</font><font color="#000000">()</font><font color="#000000">;</font> <br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+</code> </div>
+<hr>
+<div class="question"> <img src="images/question4_2.png" height="80" width="111"> <span>La classe PushbackInputStream</span> </div>
+<div class="paragraphe"> Créez une instance de la classe
+UpperCaseInputStream enrichie des fonctionnalités offertes par la
+classe <a href="http://docs.oracle.com/javase/7/docs/api/java/io/PushbackInputStream.html" target="_blank">PushbackInputStream</a><br>
+<br>
+Vérifiez en proposant un test supplémentaire de la de test
+UpperCaseInputStreamTest, le bon fonctionnement de cette instance ainsi
+décorée....<br>
+</div>
+</div>
+<div id="footer"> <a class="lien" href="http://jfod.cnam.fr/" target="_blank">JFOD</a> | <a class="lien" href="http://deptmedia.cnam.fr/phpBB3/viewforum.php?f=40" target="_blank">FORUM</a> | <a class="lien" href="http://www.cnam.fr/" target="_blank">CNAM</a> </div>
+</div>
+
+</body></html>

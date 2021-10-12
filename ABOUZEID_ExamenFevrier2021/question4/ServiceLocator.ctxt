@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=ServiceLocator
+comment0.text=\r\n\ \r\n\ @author\ Votre\ nom,\ pr\u00E9nom\ \ \ \ //\ a\ completer\r\n
+comment1.params=
+comment1.target=boolean\ repOk()
+comment1.text=\ Invariant\ de\ classe.\r\n\ @return\ vrai\ si\ l'invariant\ est\ satisfait\r\n
+comment2.params=
+comment2.target=java.lang.Object\ af()
+comment2.text=\ Fonction\ d'abstraction.\ optionnelle,\ optionnelle\r\n\ @return\ une\ repr\u00E9sentation\ dite\ abstraite\r\n
+comment3.params=
+comment3.target=ServiceLocator()
+comment4.params=mediateur
+comment4.target=void\ ajouterMediateur(question1.MediateurI)
+comment5.params=mediateur
+comment5.target=void\ setMediateur(question1.MediateurI)
+comment6.params=nom
+comment6.target=question1.MediateurI\ rechercher(java.lang.String)
+comment7.params=
+comment7.target=java.util.Iterator\ iterator()
+numComments=8

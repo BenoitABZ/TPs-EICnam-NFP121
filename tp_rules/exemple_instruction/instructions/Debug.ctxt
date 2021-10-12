@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Debug
+comment1.params=trace
+comment1.target=void\ setTrace(boolean)
+comment2.params=e\ memory
+comment2.target=java.lang.Object\ execute(java.lang.Object,\ java.lang.Object)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

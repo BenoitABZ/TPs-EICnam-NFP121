@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Structure
+comment1.params=
+comment1.target=Structure()
+comment2.params=t
+comment2.target=void\ operation(java.lang.Object)
+comment3.params=
+comment3.target=boolean\ condition()
+comment4.params=
+comment4.target=boolean\ repOk()
+comment5.params=
+comment5.target=java.lang.Object\ af()
+numComments=6

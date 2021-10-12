@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=EvenementI
+comment1.params=theme
+comment1.target=void\ setTheme(java.lang.String)
+comment10.params=
+comment10.target=java.lang.Object\ af()
+comment10.text=\ Fonction\ d'abstraction.\r\n\ @return\ une\ repr\u00E9sentation\ dite\ abstraite\r\n
+comment2.params=
+comment2.target=java.lang.String\ getTheme()
+comment3.params=clef\ valeur
+comment3.target=void\ putParametre(java.lang.String,\ java.lang.Object)
+comment4.params=clef
+comment4.target=java.lang.Object\ getParametre(java.lang.String)
+comment5.params=
+comment5.target=java.util.Map\ getParametres()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment7.params=priorite
+comment7.target=void\ setPriorite(int)
+comment8.params=
+comment8.target=int\ getPriorite()
+comment9.params=
+comment9.target=boolean\ repOk()
+comment9.text=\ Invariant\ de\ classe.\r\n\ @return\ vrai\ si\ l'invariant\ est\ satisfait\r\n
+numComments=11

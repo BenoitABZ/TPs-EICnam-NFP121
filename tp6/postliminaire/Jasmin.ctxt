@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Jasmin
+comment1.params=code\ nomDeClasse
+comment1.target=void\ assemble(java.lang.String,\ java.lang.String)
+comment2.params=nomDeClasse
+comment2.target=void\ exec(java.lang.String)
+numComments=3

@@ -1,0 +1,21 @@
+bean.id.1=concession
+concession.class=question1.Concession
+concession.property.1=name
+concession.property.1.param.1=ma concession
+concession.property.2=voitures
+concession.property.2.param.1=voitures
+concession.property.3=automobile
+concession.property.3.param.1=voiture
+
+bean.id.2=voiture
+voiture.class=question1.Voiture
+voiture.property.1=marque
+voiture.property.1.param.1=mercedes
+voiture.property.2=modele
+voiture.property.2.param.1=c63
+voiture.property.3=puissance
+voiture.property.3.param.1=500
+
+bean.id.3=voitures
+voitures.class=java.util.ArrayList
+

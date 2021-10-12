@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=adresse
+comment0.target=Integer\ lire(String)
+comment1.params=adresse\ valeur
+comment1.target=void\ ecrire(String,\ Integer)
+comment2.target=Iterator<String>\ iterator()
+numComments=3

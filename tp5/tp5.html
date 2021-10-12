@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+<link rel="stylesheet" type="text/css" href="css/style.css"></head><body>
+    
+    <div id="container">
+        <div id="header">
+            <div id="header_toprow">
+                Conservatoire national des arts et métiers
+            </div>
+            <div id="header_title">
+                NFP121 : Programmation avancée<br>
+                TP n° 5 - Classes abstraites / interface / héritage
+            </div>
+        </div>
+        <div id="content">
+
+            <div class="paragraphe">
+                Thèmes du TP :<br>
+                <br>
+                Classes abstraites, interface, héritage
+                <ul>
+                    <li>Le package java.util
+                        <ul>
+                            <li>java.util.AbstractCollection</li>
+                            <li>java.util.AbstractSet</li>
+                            <li>java.util.Set</li>
+                            <li>java.util.TreeSet</li>
+                            <li>java.util.Vector</li>
+                            <li>java.util.HashMap</li>
+                        </ul>
+                    </li>
+                    <li>Les interfaces
+                        <ul>
+                            <li>Iterator</li>
+                            <li>Comparator</li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                Lecture préalable :
+                <ul>
+                    <li>Les notes de cours</li>
+                    <li>Ce tutorial sur les <a href="http://docs.oracle.com/javase/tutorial/collections/index.html" target="_blank">collections</a></li>
+                    <li>Le
+                    <a href="http://jfod.cnam.fr/NFP121/corejavachap2.pdf">
+                    chapitre 2 de ce livre</a> </li>
+                    <li>Revoir également les <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/index.html" target="_blank">classes internes</a> (<i>Nested Classes</i>)</li>
+                </ul>
+            </div>
+            <div class="paragraphe">
+                <p align="center">(L'énoncé de la question 1 est inspiré du tutorial d'Oracle sur les <a href="http://docs.oracle.com/javase/tutorial/collections/index.html" target="_blank">
+                collections</a>.)</p>
+            </div>
+            <br>
+            <hr>
+
+            <div class="question">
+                <img src="images/question1_1.png" height="80" width="111">
+                <span>Une classe Ensemble</span>
+            </div>
+
+            <div class="paragraphe">
+                Complétez la classe "Ensemble", nommée <b>Ensemble&lt;T&gt;</b>
+                <ul>
+                    <li>L'implémentation préconisée utilise par délégation une instance de la classe <b>java.util.Vector&lt;T&gt;</b>.</li>
+                    <li>Seule <b>une méthode est à développer ici</b> :  <code><font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">add</font><font color="#000000">(</font><font color="#000000">T&nbsp;t</font><font color="#000000">)</font></code>
+    
+                    </li><li>Cette méthode doit garantir la sémantique de l'ajout d'un élément dans un ensemble (au sens mathématique).</li>
+                    <li>Questions à se poser : Que se passe-t-il si on utilise this.add(...) dans cette méthode ? Et this.contains() ? 
+                    Que déclenche la méthode addAll de la super-classe ? </li>
+                </ul>
+            </div>
+            <br>
+            <hr>
+
+            <div class="question">
+                <img src="images/question1_2.png" height="80" width="111">
+                <span>Les tests unitaires</span>
+            </div>
+            <div class="paragraphe">
+                Proposez une classe de tests unitaires de la classe "Ensemble&lt;T&gt;" (pour la méthode add())
+            </div>
+            <br>
+            <hr>
+            <div class="question">
+                <img src="images/question1_3.png" height="80" width="111">
+                <span>La classe Ensemble&lt;T&gt; (suite)</span>
+            </div>
+            <div class="paragraphe">
+                Enrichissez la classe Ensemble&lt;T&gt;
+                avec ces 4 opérations : 
+            </div>
+            <p align="center">
+                <img class="win_screenshot" src="images/operations.png" height="177" width="717">
+            </p>&nbsp;
+            
+            <br>
+<p><font size="4">Aide au comportement attendu</font>, une 
+                interface graphique est disponible depuis votre répertoire<br>
+                </p>
+            <div class="paragraphe">
+                <b><font size="3">&gt;</font></b><font size="3"><b>java -jar 
+                ihm_q1.jar</b></font><blockquote>
+                  <p>
+                  <img src="images/tp5.ht1.jpg" border="0" height="341" width="716"></p>
+                </blockquote>
+                <p>&nbsp;<b style="color: rgb(51, 51, 51); font-family: Verdana,Arial; font-size: 14px; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(255, 255, 255);"><span style="color: rgb(102, 0, 0);">Ci-dessous un gif animé écrit par M. HAMZA Sadouk (NFP121-2019)</span></b></p>
+<div style="margin-left: 40px;"><b style="color: rgb(51, 51, 51); font-family: Verdana,Arial; font-size: 14px; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(255, 255, 255);"><span style="color: rgb(102, 0, 0);"><img style="width: 600px; height: 135px;" alt="" src="images/gif2-1.gif"></span></b><br>
+<b style="color: rgb(51, 51, 51); font-family: Verdana,Arial; font-size: 14px; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(255, 255, 255);"><span style="color: rgb(102, 0, 0);"></span></b></div>
+<p>
+
+            </p>
+</div>
+
+            <div class="codesource">
+                <code>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font></code>Attention chaque <b>opération retourne un nouvel ensemble</b>, comme le suggère cette signature de la méthode "union"<br>
+<code><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">Ensemble&lt;T&gt;&nbsp;union</font><font color="#000000">(&nbsp;</font><font color="#000000">Ensemble&lt;?&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">T&gt;e1</font><font color="#000000">)&nbsp;</font><font color="#000000">...&nbsp;</font>
+                </code>
+            </div>
+
+            <div class="paragraphe"><span style="font-weight: bold;">
+                Une utilisation possible :</span> 
+            </div>
+
+            <div class="codesource">
+                <code>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Ensemble&nbsp;e&nbsp;=&nbsp;...</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#2a00ff">"&nbsp;union&nbsp;de&nbsp;e&nbsp;et&nbsp;de&nbsp;e1&nbsp;:&nbsp;"&nbsp;</font><font color="#000000">+&nbsp;e.union</font><font color="#000000">(</font><font color="#000000">e1</font><font color="#000000">))</font><font color="#000000">;&nbsp;</font>
+                </code>
+                <p>
+<font size="4">
+  &nbsp;<b>voir les méthodes <tt>xxxAll</tt> spécifiées dans l'interface
+  <a href="http://java.sun.com/javase/6/docs/api/java/util/package-summary.html"><tt>java.util.Collection</tt></a></b>
+  <i>(aucune boucle n'est nécessaire !, ce sera testé par jnews)</i> <br>
+</font></p>
+<p><font size="4">
+  &nbsp; Dans la javadoc il est écrit, "... adds each object ..." signifie
+  "... calls <tt>add()</tt> for each object ..."
+  <i>(pattern Template Method)</i> Bien comprendre quelle méthode <tt>addAll</tt> et quelle méthode <tt>add</tt>
+  sont appelées à chaque fois.&nbsp;</font></p>
+<p><font size="4"><b>(<i>(e union e1) - (e inter e1)</i>)</b>
+  <br>
+  &nbsp;&nbsp;<i>On peut coder, (ce sera testé par jnews) cette méthode avec une seule instruction !</i> 
+                return <b>(<i>(e union e1) - (e inter e1)</i>)</b> ;</font></p>
+</div>
+
+            <hr>
+
+            <div class="question">
+                <img src="images/question1_4.png" height="80" width="111">
+                <span>Les tests unitaires (suite)</span>
+            </div>
+            <div class="paragraphe">
+Enrichissez la classe de tests unitaires demandée en 1.2 (chaque
+méthode doit avoir été testée au moins une fois). L'interface graphique
+est complète, son comportement avec votre classe Ensemble doit être
+analogue à l'interface </div>
+            <br>
+            <br>
+            <hr>
+            <div class="question">
+                <img src="images/question2_1.png" height="80" width="111">
+                <span>Les listes et dictionnaires</span>
+            </div>
+            <div class="paragraphe">
+                Une liste est constituée de mots extraits du <a href="http://jfod.cnam.fr/NFP121/corejavachap2.pdf" target="_blank">chapitre 2 de CoreJava2</a> consacré au "<b>LinkedList</b>" (les mots sont rassemblés dans une constante de type "String", <b>nommée CHAPITRE2</b> de la classe <b>Chapitre2CoreJava2</b>).<br>
+                <br>
+                <b>L'objectif est de pouvoir faire différents traitements sur cette liste de mots.</b>
+            </div>
+
+            <p align="left">
+                <br>
+            </p>
+
+            <div class="paragraphe">
+                <p>Complétez la classe <b>Chapitre2CoreJava2</b> en développant ces deux méthodes de classe<br>
+                <br>
+
+                </p>
+
+                <ul>
+                    <li>Obtention d'une liste de mots à partir de la constante CHAPITRE2.<br>
+
+                        <div class="codesource">
+                            <code>
+                                <font color="#ffffff">&nbsp;&nbsp;<big><span style="font-weight: bold;">&nbsp;</span></big></font><big><font style="font-weight: bold;" color="#7f0055">public&nbsp;static&nbsp;</font><font style="font-weight: bold;" color="#000000">List&lt;String&gt;&nbsp;listeDesMots</font><font style="font-weight: bold;" color="#000000">()</font><i style="font-weight: bold;">(utilisez une LinkedList)</i></big>
+                            </code>
+                        </div>
+                    </li>
+                    <li>Obtention d'une liste de couples &lt;String,Integer&gt;, à partir la liste des mots ci-dessus.<br>
+                        <div style="font-weight: bold;" class="codesource">
+                            <code>
+                                <font color="#7f0055">public&nbsp;static&nbsp;</font><font color="#000000">Map&lt;String,Integer&gt;&nbsp;occurrencesDesMots</font><font color="#000000">(</font><font color="#000000">List&lt;String&gt;&nbsp;listeDesMots</font><font color="#000000">)</font><i>(utilisez une HashMap)</i>
+                            </code>
+                        </div>
+                    </li>
+                </ul>
+                    </div>
+
+            <p align="center">
+                &nbsp;</p>
+            <hr>
+            <div class="question">
+                <img src="images/question2_2.png" height="80" width="111">
+                <span>la classe JPanelListe</span>
+            </div>
+
+            <div class="paragraphe">
+                Complétez la classe <b>JPanelListe</b> afin d'implanter, toutes les actions associées aux noms des boutons<br>
+                <br>
+                <ul>
+                    <li><b>rechercher</b>
+: recherche du mot tapé dans la zone de saisie; le booléen, le résultat
+de la recherche est affiché. la touche Entrée du clavier a le même
+effet qu'une action effectuée sur ce bouton.</li>
+                    <li><b>retirer</b> : retrait de tous les mots commençant par le préfixe de la zone de saisie; le booléen, résultat du retrait est affiché.</li>
+                    <li><b>croissant</b> : tri du texte selon cet ordre, utilisez Collections.sort.</li>
+                    <li><b>décroissant</b> : proposer une classe interne implémentant l'interface Comparator.</li>
+                    <li><b>occurrence</b> : obtention du nombre d'occurrences du mot présent dans la zone de saisie</li>
+                </ul>
+                une IHM au comportement attendu : 
+                <div class="paragraphe">
+                &nbsp;</div>
+
+            <div class="paragraphe">
+                <b><font size="3">&gt;</font></b><font size="3"><b>java -jar 
+                ihm_q2_1.jar</b></font></div>
+
+            </div>
+
+            <p align="left">
+                &nbsp; <b style="color: rgb(51, 51, 51); font-family: Verdana,Arial; font-size: 14px; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(255, 255, 255);"><span style="color: rgb(102, 0, 0);">Ci-dessous un gif animé écrit par M. HAMZA Sadouk (NFP121-2019)</span></b></p>
+<p style="margin-left: 40px;" align="left"><b style="color: rgb(51, 51, 51); font-family: Verdana,Arial; font-size: 14px; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(255, 255, 255);"><span style="color: rgb(102, 0, 0);"><img style="width: 480px; height: 251px;" alt="" src="images/gif2-2.gif"><br>
+</span></b></p>
+
+
+            <p align="left">
+                <font face="Verdana" size="2">
+                <b>ATTENTION</b> le retrait d'un élément qui a déjà été présent 
+                dans la table retourne un nombre d'occurrences égal à <b>zéro</b>. 
+                 
+                </font></p>
+
+            <p align="left">
+                <font face="Verdana" size="2">
+                Demander le nombre d'occurrences d'un 
+                élément qui n'a jamais été présent dans la liste initiale doit retourner
+                <b>??? </b></font></p>
+
+            <hr>
+            <div class="question">
+                <img src="images/question2_3.png" height="80" width="111">
+                <span>la classe JPanelListe2</span>
+            </div>
+            <div class="paragraphe">
+                Complétez maintenant, la classe JPanelListe2 afin d'implanter la possibilité d<b>'<font size="4">annuler</font>
+                </b>les actions de modification du texte comme le retrait ou le tri sur la liste.<br>
+                <br>
+L'idée est de stocker l'état de la 'liste de String' à chaque action
+('retirer' , 'croissant' , 'decroisssant') dans une Pile
+(java.util.Stack<e>).
+Le dernier état de la 'liste de String' empilé est restitué à chaque
+action 'annuler'. Quand la pile est vide le bouton 'annuler' est sans
+effet.<br>
+                    <br>
+                    <b>ATTENTION de mettre à jour la table des occurrences</b>. 
+                    Pour la fonctionnalité annuler, Il est fortement encouragé 
+                    d'utiliser le patron
+                    <a href="http://en.wikipedia.org/wiki/Memento_pattern">
+                    Memento</a>, cette 
+                    <a href="https://www.youtube.com/watch?v=jOnxYT8Iaoo">vidéo</a> peut 
+                    vous être utile.<br>
+                    <br>
+            </e></div>
+                    <p><font size="4">Aide au comportement attendu</font>, une 
+                    interface graphique est disponible depuis votre répertoire<br>
+                </p>
+            <div class="paragraphe">
+                <b><font size="3">&gt;</font></b><font size="3"><b>java -jar 
+                ihm_q2_2.jar</b></font></div>
+
+                    <p>&nbsp; <b style="color: rgb(51, 51, 51); font-family: Verdana,Arial; font-size: 14px; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(255, 255, 255);"><span style="color: rgb(102, 0, 0);">Ci-dessous un gif animé écrit par M. HAMZA Sadouk (NFP121-2019)</span></b></p>
+<p style="margin-left: 40px;"><b style="color: rgb(51, 51, 51); font-family: Verdana,Arial; font-size: 14px; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(255, 255, 255);"><span style="color: rgb(102, 0, 0);"><img style="width: 540px; height: 243px;" alt="" src="images/gif3-3.gif"><br>
+</span></b></p>
+
+            <div class="paragraphe">
+
+                <b>Soumettez à JNEWS en fin de question votre réponse</b>
+            </div>
+            <br>
+            <hr>
+            <div class="question">
+                <img src="images/question3_1.png" height="80" width="111">
+                <span>Le pattern  fabrique</span>
+            </div>
+            <div class="paragraphe">
+Selon la bibliographie habituelle (GoF95), l'objectif du Pattern
+Factory est de définir une interface pour la création d'un objet, en
+laissant aux classes implémentant cette interface le choix de la classe
+à instancier pour cet objet.<br>
+                <br>
+                Interface <i>Factory&lt;T&gt;</i>, l'implémentation de la méthode create est laissée aux "clients"
+            </div>
+
+            <div class="codesource">
+                <code>
+                    <font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">question3;</font>
+                    <br>
+                    <font color="#ffffff"></font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;interface&nbsp;</b></font><font color="#000000">Factory&lt;T&gt;&nbsp;</font><font color="#000000">{</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">T&nbsp;create</font><font color="#000000">()</font><font color="#000000">;</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                </code>
+            </div>
+            <div class="paragraphe">
+                Exemple : TextFactory
+            </div>
+
+            <div class="codesource">
+                <code>
+                    <font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">TextFactory1&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">Factory&lt;TextComponent&gt;&nbsp;</font><font color="#000000">{</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">TextComponent&nbsp;create</font><font color="#000000">()&nbsp;{</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;new&nbsp;</b></font><font color="#000000">TextArea</font><font color="#000000">(</font><font color="#990000">100</font><font color="#000000">,</font><font color="#990000">50</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br>
+                    <font color="#000000">}</font>
+                    <br>
+                    <font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">TextFactory2&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">Factory&lt;TextComponent&gt;&nbsp;</font><font color="#000000">{</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">TextComponent&nbsp;create</font><font color="#000000">(){</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;new&nbsp;</b></font><font color="#000000">TextField</font><font color="#000000">(</font><font color="#990000">40</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br>
+                    <font color="#000000">}</font>
+                </code>
+            </div>
+
+            <div class="paragraphe">
+                Un usage :
+            </div>
+            <div class="codesource">
+                <code>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">utilisation</font><font color="#000000">(</font><font color="#000000">Factory&nbsp;fabrique</font><font color="#000000">){</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">TextComponent&nbsp;tc&nbsp;=&nbsp;fabrique.create</font><font color="#000000">()</font><font color="#000000">;</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tc.setText</font><font color="#000000">(&nbsp;</font><font color="#2a00ff">"essai"&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br>
+                    <font color="#ffffff"></font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">utilisation</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">TextFactory1</font><font color="#000000">())</font><font color="#000000">;</font>
+                    <br>
+                    <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">utilisation</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">TextFactory2</font><font color="#000000">())</font><font color="#000000">;&nbsp;&nbsp;</font>
+                </code>
+            </div>
+
+            <div class="paragraphe">
+                Proposez les fabriques d'ensembles <b>HashSetFactory</b>, (en utilisant la classe concrète java.util.HashSet) et <b>TreeSetFactory</b>, (en utilisant la classe concrète java.util.TreeSet, 
+                attention dans ce cas les éléments doivent être comparables...).<br>
+            </div>
+            <br>
+            <hr>
+            <div class="question">
+                <img src="images/question3_2.png" height="80" width="112">
+                <span>Les tests unitaires</span>
+            </div>
+            <div class="paragraphe">
+                Complétez les classes et la classe de Tests unitaires.
+            </div>
+
+        </div>
+        <div id="footer">
+            <a class="lien" href="http://jfod.cnam.fr/" target="_blank">JFOD</a> | <a class="lien" href="http://deptmedia.cnam.fr/phpBB2/viewforum.php?f=40" target="_blank">FORUM</a> | <a class="lien" href="http://www.cnam.fr/" target="_blank">CNAM</a>
+        </div>
+    </div>
+</body></html>

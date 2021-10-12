@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Agent
+comment1.params=prenom\ nom
+comment1.target=Agent(java.lang.String,\ java.lang.String)
+comment10.params=
+comment10.target=int\ getAnciennete()
+comment11.params=
+comment11.target=Mairie\ getMairie()
+comment12.params=
+comment12.target=java.lang.String\ toString()
+comment2.params=nom
+comment2.target=void\ setNom(java.lang.String)
+comment3.params=prenom
+comment3.target=void\ setPrenom(java.lang.String)
+comment4.params=anciennete
+comment4.target=void\ setAnciennete(int)
+comment5.params=service
+comment5.target=void\ setService(java.lang.String)
+comment6.params=mairie
+comment6.target=void\ setMairie(Mairie)
+comment7.params=
+comment7.target=java.lang.String\ getNom()
+comment8.params=prenom
+comment8.target=java.lang.String\ getPrenom(java.lang.String)
+comment9.params=
+comment9.target=java.util.List\ getServices()
+numComments=13

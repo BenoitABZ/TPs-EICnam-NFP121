@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=TestsCompilationAVerifier
+comment1.params=
+comment1.target=void\ test_CompilationDeFactoriel()
+comment2.params=
+comment2.target=void\ test_CompilationDeSomme()
+comment3.params=n
+comment3.target=int\ somme(int)
+comment4.params=
+comment4.target=void\ test_CompilationDUneBouclePour()
+comment5.params=
+comment5.target=void\ test_CompilationDeBouclesTantQueImbriquees()
+comment6.params=
+comment6.target=void\ test_CompilationDeBouclesPourImbriquees()
+comment7.params=
+comment7.target=void\ test_CompilationDeBouclesTantQuePourImbriquees()
+comment8.params=
+comment8.target=void\ test_CompilationDeBouclesTantQuePourImbriquees_bis()
+comment9.params=
+comment9.target=void\ test_AvecImbricationsMultiples()
+numComments=10

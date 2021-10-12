@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=CommandeJoursDuMaire
+comment1.params=agent\ resultat
+comment1.target=ResultatConges\ execute(Agent,\ ResultatConges)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

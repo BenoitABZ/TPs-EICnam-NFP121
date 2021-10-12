@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Visitor
+comment1.params=instruction
+comment1.target=java.lang.Object\ visit(Instruction)
+comment2.params=object
+comment2.target=java.lang.Object\ execute(java.lang.Object)
+numComments=3

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=RegleAlcoolMoinsDe18AvecFemtoContainer
+comment0.text=\r\n\ Alcool\ moins\ de\ 18\ mais\ avec\ l'usage\ de\ femtoContainer.\r\n\ \r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=set\ spec
+comment2.target=void\ printSpecified(java.util.Set,\ question1.SpecificationI)
+numComments=3

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=MailBoxPersistent
+comment1.params=fileName\ persistentMode
+comment1.target=MailBoxPersistent(java.lang.String,\ PersistentMode)
+comment2.params=message\ destinataire
+comment2.target=void\ send(java.lang.String,\ java.lang.String)
+comment3.params=message\ destinataires
+comment3.target=void\ send(java.lang.String,\ java.lang.String[])
+comment4.params=destinataire
+comment4.target=java.util.List\ read(java.lang.String)
+numComments=5

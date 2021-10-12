@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+<link rel="stylesheet" type="text/css" href="css/style.css"><title></title></head>
+<body>
+    
+    <div id="container">
+        <div id="header">
+            <div id="header_toprow">
+                Conservatoire national des arts et métiers
+            </div>
+            <div id="header_title">
+                NFP121 : Programmation avancée<br>
+                TP <span style="font-weight: 400;"><i>injection</i></span> <br>
+                Injection de dépendances, Inversion de contrôle
+            </div>
+        </div>
+        &nbsp;<div id="content">
+
+            <div class="question">
+                <img src="images/question1.png" height="80" width="101">
+                <span>Le </span>framework femtoContainer</div>
+
+            <div class="paragraphe">
+				&nbsp;<p>
+				<b><font size="5">Préambule:</font></b><font size="5"> lire, étudier l'article de 
+                Martin Fowler</font></p>
+                <p><font size="3">&nbsp;&nbsp;&nbsp;
+<a href="http://www.martinfowler.com/articles/injection.html">
+http://www.martinfowler.com/articles/injection.html</a></font></p>
+
+
+                <p><font size="3">Ce TP est accompagné d'une séance d'exercices dirigés sur le 
+                même thème</font></p><blockquote><p><font size="3">&nbsp; cf. ed 
+                injection_dependances_IoC</font></p>
+
+
+                </blockquote>
+                <p>&nbsp;</p>
+
+
+            </div>
+            <hr>
+			
+            <p align="left"><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+
+
+            </p><div class="paragraphe">
+
+<p class="MsoNormal" style="margin-left: 71.4pt; text-indent: -18pt;"><span class="notranslate"><i><span style="font-weight: bold;">Préambule</span> BlueJ : </i></span><span style="font-style: italic;"><span style="font-weight: bold;">import de la librairie femtoContainer</span></span></p><p class="MsoNormal" style="margin-left: 71.4pt; text-indent: -18pt;"><span style="font-style: italic;"><span style="font-weight: bold;"></span></span></p><ol><li>Téléchargez <a href="http://jfod.cnam.fr/progAvancee/femto_container_distrib_bluej.jar">femtoContainer.jar</a>&nbsp;</li><li>Ajouter cette archive à votre projet tp_rules, Menu <span style="font-weight: bold; font-style: italic;">Outils</span>, item <span style="font-weight: bold; font-style: italic;">Préférences</span>, onglet <span style="font-weight: bold;">Bibliothèques</span><br><img style="width: 801px; height: 235px;" alt="" src="../tp_rules/images/preferences.png"></li><li>Redémarrez BlueJ<br><img style="width: 399px; height: 186px;" alt="" src="../tp_rules/images/preferences2.png"></li><li>Vérifiez à nouveau Menu <span style="font-weight: bold; font-style: italic;">Outils</span>, item <span style="font-weight: bold; font-style: italic;">Préférences</span>, onglet <span style="font-weight: bold;">Bibliothèques</span>, l'archive doit être <span style="font-weight: bold;">chargée</span><br><img style="width: 809px; height: 241px;" alt="" src="../tp_rules/images/preferences3.png"></li></ol>
+<p class="MsoNormal"><br>
+</p>
+
+
+</div>
+<p><font size="4">C<font color="#990000"><span style="color: rgb(5, 0, 0);">ette
+archive est un projet bluej autonome, celui-ci contient plusieurs exemples dont
+quelques patrons de conception ainsi qu'une interface graphique d'aide à l'édition des
+fichiers de configuration, il peut être ouvert avec le tp_injection.</span></font></font></p>
+<p><font size="4">L'exécution de la méthode main de la classe nommée 
+<font color="#990000">ConfigurationIHM</font> déclenche une interface graphique qui pourrait
+vous être utile pour la réalisation des fichiers de configuration ( interface perfectible...)<br>
+</font></p>
+
+            <font size="4">
+
+            <div class="paragraphe">
+                <p>&nbsp;</p>
+
+
+            </div>
+            <hr>
+			
+            <p>
+			<br>
+			
+            </p>
+			
+            <div class="question">
+                <img src="images/question1.png" height="80" width="101"> Un 
+                exemple de votre choix <br>
+</div>
+
+                </font>
+<p><font size="4"><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp; </span>Proposez 
+un exemple, de votre choix, de l'utilisation de l'injection de dépendances.</font></p>
+            <font size="4"><p>&nbsp;&nbsp;&nbsp; Cet exemple doit être accompagné d'une 
+classe de tests unitaires, celui-ci sera intégré à la prochaine 
+version de <font color="#990000"><b>femtoContainer</b></font>.</p>
+            <p style="font-style: italic;">Utilisez JNEWS afin de déposer cet exemple, menu Outils, 
+item submit..., Scheme tp_injection_question1_deposer</p>
+
+            <blockquote>
+              <blockquote>
+
+<p><img src="images/tp_deposer.jpg" border="0" height="194" width="534"></p>
+
+              </blockquote>
+            </blockquote>
+<hr>
+			
+            <div class="question">
+                <img src="images/question2.png" height="80" width="101"> Un 
+                patron et son utilisation<br>
+</div>
+
+<p>Proposez deux patrons de conception, un exemple d'utilisation, une classe de 
+tests unitaires.&nbsp;</p></font><ul><li><font size="4"><p>un patron de votre choix, vous pouvez vous inspirer des patrons présents dans le projet femtoContainer, soit :&nbsp;</p></font></li></ul><font size="4">
+
+            <blockquote>
+
+<p>
+<img src="images/tp_inj111.gif" border="0" height="86" width="703"></p>
+
+            </blockquote>
+
+</font><font size="4"><p></p></font><ul><li><font><font size="4">Un autre patron de votre choix <b>en excluant</b> les  exemples présents dans&nbsp;
+<a href="http://jfod.cnam.fr/progAvancee/femto_container_distrib_bluej.jar">femtoContainer</a></font></font></li></ul><font size="4"><p></p>
+
+
+
+<p style="font-style: italic;">Utiliser JNEWS afin de déposer vos contributions, menu Outils, 
+item submit..., Scheme tp_injection_question2_contribuer</p>
+
+<p><img src="images/tp_item_contribuer.jpg" border="0" height="194" width="534"></p>
+</font><p></p>
+
+                
+
+
+<hr>
+<p>&nbsp;</p>
+			
+            <div class="question">
+                <img src="images/question3.png" height="80" width="101"> Usage 
+                du patron ServiceLocator<br>
+</div>
+
+<p><font size="4">Les&nbsp;</font><big>exemples de la question1 et les patrons de la 
+question 2 sont maintenant accessibles via une 
+                instance du <a href="https://martinfowler.com/articles/injection.html#UsingAServiceLocator">patron ServiceLocator</a>, </big></p>
+
+                
+<p><big>&nbsp; Vérifiez la configuration (./question3/README.TXT) 
+                et enrichissez la classe de tests unitaires en conséquence (./question3/ServiceLocatorTests.java)...</big></p>
+
+
+
+<font size="4">
+
+<p style="font-style: italic;">N'oubliez pas d'utiliser JNEWS afin de déposer vos contribution, menu Outils, 
+item submit..., Scheme tp_injection_question3_contribuer</p>
+
+                </font>
+
+                
+<p>&nbsp;</p>
+
+<hr>
+			<span lang="FR"></span></div>
+        <div id="footer">
+            <a class="lien" href="http://jfod.cnam.fr/" target="_blank">JFOD</a> |
+            <a class="lien" target="_blank" href="http://deptmedia.cnam.fr/phpBB3/viewforum.php?f=40">FORUM</a> | <a class="lien" href="http://www.cnam.fr/" target="_blank">CNAM</a>
+        </div>
+    </div>
+</body></html>

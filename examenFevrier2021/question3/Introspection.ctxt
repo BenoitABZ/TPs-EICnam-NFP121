@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Introspection
+comment0.text=\r\n\ @author\ Votre\ nom,\ pr\u00E9nom\ \ \ \ //\ a\ completer\r\n
+comment1.params=maillonCourant\ nomDuMaillon
+comment1.target=Maillon\ ajouterUnMaillon(Maillon,\ java.lang.String)
+comment1.text=\ Ajout\ d'un\ maillon\ comme\ successeur\ du\ maillonCourant.\r\n\ La\ classe\ associ\u00E9e\ \u00E0\ ce\ maillon\ ne\ poss\u00E8de\ pas\ d'attribut\ \u00E0\ initialiser.\r\n\ @param\ maillonCourant\ son\ successeur\ sera\ le\ maillon\ cr\u00E9\u00E9\ par\ introspection\ si\ il\ existe\r\n\ @param\ nomDuMaillon\ le\ nom\ de\ la\ classe\ associ\u00E9e\ \u00E0\ ce\ maillon\r\n\ @return\ le\ maillon\ ainsi\ cr\u00E9\u00E9\r\n
+comment2.params=maillonCourant\ nomDuFichier
+comment2.target=Maillon\ ajouterUnMaillonDepuisUnFichier(Maillon,\ java.lang.String)
+comment2.text=\ Ajout\ d'un\ maillon\ comme\ successeur\ du\ maillonCourant.\ \r\n\ Le\ nom\ du\ maillon\ est\ pr\u00E9cis\u00E9\ dans\ un\ fichier\ texte\ (README.TXT)\ l'ic\u00F4ne\ en\ haut\ \u00E0\ gauche\r\n\ @param\ maillonCourant\ son\ successeur\ sera\ le\ maillon\ cr\u00E9\u00E9\ par\ introspection\ si\ il\ existe\r\n\ @param\ nomDuFichier\ le\ nom\ du\ fichier\ dans\ lequel\ sera\ pr\u00E9cis\u00E9\ le\ nomDuMaillon\r\n
+numComments=3

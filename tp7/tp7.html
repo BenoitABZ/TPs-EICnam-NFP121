@@ -1,0 +1,462 @@
+<html>
+<body>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <div id="container">
+        <div id="header">
+            <div id="header_toprow">
+                Conservatoire national des arts et métiers
+            </div>
+            <div id="header_title">
+                NFP121 : Programmation avancée<br />
+                TP n° 7 - Introspection
+            </div>
+        </div>
+        <div id="content">
+
+            <div class="paragraphe">
+                Thèmes du TP :<br />
+                <ul>
+                    <li>Introspection</li>
+                </ul>
+                <br />
+                Lecture préalable :
+                <ul>
+                    <li>Par exemple, <a href="http://www.cril.univ-artois.fr/~lecoutre/teaching/poo/cours/pdf/reflection.pdf" target="_blank">ces notes de cours</a></li>
+                    <li>Le <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">tutorial d'Oracle</a> sur l'introspection en Java</li>
+                </ul>
+                <br />
+            </div>
+            <hr />
+
+            <div class="question">
+                <img src="images/preliminaire.png" width="111" height="80" />
+                <span>Préliminaire indispensable</span>
+            </div>
+
+            <div class="paragraphe">
+                Utiliser BlueJ afin de déclencher par introspection quelques méthodes de la classe java.lang.Math<br />
+                <br />
+                Menu <b>Outils</b>, item <b>Utiliser une classe de bibliothèque...</b>
+            </div>
+
+            <p align="center">
+                <img class="win_screenshot" src="images/bluej1.png" width="720" height="579" />
+            </p>
+
+            <div class="paragraphe">
+                <b>Déclenchez plusieurs méthodes et vérifiez les résultats obtenus</b>
+            </div>
+            <br />
+            <hr />
+
+            <div class="question">
+                <img src="images/question1.png" width="101" height="80" />
+                <span>Une "calculette scientifique"</span>
+            </div>
+
+            <div class="paragraphe">
+                Développer maintenant une "calculette", en déclenchant par introspection une des méthodes de la classe java.lang.Math, seules les méthodes retournant un "double", attendant un ou deux paramètres de type double sont sélectionnables.<br />
+                <br />
+                Exemples de scenarii<br />
+                <br />
+                Une interface utilisateur de cette calculette :
+            </div>
+            <br />
+            <p align="center">
+                Trace 1 : Appel de double sqrt(double) ici sqrt(9.0)<br />
+                <img class="win_screenshot" src="images/bluej2.png" width="520" height="114" />
+            </p>
+
+            <p align="center">
+                Trace 2 : Appel de double max(double,double) ici max(9.0,12.0)<br />
+                <img class="win_screenshot" src="images/bluej3.png" width="520" height="114" />
+            </p>
+
+            <div class="paragraphe">
+                <font color="#000000">
+
+            <p align="center">
+                &nbsp;</p>
+
+            <div class="paragraphe">
+                <b>Comportement attendu de la calculette :</b><br />
+                <ul>
+                    <li><b>dans le même répertoire que cet énoncé :</b><br />
+                        tp7/> java -jar calculette.jar</li>
+                    <li><b>ou avec JavaWebStart, cliquez
+                    <a target="_blank" href="http://jfod.cnam.fr/progAvancee/tp7/calculette.jnlp">ici</a></b></li>
+                </ul>
+            </div>
+
+                </font>Complétez la classe <b>TableMethodesJavaLangMath</b>, la classe Calculette est fournie.<br />
+                <br />
+
+                <ul>
+                    <li>La classe <b>TableMethodesJavaLangMath</b> est un Singleton (une référence
+                    <a target="_blank" href="http://www.buyya.com/254/Patterns/">ici</a>), cette table contient certaines méthodes de la class java.lang.Math et autorise l'invocation de celles-ci avec leur nom.<br />
+                        Cette table ne recense que les méthodes (ici fonctions) dont la valeur de retour est un "double" attendant un ou deux paramètres du même type <i>i.e. double f(double) ou double f(double, double)</i>.
+                        <ul><br />
+                            <li>Les méthodes à développer sont d'une part des méthodes d'interrogation (des accesseurs) (voir la javadoc <a href="file:///C:/Users/Pulsar/Desktop/new/tp7/tp7_old/doc/index.html" target="_blank">ici</a>)
+                <div class="codesource">
+                    <code>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">cetteMethodeEstPresente</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDeLaMethode</font><font color="#000000">)</font>
+                        <br />
+                        &nbsp;&nbsp;&nbsp;vérifie la présence d'une méthode,  par exemple pour  cos(double)  ou max(double, double)<br />
+                    </code>
+                </div>
+
+                                <div class="codesource">
+                                    <code>
+                                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">cetteMethodeAttendDeuxParametres</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDeLaMethode</font><font color="#000000">)</font>
+                                        <br />
+                                        &nbsp;&nbsp;&nbsp;par exemple : max(double, double) attend 2 paramètres,<br />
+                                        &nbsp;&nbsp;&nbsp;une exception est levée si cette méthode est absente<br />
+
+                                    </code>
+                                </div>
+                                <div class="codesource">
+                                    <code>
+                                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">cetteMethodeAttendUnSeulParametre</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDeLaMethode</font><font color="#000000">)</font>
+                                        <br />
+                                        <font color="#ffffff"></font>
+                                        <br />
+                                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">String</font><font color="#000000">[]&nbsp;</font><font color="#000000">listeDesMethodes</font><font color="#000000">()</font>
+                                        <br />
+                                        &nbsp;&nbsp;&nbsp;retourne la liste ordonnée des méthodes
+                                    </code>
+                                </div>
+                                <div class="codesource">
+                                    <code>
+                                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">invoquer</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDeLaMethode,double&nbsp;arg1</font><font color="#000000">)</font>
+                                        <br />
+                                        &nbsp;&nbsp;&nbsp;invocation d'une méthode avec son nom,<br />
+                                        &nbsp;&nbsp;&nbsp;une exception est levée si cette méthode est absente ou un mauvais usage de la fonction appelée<br />
+                                    </code>
+                                </div>
+                                <div class="codesource">
+                                    <code>
+                                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">invoquer</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDeLaMethode,&nbsp;</font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">arg1,&nbsp;</font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">arg2</font><font color="#000000">)</font>
+                                    </code>
+                                </div>
+                            <li>et d'autre part l'initialisation du Singleton</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p align="center">
+                    <img class="win_screenshot" src="images/bluej4.png" width="716" height="588" /><br />
+                </p>
+            </div>
+
+            <div class="paragraphe">
+                <b>Note</b> : Utilisez les méthodes <b>getMethod</b> de la classe <b>java.lang.Class</b> et <b>invoke</b> de la classe <b>java.lang.reflect.Method</b>.<br />
+                <br />
+                <b>Rappel de syntaxe :</b> La déclaration suivante est une déclaration anonyme de tableau :<br />
+                <div class="codesource">
+                    <code>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">Class</font><font color="#000000">[]&nbsp;</font><font color="#000000">t&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Class</font><font color="#000000">[]{</font><font color="#000000">Integer.class,&nbsp;Integer.TYPE</font><font color="#000000">}</font><font color="#000000">;</font>
+                    </code>
+                </div>
+                <font color="#000000">Integer.class</font> correspond à <font color="#000000">new Integer().getClass()</font> et <font color="#000000">Integer.TYPE<//font> représente le type primitif <font color="#000000">int<//font>.<br />
+                <br />
+                Ce type de déclaration est attendue par les méthodes <b>getMethod</b> et <b>invoke</b>. 
+            </div>
+            <br />
+            <hr />
+
+            <div class="question">
+                <img src="images/question2_1.png" width="111" height="80" />
+                <span>Ajout dynamique d'observateurs(Observer) et d'écouteurs(Listener)</span>
+            </div>
+
+            <div class="paragraphe">
+                Par introspection, nous souhaitons ajouter ou retirer un ou plusieurs observateurs d'une instance d'une classe observable, ces ajouts et retraits sont dynamiques, aucune connaissance du nom des classes à priori n'est nécessaire.<br />
+                <br />
+                La signature de la méthode demandée est :<br />
+                <div class="codesource">
+                    <code>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">lierObservableEtObserver</font><font color="#000000">(</font><font color="#000000">Object&nbsp;observable,&nbsp;Object&nbsp;observer</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">Exception&nbsp;</font><font color="#000000">{</font><font color="#000000">...</font><font color="#000000">}</font>
+                    </code>
+                </div>
+                Un exemple d'utilisation :<br />
+                <br />
+                Un "Observable", la classe Entier<br />
+                <div class="codesource">
+                    <code>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">Entier&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">Observable</font><font color="#000000">{</font><font color="#000000">....</font>
+                    </code>
+                </div>
+                Un "Observer", anonyme...<br />
+                <div class="codesource">
+                    <code>
+                        <font color="#000000">obs&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Observer</font><font color="#000000">(){&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">update</font><font color="#000000">(</font><font color="#000000">....</font><font color="#000000">)})</font><font color="#000000">;</font>
+                    </code>
+                </div>
+                <br />
+                L'exécution de lierObservableEtObserver(e, obs); engendre ensuite, sur cet exemple l'appel de obs.update à chaque changement d'état de e<br />
+                <br />
+                Ci-dessous un extrait possible d'une classe de test "ParIntrospectionTest"<br />
+                <br />
+            </div>
+
+            <div class="codesource">
+                <code>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;class&nbsp;</b></font><font color="#000000">Entier&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">Observable&nbsp;</font><font color="#000000">{</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">x;</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">Entier</font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">x</font><font color="#000000">)&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.x&nbsp;=&nbsp;x;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">initialiser</font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">valeur</font><font color="#000000">)&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.x&nbsp;=&nbsp;valeur;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">setChanged</font><font color="#000000">()</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">notifyObservers</font><font color="#000000">()</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;toString</font><font color="#000000">()&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">Integer.toString</font><font color="#000000">(</font><font color="#000000">x</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#000000">Observable&nbsp;obs&nbsp;=&nbsp;</font><font color="#7f0055"><b>null</b></font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">test_lierObservableEtObserver</font><font color="#000000">()&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>try&nbsp;</b></font><font color="#000000">{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Entier&nbsp;e&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Entier</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ParIntrospection.lierObservableEtObserver</font><font color="#000000">(</font><font color="#000000">e,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Observer</font><font color="#000000">()&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">update</font><font color="#000000">(</font><font color="#000000">Observable&nbsp;o,&nbsp;Object&nbsp;arg</font><font color="#000000">)&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ParIntrospectionTest.</font><font color="#7f0055"><b>this</b></font><font color="#000000">.obs&nbsp;=&nbsp;o;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">})</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">e.initialiser</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertNotNull</font><font color="#000000">(</font><font color="#2a00ff">&#34;&nbsp;notification&nbsp;absente&nbsp;???&#34;</font><font color="#000000">,&nbsp;obs</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#2a00ff">&#34;&nbsp;pas&nbsp;le&nbsp;bon&nbsp;Observable&nbsp;???&#34;</font><font color="#000000">,&nbsp;e.toString</font><font color="#000000">()</font><font color="#000000">,&nbsp;obs.toString</font><font color="#000000">())</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#2a00ff">&#34;&nbsp;pas&nbsp;le&nbsp;bon&nbsp;Observable&nbsp;???&#34;</font><font color="#000000">,&nbsp;</font><font color="#2a00ff">&#34;3&#34;</font><font color="#000000">,&nbsp;obs.toString</font><font color="#000000">())</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">Exception&nbsp;e</font><font color="#000000">)&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">fail</font><font color="#000000">(</font><font color="#2a00ff">&#34;&nbsp;exception&nbsp;!!!&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;e.getMessage</font><font color="#000000">())</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                </code>
+            </div>
+
+            <div class="paragraphe">
+                <b>Proposez les méthodes <i>lierObservableEtObserver</i> et <i>delierObservableEtObserver</i> de la classe ParIntrospection</b><br />
+
+                <div class="codesource">
+                    <code>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">lierObservableEtObserver</font><font color="#000000">(</font><font color="#000000">Object&nbsp;observable,&nbsp;Object&nbsp;observer</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">Exception</font><font color="#000000">{</font><font color="#000000">....</font>
+                        <br />
+                        <font color="#ffffff"></font>
+                        <br />
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">delierObservableEtObserver</font><font color="#000000">(</font><font color="#000000">Object&nbsp;observable,&nbsp;Object&nbsp;observer</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">Exception</font><font color="#000000">{</font><font color="#000000">....</font>
+                    </code>
+                </div>
+                (voir la javadoc <a href="./doc/index.html" target="_blank">ici</a>) 
+            </div>
+            <br />
+            <hr />
+
+            <div class="question">
+                <img src="images/question2_2.png" width="111" height="80" />
+                <span>Ajout dynamique d'observateurs et d'écouteurs (suite)</span>
+            </div>
+
+            <div class="paragraphe">
+                Selon le même principe que la question précédente, proposez les méthodes <b>lierSourceEtListener</b> et <b>delierSourceEtListener</b> afin d'ajouter n'importe quel écouteur (XXXXListener) auprès de n'importe quelle instance qui propose la méthode addXXXXListener<br />
+                <div class="codesource">
+                    <code>
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">lierSourceEtListener</font><font color="#000000">(</font><font color="#000000">Object&nbsp;source,&nbsp;Object&nbsp;listener</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">Exception</font><font color="#000000">{</font><font color="#000000">....</font>
+                        <br />
+                        <font color="#ffffff"></font>
+                        <br />
+                        <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">delierSourceEtListener</font><font color="#000000">(</font><font color="#000000">Object&nbsp;source,&nbsp;Object&nbsp;listener</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">Exception</font><font color="#000000">{</font><font color="#000000">....</font>
+                    </code>
+                </div>
+
+                (voir la javadoc <a href="./doc/index.html" target="_blank">ici</a>)<br />
+                <br />
+            </div>
+
+            <p align="center">
+                A chaque clic sur le bouton ajouter un smiley, un nouveau bouton smile et son smiley apparaissent<br />
+                <img class="win_screenshot" src="images/bluej5.png" width="531" height="339" />
+            </p>
+
+            <div class="paragraphe">
+                <b>Comportement attendu de Frimousse :</b><br />
+                <ul>
+                    <li><b>dans le même répertoire que cet énoncé :</b><br />
+                        tp7/> java -jar smiley.jar</li>
+                    <li><b>ou avec JavaWebStart, cliquez <a href="http://jfod.cnam.fr/progAvancee/tp7/smiley.jnlp" target="_blank">ici</a></b></li>
+                </ul>
+            </div>
+
+            <br />
+
+            <div class="paragraphe">
+                Ci dessous un extrait de la classe JFrameDemo, l'extrait porte sur la méthode déclenchée à chaque clic sur le bouton "ajouter un smiley", sur ce code : l'ajout habituel d'un "écouteur" est remplacé par l'ajout de ce même écouteur par <b>introspection</b>.
+            </div>
+            <br />
+            <div class="codesource">
+                <code>
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">boutonAjouter.addActionListener</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">ActionListener</font><font color="#000000">()&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">actionPerformed</font><font color="#000000">(</font><font color="#000000">ActionEvent&nbsp;ae</font><font color="#000000">)&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>try&nbsp;</b></font><font color="#000000">{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Smiley&nbsp;smiley&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Smiley</font><font color="#000000">()</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JButton&nbsp;jb&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">JButton</font><font color="#000000">(</font><font color="#2a00ff">&#34;smile&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;jb.addActionListener(smiley);&nbsp;</font><font color="#FF0000"><b>est&nbsp;remplac&eacute;&nbsp;par</b></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ParIntrospection.lierSourceEtListener</font><font color="#000000">(</font><font color="#000000">jb,&nbsp;smiley</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;smiley.addMouseListener(new&nbsp;UnObservateurDeSouris(smiley));</font><font color="#FF0000"><b>&nbsp;est&nbsp;remplac&eacute;&nbsp;par</b></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ParIntrospection.lierSourceEtListener</font><font color="#000000">(</font><font color="#000000">smiley,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">UnObservateurDeSouris</font><font color="#000000">(</font><font color="#000000">smiley</font><font color="#000000">))</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JFrameDemo.</font><font color="#7f0055"><b>this</b></font><font color="#000000">.enHaut.add</font><font color="#000000">(</font><font color="#000000">jb</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JFrameDemo.</font><font color="#7f0055"><b>this</b></font><font color="#000000">.auCentre.add</font><font color="#000000">(</font><font color="#000000">smiley</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">JFrameDemo.</font><font color="#7f0055"><b>this</b></font><font color="#000000">.pack</font><font color="#000000">()</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">Exception&nbsp;e</font><font color="#000000">)&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">e.printStackTrace</font><font color="#000000">()</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#000000">})</font><font color="#000000">;</font>
+                </code>
+            </div>
+            <br />
+            <hr />
+
+            <div class="question">
+                <img src="images/question3.png" width="101" height="80" />
+                <span>Inspiré de l'Examen <a href="http://jfod.cnam.fr/NFP121/annales/enonce.1.2006.html" target="_blank">NFP121 Juin 2006</a></span>
+            </div>
+
+            <div class="paragraphe">
+                Soit à développer un petit outil ( de génie) logiciel qui, pour une classe donnée, retourne la liste des méthodes héritées non redéfinies localement.<br />
+                <br />
+                <b>Complétez la méthode getHeritees de la classe "Introspection" ci dessous</b><br />
+            </div>
+            <br />
+            <div class="codesource">
+                <code>
+                    <font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">question3;</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.lang.reflect.Method;</font>
+                    <br />
+                    <font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.util.Set;</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">Introspection&nbsp;</font><font color="#000000">{</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">Set&lt;Method&gt;&nbsp;getHeritees</font><font color="#000000">(</font><font color="#000000">String&nbsp;nomDeLaClasse</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">ClassNotFoundException&nbsp;</font><font color="#000000">{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;&agrave;&nbsp;compl&eacute;ter</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;&agrave;&nbsp;compl&eacute;ter</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#3f7f5f">/*&nbsp;&agrave;&nbsp;modifier&nbsp;*/</font><font color="#7f0055"><b>null</b></font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff"></font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]&nbsp;</font><font color="#000000">args</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">ClassNotFoundException&nbsp;</font><font color="#000000">{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#000000">Method&nbsp;m&nbsp;:&nbsp;Introspection.getHeritees</font><font color="#000000">(</font><font color="#2a00ff">&#34;java.util.AbstractCollection&#34;</font><font color="#000000">))&nbsp;{</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#000000">m</font><font color="#000000">)</font><font color="#000000">;</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font>
+                    <br />
+                    <font color="#000000">}</font>
+                </code>
+            </div>
+            <p align="center">
+                L'exécution de la méthode main devrait donner la trace suivante :<br />
+                <img class="win_screenshot" src="images/bluej6.png" width="770" height="264" />
+            </p>
+
+            <div class="paragraphe">
+                <b>Une application réalisant l'affichage des méthodes héritées de quelques classes</b><br />
+                <ul>
+                    <li><b>dans le même répertoire que cet énoncé :</b><br />
+                        tp7/> java -cp tp7q3.jar question3.Introspection
+                    </li>
+                    <li><b>ou avec JavaWebStart, cliquez <a href="http://jfod.cnam.fr/progAvancee/tp7/tp7q3.jnlp">ici</a></b></li>
+                    Les traces sont sur la console, Panneau de configuration Java, onglet Avancé/Console Java, cochez Afficher la console
+                </ul>
+
+            </div>
+
+        </div>
+        <div id="footer">
+            <a class="lien" href="http://jfod.cnam.fr/" target="_blank">JFOD</a> | <a class="lien" href="http://deptmedia.cnam.fr/phpBB2/viewforum.php?f=40" target="_blank">FORUM</a> | <a class="lien" href="http://www.cnam.fr/" target="_blank">CNAM</a>
+        </div>
+    </div>
+</body>
+</html>

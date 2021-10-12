@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=XML2AST
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ XML2AST\ ici.\r\n\ \r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=m\ element
+comment1.target=tp6.question3.Instruction\ xmlInst2ast(tp6.question1.Contexte,\ org.jdom.Element)
+numComments=2

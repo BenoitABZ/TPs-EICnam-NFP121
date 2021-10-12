@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=VisitorString
+comment1.params=tab
+comment1.target=java.lang.String\ tab(int)
+comment2.params=sequence
+comment2.target=java.lang.String\ visit(Sequence)
+comment3.params=ifThen
+comment3.target=java.lang.String\ visit(IfThen)
+comment4.params=whil
+comment4.target=java.lang.String\ visit(While)
+comment5.params=macro
+comment5.target=java.lang.String\ visit(MacroInstruction)
+comment6.params=debug
+comment6.target=java.lang.String\ visit(Debug)
+numComments=7

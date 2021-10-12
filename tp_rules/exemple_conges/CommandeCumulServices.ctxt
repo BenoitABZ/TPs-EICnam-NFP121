@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=CommandeCumulServices
+comment1.params=mairie\ resultat
+comment1.target=java.util.List\ execute(Mairie,\ java.util.List)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=ChildNameSpecification
+comment1.params=name
+comment1.target=ChildNameSpecification(java.lang.String)
+comment2.params=
+comment2.target=ChildNameSpecification()
+comment3.params=name
+comment3.target=void\ setName(java.lang.String)
+comment4.params=t
+comment4.target=boolean\ isSatisfiedBy(exemple_kindergarten.entity.Child)
+numComments=5

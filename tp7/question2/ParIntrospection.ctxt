@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=observable\ observer
+comment0.target=void\ lierObservableEtObserver(Object,\ Object)
+comment0.text=Cette\ methode\ permet\ de\ relier\ par\ introspection,\ un\ observable\ et\ un\ observateur<p>\nAppel\ par\ introspection\ de\ la\ methode\ observable.addObserver(observer)\ \n\n@param\ observable\ une\ instance\ de\ la\ classe\ java.util.Observable\ ou\ l'une\ de\ ses\ derivees\n@param\ observer\ une\ implementation\ de\ l'interface\ java.util.Observer\n@throws\ NoSuchElementException\ en\ cas\ d'erreur\n\n
+comment1.params=observable\ observer
+comment1.target=void\ delierObservableEtObserver(Object,\ Object)
+comment1.text=Cette\ methode\ permet\ de\ delier\ par\ introspection,\ un\ observable\ et\ un\ observateur<p>\nAppel\ par\ introspection\ de\ la\ methode\ observable.deleteObserver(observer)\ \n\n@param\ observable\ une\ instance\ de\ la\ classe\ java.util.Observable\ ou\ l'une\ de\ ses\ derivees\n@param\ observer\ une\ implementation\ de\ l'interface\ java.util.Observer\n@throws\ NoSuchElementException\ en\ cas\ d'erreur\n\n
+comment2.params=source\ listener
+comment2.target=void\ lierSourceEtListener(Object,\ Object)
+comment2.text=Cette\ methode\ permet\ de\ relier\ par\ introspection,\ une\ source\ et\ un\ "listener"<p>\nAppel\ par\ introspection\ de\ la\ methode\ source.addXXXXListener(listener)\ \n\n@param\ source\ est\ une\ instance\ \n@param\ listener\ une\ implementation\ d'une\ interface\ XXXXListener\n@throws\ NoSuchElementException\ en\ cas\ d'erreur\n\n
+comment3.params=source\ listener
+comment3.target=void\ delierSourceEtListener(Object,\ Object)
+comment3.text=Cette\ methode\ permet\ de\ delier\ par\ introspection,\ une\ source\ et\ un\ "listener"<p>\nAppel\ par\ introspection\ de\ la\ methode\ source.removeXXXXListener(listener)\ \n\n@param\ source\ est\ une\ instance\ \n@param\ listener\ une\ implementation\ d'une\ interface\ XXXXListener\n@throws\ NoSuchElementException\ en\ cas\ d'erreur\n\n
+numComments=4

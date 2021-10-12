@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Child
+comment1.params=name\ age
+comment1.target=Child(java.lang.String,\ int)
+comment2.params=
+comment2.target=Child()
+comment3.params=
+comment3.target=int\ getAge()
+comment4.params=
+comment4.target=java.util.Set\ getFavouriteToys()
+comment5.params=
+comment5.target=java.lang.String\ getName()
+comment6.params=age
+comment6.target=void\ setAge(int)
+comment7.params=favouriteToys
+comment7.target=void\ setFavouriteToys(Toy[])
+comment8.params=name
+comment8.target=void\ setName(java.lang.String)
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10

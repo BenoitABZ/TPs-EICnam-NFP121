@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ReflectRule
+comment1.params=specification
+comment1.target=void\ setSpecification(java.lang.String)
+comment2.params=command
+comment2.target=void\ setCommand(java.lang.String)
+numComments=3

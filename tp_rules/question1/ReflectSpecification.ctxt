@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ReflectSpecification
+comment1.params=
+comment1.target=SpecificationI\ getSpecification()
+comment2.params=specification
+comment2.target=void\ setSpecification(java.lang.String)
+comment3.params=e
+comment3.target=boolean\ isSatisfiedBy(java.lang.Object)
+numComments=4

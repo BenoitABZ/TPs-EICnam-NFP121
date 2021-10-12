@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=IMailBoxNotification
+comment1.params=dest\ listener
+comment1.target=void\ addMailBoxListener(java.lang.String,\ MailBoxListener)
+comment1.text=\ Inscription\ d'un\ observateur(Listener)\ aupr\u00E8s\ d'un\ destinataire.\r\n\ Rappel\:\ pas\ d'homonyme\ possible.\ \r\n\ Plusieurs\ observateurs\ sont\ possibles\ par\ destinataire.\r\n\ @param\ listener\ l'observateur,\ est\ notifi\u00E9\ \u00E0\ chaque\ r\u00E9ception\ de\ courrier\r\n\ @param\ dest\ \ le\ nom\ de\ l\u2019utilisateur\r\n\ @throws\ Exception\ si\ le\ destinataire\ n'est\ pas\ inscrit\r\n
+numComments=2
